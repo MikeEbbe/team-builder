@@ -1,0 +1,9 @@
+@font-face {
+  font-family: Segoe UI Regular;
+  src: url(segoe-ui.ttf);
+}
+
+img, .drag-box {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+}
