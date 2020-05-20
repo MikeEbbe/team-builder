@@ -21,9 +21,108 @@ function getCharacters() {
         characters = response;
         // Filter out all coaches and store into variable
         var coaches = characters.filter(c => c.Role == "Coach");
+        var players = characters.filter(c => c.Role == "Player");
         renderCoaches(coaches);
-        // renderPlayers(players)
+        renderPlayers(players)
     });
+}
+
+/**
+ * Adds actions to buttons
+ */
+function addButtonActions() {
+    /*var fieldPlayers = Array.from(document.getElementsByClassName('drag-box'));
+    fieldPlayers.forEach(fieldPlayer => {
+        fieldPlayer.addEventListener("click", () => {
+            // console.log(fieldPlayer);
+            changePlayer(fieldPlayer);
+        });
+    });*/
+
+    var modalPlayers = Array.from(document.getElementsByClassName('modal-player-box'));
+    modalPlayers.forEach(modalPlayer => {
+        modalPlayer.addEventListener("click", () => {
+            // console.log(fieldPlayer);
+            changePlayer(modalPlayer);
+        });
+    });
+}
+
+/**
+ * Render players to choose from inside modal
+ * @param {array} players 
+ */
+function renderPlayers(players) {
+    var teamsList = [];
+    getTeamsList(players, teamsList)
+
+    var modal = document.getElementById('modal');
+    // HTML code to insert inside of modal
+    var htmlInsert = '';
+
+    // Cycle through all teams and add a panel for each
+    teamsList.forEach(team => {
+        htmlInsert +=
+            '<button class="accordion">' + team + '</button>' +
+            '<div class="panel">';
+        // Cycle through all players and add them to the teams panel
+        players.forEach(player => {
+            if (player.EnglishTeam == team) {
+                htmlInsert += 
+                '<div class="modal-player-box">' +
+                '<p class="modal-player-name">' + player.EnglishName + '</p>' +
+                '<div class="modal-player-sprite-container">' +
+                '<img src="' + player.Sprite + '" alt="' + player.EnglishName + '.png" class="modal-player-sprite"/>' +
+                '<div class="icon">+</div>' +
+                '</div>' +
+                '</div>';
+            }
+        });
+        htmlInsert += '</div>';
+    });
+    // Insert HTML code inside modal
+    modal.innerHTML = htmlInsert;
+
+    initializeAccordion();
+    addButtonActions();
+}
+
+/**
+ * Get list of all teams
+ * @param {array} players 
+ */
+function getTeamsList(players, teamsList) {
+    var fullTeamsList = [];
+    players.forEach(player => {
+        fullTeamsList.push(player.EnglishTeam);
+    });
+
+    $.each(fullTeamsList, function (i, el) {
+        if ($.inArray(el, teamsList) === -1) teamsList.push(el);
+    });
+
+    // console.log(teamsList);
+    return teamsList;
+}
+
+/**
+ * Initialize accordion script
+ */
+function initializeAccordion() {
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
 }
 
 /**
@@ -49,11 +148,29 @@ function updateSprite() {
     $("#coach-sprite").attr("src", selectedCoach.dataset.coachsprite);
 }
 
-function onDragStart(event) {
-    var playerImage = document.getElementById(event.target.id);
-    var playerContainer = playerImage.parentElement.parentElement;
+/**
+ * Change the selected player with a player selected in a pop-up
+ * @param {array} selectedPlayer 
+ */
+function changePlayer(selectedPlayer) {
+    console.log(selectedPlayer);
+}
+
+
+/**
+ * Dragging player boxes
+ * @param {object} event 
+ */
+/*function onDragStart(event) {
+    // Sprite of dragged player
+    var playerSprite = document.getElementById(event.target.id);
+    // Container of dragged player
+    var playerContainer = playerSprite.parentElement.parentElement;
+    // Info container (team logo & player name) of dragged player
     var playerInfo = playerContainer.children[1];
+    // Team logo of dragged player
     var playerTeam = playerInfo.children[0].children[0];
+
     console.log("playerTeam:", playerTeam.src);
     event
         .dataTransfer
@@ -63,7 +180,6 @@ function onDragStart(event) {
         .currentTarget
         .style
         .backgroundColor = "yellow"
-        // .dataset.source = playerTeam.src;
 }
 
 function onDragOver(event) {
@@ -84,7 +200,7 @@ function onDrop(event) {
     event
         .dataTransfer
         .clearData();
-}
+}*/
 
 // Initialize
 getCharacters();
