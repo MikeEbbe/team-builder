@@ -1,4 +1,6 @@
 var characters;
+var playerToChange;
+var playerToChangeId;
 
 /**
  * Get request to all characters
@@ -31,19 +33,14 @@ function getCharacters() {
  * Adds actions to buttons
  */
 function addButtonActions() {
-    /*var fieldPlayers = Array.from(document.getElementsByClassName('drag-box'));
+    var fieldPlayers = Array.from(document.getElementsByClassName('drag-box'));
+    console.log("fieldplayers:", fieldPlayers);
     fieldPlayers.forEach(fieldPlayer => {
         fieldPlayer.addEventListener("click", () => {
             // console.log(fieldPlayer);
-            changePlayer(fieldPlayer);
-        });
-    });*/
-
-    var modalPlayers = Array.from(document.getElementsByClassName('modal-player-box'));
-    modalPlayers.forEach(modalPlayer => {
-        modalPlayer.addEventListener("click", () => {
-            // console.log(fieldPlayer);
-            changePlayer(modalPlayer);
+            playerToChange = fieldPlayer;
+            playerToChangeId = fieldPlayer.dataset.id;
+            // console.log(playerToChange);
         });
     });
 }
@@ -68,14 +65,14 @@ function renderPlayers(players) {
         // Cycle through all players and add them to the teams panel
         players.forEach(player => {
             if (player.EnglishTeam == team) {
-                htmlInsert += 
-                '<div class="modal-player-box">' +
-                '<p class="modal-player-name">' + player.EnglishName + '</p>' +
-                '<div class="modal-player-sprite-container">' +
-                '<img src="' + player.Sprite + '" alt="' + player.EnglishName + '.png" class="modal-player-sprite"/>' +
-                '<div class="icon">+</div>' +
-                '</div>' +
-                '</div>';
+                htmlInsert +=
+                    '<div class="modal-player-box">' +
+                    '<p class="modal-player-name">' + player.EnglishName + '</p>' +
+                    '<div class="modal-player-sprite-container" data-dismiss="modal" data-name="' + player.EnglishName + '" data-sprite="' + player.Sprite + '" data-team-sprite="' + player.TeamSprite + '">' +
+                    '<img src="' + player.Sprite + '" alt="' + player.EnglishName + '.png" class="modal-player-sprite"/>' +
+                    '<div class="icon">+</div>' +
+                    '</div>' +
+                    '</div>';
             }
         });
         htmlInsert += '</div>';
@@ -83,8 +80,7 @@ function renderPlayers(players) {
     // Insert HTML code inside modal
     modal.innerHTML = htmlInsert;
 
-    initializeAccordion();
-    addButtonActions();
+    initializeModal();
 }
 
 /**
@@ -106,9 +102,9 @@ function getTeamsList(players, teamsList) {
 }
 
 /**
- * Initialize accordion script
+ * Initialize modal script
  */
-function initializeAccordion() {
+function initializeModal() {
     var acc = document.getElementsByClassName("accordion");
     var i;
 
@@ -123,6 +119,14 @@ function initializeAccordion() {
             }
         });
     }
+
+    var modalPlayers = Array.from(document.getElementsByClassName('modal-player-sprite-container'));
+    modalPlayers.forEach(modalPlayer => {
+        modalPlayer.addEventListener("click", () => {
+            // console.log(fieldPlayer);
+            changePlayer(modalPlayer);
+        });
+    });
 }
 
 /**
@@ -150,10 +154,44 @@ function updateSprite() {
 
 /**
  * Change the selected player with a player selected in a pop-up
- * @param {array} selectedPlayer 
+ * @param {array} newPlayer 
  */
-function changePlayer(selectedPlayer) {
-    console.log(selectedPlayer);
+function changePlayer(newPlayer) {
+    /**
+     * Information to update:
+     * Name
+     * Sprite
+     * Team emblem
+     */
+
+    // console.log(newPlayer);
+    var newPlayerName = newPlayer.dataset.name;
+    var newPlayerSprite = newPlayer.dataset.sprite;
+    var newPlayerTeamSprite = newPlayer.dataset.teamSprite;
+
+    var playerBoxToChange = document.getElementById(playerToChange.id).parentElement;
+    // console.log(playerBoxToChange);
+    var htmlInsert = "";
+    htmlInsert +=
+        '<div id="drag-box-' + playerToChangeId + '-container">' +
+        '<div class="drag-box" id="drag-box-' + playerToChangeId + '" style="width: 118px; height: 118px; border-top: 2px solid; border-right: 2px solid; border-left: 2px solid;" data-toggle="modal" data-target="#myModal"  data-id="' + playerToChangeId + '">' +
+        '<img src="' + newPlayerSprite + '" style="width: 118px; height: 118px; margin-bottom: -3px;" id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="sub-sprite"/>' +
+        '</div>' +
+        '<div class="sub-info-container" style="border: 2px solid; width: 118px; height: 28px; margin-top: -4px;" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">' +
+        '<div style="height: 100%; width: 28px; border-right: 2px solid;" id="' + playerToChangeId + '-element-container">' +
+        '<img style="width: auto; height: 100%;" id="' + playerToChangeId + '-element" data-pg-name="' + playerToChangeId + '-element" class="subtitle-element" src="' + newPlayerTeamSprite + '"/>' +
+        '</div>' +
+        '<span style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -36px;" id="' + playerToChangeId + '-name" data-pg-name="' + playerToChangeId + '-name" class="subtitle-name">' + newPlayerName + '</span>' +
+        '</div>' +
+        '</div>';
+
+    playerBoxToChange.outerHTML = htmlInsert;
+
+    console.log("playerToChange:", playerToChange);
+    console.log("playerToChangeId:", playerToChangeId);
+    console.log("newPlayer:", newPlayer);
+
+    addButtonActions();
 }
 
 
@@ -204,3 +242,4 @@ function onDrop(event) {
 
 // Initialize
 getCharacters();
+addButtonActions();

@@ -1,3 +1,10 @@
+<!-- TODO: 
+<div id="drag-box-sub-1-container" draggable="true" ondragstart="onDragStart(event);" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+<div class="drag-box" id="drag-box-sub-1" style="background-image: url('character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 118px; height: 118px; border-top: 2px solid; border-right: 2px solid; border-left: 2px solid;" draggable="false">
+
+
+-->
+
 <!DOCTYPE html>
 <html>
 
@@ -198,26 +205,24 @@
         <h1 id="bench-label" data-pg-name="Bench label"
             style="font-family: 'Bebas Neue'; font-size: 48px; padding-top: 82px; margin-bottom: 23px; text-align: center;">
             Bench</h1>
+
         <div id="sub-1-container" data-pg-name="Subtitle 1 container"
-            style="height: 150px; width: 100%; margin-bottom: 4px;" class="sub-container" draggable="false">
-            <!--div id="drag-box-sub-1-container" draggable="true" ondragstart="onDragStart(event);" ondragover="onDragOver(event);" ondrop="onDrop(event);"-->
+            style="height: 150px; width: 100%; margin-bottom: 4px;" class="sub-container">
             <div id="drag-box-sub-1-container">
-                <!--div class="drag-box" id="drag-box-sub-1" style="background-image: url('character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 118px; height: 118px; border-top: 2px solid; border-right: 2px solid; border-left: 2px solid;" draggable="false"-->
                 <div class="drag-box" id="drag-box-sub-1"
                     style="background-image: url('character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 118px; height: 118px; border-top: 2px solid; border-right: 2px solid; border-left: 2px solid;"
-                    data-toggle="modal" data-target="#myModal">
+                    data-toggle="modal" data-target="#myModal" data-id="sub-1">
                     <img src="https://vignette.wikia.nocookie.net/inazuma-eleven/images/0/08/Jin.png"
                         style="width: 118px; height: 118px; margin-bottom: -3px;" id="sub-1-sprite"
-                        data-pg-name="Subtitle 1 sprite" class="sub-sprite" draggable="false" />
+                        data-pg-name="Subtitle 1 sprite" class="sub-sprite" />
                 </div>
                 <div class="sub-info-container" style="border: 2px solid; width: 118px; height: 28px; margin-top: -4px;"
-                    id="sub-1-info-container" data-pg-name="Subtitle 1 info container" draggable="false">
+                    id="sub-1-info-container" data-pg-name="Subtitle 1 info container">
                     <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                        id="sub-1-element-container" draggable="false">
+                        id="sub-1-element-container">
                         <img style="width: auto; height: 100%;" id="sub-1-element" data-pg-name="Subtitle 1 element"
                             class="subtitle-element"
-                            src="https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/4a/Raimon_Logo_Sprite.png/revision/latest?cb=20200515174337"
-                            draggable="false" />
+                            src="https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/4a/Raimon_Logo_Sprite.png" />
                     </div>
                     <span
                         style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -36px;"
@@ -226,19 +231,16 @@
             </div>
         </div>
         <div id="sub-2-container" data-pg-name="Subtitle 2 container"
-            style="height: 150px; width: 100%; margin-bottom: 4px;" class="sub-container" draggable="false">
-            <div id="drag-box-sub-2-container" draggable="true" ondragstart="onDragStart(event);"
-                ondragover="onDragOver(event);" ondrop="onDrop(event);">
+            style="height: 150px; width: 100%; margin-bottom: 4px;" class="sub-container">
+            <div id="drag-box-sub-2-container">
                 <div class="drag-box" id="drag-box-sub-2"
                     style="background-image: url('character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 118px; height: 118px; border-top: 2px solid; border-left: 2px solid; border-right: 2px solid;"
-                    draggable="false" data-toggle="modal" data-target="#myModal">
-                    <!--img src="character-placeholder.png" style="width: 118px; height: 118px; margin-bottom: -5px; border-top: 2px solid; border-left: 2px solid; border-right: 2px solid;" id="sub-2-sprite" data-pg-name="Subtitle 2 sprite" class="sub-sprite"/-->
+                    data-toggle="modal" data-target="#myModal" data-id="sub-2">
                 </div>
                 <div class="sub-info-container" style="border: 2px solid; width: 118px; height: 28px; margin-top: -4px;"
-                    id="sub-2-info-container" data-pg-name="Subtitle 2 info container" draggable="false">
+                    id="sub-2-info-container" data-pg-name="Subtitle 2 info container">
                     <div style="border-right: 2px solid; width: 28px; height: 100%; background-image: url('team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                        id="sub-2-element-container" draggable="false">
-                        <!--img src="team-placeholder.png" style="width: auto; height: 100%;" id="sub-2-element" data-pg-name="Subtitle 2 element" class="subtitle-element"-->
+                        id="sub-2-element-container">
                     </div>
                     <span
                         style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -36px;"
@@ -248,16 +250,20 @@
         </div>
         <div id="sub-3-container" data-pg-name="Subtitle 3 container"
             style="height: 150px; width: 100%; margin-bottom: 4px;" class="sub-container">
-            <img src="character-placeholder.png"
-                style="width: 118px; height: 118px; margin-bottom: -5px; border-top: 2px solid; border-left: 2px solid; border-right: 2px solid;"
-                id="sub-3-sprite" data-pg-name="Subtitle 3 sprite" class="sub-sprite" />
-            <div class="sub-info-container" style="border: 2px solid; width: 118px; height: 28px; margin-top: -4px;"
-                id="sub-3-info-container" data-pg-name="Subtitle 3 info container">
-                <img src="team-placeholder.png" style="width: auto; height: 100%; border-right: 2px solid;"
-                    id="sub-3-element" data-pg-name="Subtitle 3 element" class="subtitle-element" />
-                <span
-                    style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -36px;"
-                    id="sub-3-name" data-pg-name="Subtitle 3 name" class="subtitle-name">Sub #3</span>
+            <div id="drag-box-sub-3-container">
+                <div class="drag-box" id="drag-box-sub-3"
+                    style="background-image: url('character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 118px; height: 118px; border-top: 2px solid; border-left: 2px solid; border-right: 2px solid;"
+                    data-toggle="modal" data-target="#myModal" data-id="sub-3">
+                </div>
+                <div class="sub-info-container" style="border: 2px solid; width: 118px; height: 28px; margin-top: -4px;"
+                    id="sub-3-info-container" data-pg-name="Subtitle 3 info container">
+                    <div style="border-right: 2px solid; width: 28px; height: 100%; background-image: url('team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                        id="sub-3-element-container">
+                    </div>
+                    <span
+                        style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -36px;"
+                        id="sub-3-name" data-pg-name="Subtitle 3 name" class="subtitle-name">Sub #3</span>
+                </div>
             </div>
         </div>
         <div id="sub-4-container" data-pg-name="Subtitle 4 container"
@@ -335,7 +341,7 @@
                     <h4 class="modal-title">Player list</h4>
                 </div>
                 <div class="modal-body" id="modal">
-                    
+
                 </div>
             </div>
 
