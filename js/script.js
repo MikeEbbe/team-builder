@@ -11,18 +11,18 @@ function getCharacters() {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://titlelist-85ef.restdb.io/rest/characters",
+        "url": "https://api.jsonbin.io/v3/b/5ed3febf7741ef56a5657abf/latest",
         "method": "GET",
         "headers": {
             "content-type": "application/json",
-            "x-apikey": "5cae686593d77c26f9734a8d",
+            "X-Master-Key": "$2b$10$AKrGdlO/SJPOrsrrh3wASeeIsMk92eFqLQbMyTwVTWvOcxxuj9eXy",
             "cache-control": "no-cache"
         }
-    }
+    };
 
     $.ajax(settings).done(function (response) {
         // All Inazuma Eleven characters
-        characters = response;
+        characters = response.record;
         // Filter out all coaches and store into variable
         coaches = characters.filter(c => c.Role == "Coach");
         players = characters.filter(c => c.Role == "Player");
@@ -88,6 +88,7 @@ html2canvas(element, {
  * @param {string} language chosen language of player names
  */
 function renderPlayers(players, language) {
+    console.log(players);
     var teamsList = [];
     getTeamsList(players, teamsList, language)
 
@@ -96,13 +97,15 @@ function renderPlayers(players, language) {
     var htmlInsert = '';
 
     // Cycle through all teams and add a panel for each
+    console.log("Teamslist:", teamsList);
     teamsList.forEach(team => {
+        // console.log("team:", team[0])
         htmlInsert +=
-            '<button class="accordion">' + team + '</button>' +
+            '<button class="accordion"><img src="' + team[1] + '" class="modal-team-sprite">' + team[0] + '</button>' +
             '<div class="panel">';
         // Cycle through all players and add them to the teams panel
         players.forEach(player => {
-            if (player[language + 'Team'] == team) {
+            if (player[language + 'Team'] == team[0]) {
                 // console.log(player[language + 'Team']);
                 htmlInsert +=
                     '<div class="modal-player-box">' +
@@ -128,15 +131,32 @@ function renderPlayers(players, language) {
  */
 function getTeamsList(players, teamsList, language) {
     var fullTeamsList = [];
+    var tempArray = [];
+
     players.forEach(player => {
-        fullTeamsList.push(player[language + 'Team']);
+        // console.log(player);
+        fullTeamsList.push([
+            player[language + 'Team'],
+            player.TeamSprite
+        ]);
     });
 
+    // console.log(fullTeamsList);
     $.each(fullTeamsList, function (i, el) {
-        if ($.inArray(el, teamsList) === -1) teamsList.push(el);
+        if ($.inArray(el[0], tempArray) === -1) tempArray.push(el[0]);
+        if ($.inArray(el[1], tempArray) === -1) tempArray.push(el[1]);
     });
 
-    // console.log(teamsList);
+    var j = 1;
+    for (var i = 0; i < tempArray.length; i += 2) {
+        teamsList.push(
+            [
+                tempArray[i],
+                tempArray[j]
+            ]);
+        j += 2;
+    }
+
     return teamsList;
 }
 
@@ -214,14 +234,14 @@ function changePlayer(newPlayer) {
     var htmlInsert = "";
     htmlInsert +=
         '<div id="drag-box-' + playerToChangeId + '-container">' +
-        '<div class="drag-box" id="drag-box-' + playerToChangeId + '" style="width: 118px; height: 118px; border-top: 2px solid; border-right: 2px solid; border-left: 2px solid;" data-toggle="modal" data-target="#myModal"  data-id="' + playerToChangeId + '">' +
-        '<img src="' + newPlayerSprite + '" style="width: 118px; height: 118px; margin-bottom: -3px;" id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="sub-sprite"/>' +
+        '<div class="drag-box" id="drag-box-' + playerToChangeId + '" style="width: 126px; height: 126px; border-top: 2px solid; border-right: 2px solid; border-left: 2px solid;" data-toggle="modal" data-target="#myModal"  data-id="' + playerToChangeId + '">' +
+        '<img src="' + newPlayerSprite + '" style="width: 126px; height: 126px; id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="sub-sprite"/>' +
         '</div>' +
-        '<div class="sub-info-container" style="border: 2px solid; width: 118px; height: 28px; margin-top: -4px;" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">' +
+        '<div class="sub-info-container" style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px;" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">' +
         '<div style="height: 100%; width: 28px; border-right: 2px solid;" id="' + playerToChangeId + '-element-container">' +
         '<img style="width: auto; height: 100%;" id="' + playerToChangeId + '-element" data-pg-name="' + playerToChangeId + '-element" class="subtitle-element" src="' + newPlayerTeamSprite + '"/>' +
         '</div>' +
-        '<span style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -36px;" id="' + playerToChangeId + '-name" data-pg-name="' + playerToChangeId + '-name" class="subtitle-name">' + newPlayerName + '</span>' +
+        '<span style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;" id="' + playerToChangeId + '-name" data-pg-name="' + playerToChangeId + '-name" class="subtitle-name">' + newPlayerName + '</span>' +
         '</div>' +
         '</div>';
 
