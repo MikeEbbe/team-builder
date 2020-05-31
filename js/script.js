@@ -1,4 +1,6 @@
 var characters;
+var players;
+var coaches;
 var playerToChange;
 var playerToChangeId;
 
@@ -22,10 +24,10 @@ function getCharacters() {
         // All Inazuma Eleven characters
         characters = response;
         // Filter out all coaches and store into variable
-        var coaches = characters.filter(c => c.Role == "Coach");
-        var players = characters.filter(c => c.Role == "Player");
-        renderCoaches(coaches);
-        renderPlayers(players)
+        coaches = characters.filter(c => c.Role == "Coach");
+        players = characters.filter(c => c.Role == "Player");
+        renderCoaches(coaches, "English");
+        renderPlayers(players, "English");
     });
 }
 
@@ -43,15 +45,51 @@ function addButtonActions() {
             // console.log(playerToChange);
         });
     });
+
+    $("#english-names-input").click(function () {
+        renderCoaches(coaches, "English");
+        renderPlayers(players, "English");
+    });
+
+    $("#japanese-names-input").click(function () {
+        renderCoaches(coaches, "Japanese");
+        renderPlayers(players, "Japanese");
+    });
 }
+
+/*var button = document.getElementById('player-container');
+button.addEventListener("click", function () {
+    var node = document.getElementById('bench-container');
+
+    domtoimage.toPng(node)
+        .then(function (dataUrl) {
+            var img = new Image();
+            img.src = dataUrl;
+            document.body.appendChild(img);
+        })
+        .catch(function (error) {
+            console.error('oops, something went wrong!', error);
+        });
+});
+
+var element = $("#bench-container"); // global variable
+var getCanvas; // global variable
+html2canvas(element, {
+    onrendered: function (canvas) {
+        canvas.setAttribute("id", "canvas");
+        document.body.append(canvas);
+        getCanvas = canvas;
+    }
+});*/
 
 /**
  * Render players to choose from inside modal
- * @param {array} players 
+ * @param {array} players players to be rendered inside of modal
+ * @param {string} language chosen language of player names
  */
-function renderPlayers(players) {
+function renderPlayers(players, language) {
     var teamsList = [];
-    getTeamsList(players, teamsList)
+    getTeamsList(players, teamsList, language)
 
     var modal = document.getElementById('modal');
     // HTML code to insert inside of modal
@@ -64,12 +102,13 @@ function renderPlayers(players) {
             '<div class="panel">';
         // Cycle through all players and add them to the teams panel
         players.forEach(player => {
-            if (player.EnglishTeam == team) {
+            if (player[language + 'Team'] == team) {
+                // console.log(player[language + 'Team']);
                 htmlInsert +=
                     '<div class="modal-player-box">' +
-                    '<p class="modal-player-name">' + player.EnglishName + '</p>' +
-                    '<div class="modal-player-sprite-container" data-dismiss="modal" data-name="' + player.EnglishName + '" data-sprite="' + player.Sprite + '" data-team-sprite="' + player.TeamSprite + '">' +
-                    '<img src="' + player.Sprite + '" alt="' + player.EnglishName + '.png" class="modal-player-sprite"/>' +
+                    '<p class="modal-player-name">' + player[language + 'Name'] + '</p>' +
+                    '<div class="modal-player-sprite-container" data-dismiss="modal" data-name="' + player[language + 'Name'] + '" data-sprite="' + player.Sprite + '" data-team-sprite="' + player.TeamSprite + '">' +
+                    '<img src="' + player.Sprite + '" alt="' + player[language + 'Name'] + '.png" class="modal-player-sprite"/>' +
                     '<div class="icon">+</div>' +
                     '</div>' +
                     '</div>';
@@ -87,10 +126,10 @@ function renderPlayers(players) {
  * Get list of all teams
  * @param {array} players 
  */
-function getTeamsList(players, teamsList) {
+function getTeamsList(players, teamsList, language) {
     var fullTeamsList = [];
     players.forEach(player => {
-        fullTeamsList.push(player.EnglishTeam);
+        fullTeamsList.push(player[language + 'Team']);
     });
 
     $.each(fullTeamsList, function (i, el) {
@@ -133,19 +172,20 @@ function initializeModal() {
  * Render coaches in coachdropdown
  * @param {array} coaches Array of coaches
  */
-function renderCoaches(coaches) {
+function renderCoaches(coaches, language) {
     var coachDropdown = $("#coach-dropdown");
+    coachDropdown.empty();
 
     // Add a dropdown option for each coach, and store some information in data attributes
     coaches.forEach(coach => {
-        $(coachDropdown).append('<option value="' + coach.EnglishName + '" data-coachSprite="' + coach.Sprite + '" class="coach-option">' + coach.EnglishName + " (" + coach.EnglishTeam + ')</option>')
+        $(coachDropdown).append('<option value="' + coach[language + 'Name'] + '" data-coachSprite="' + coach.Sprite + '" class="coach-option">' + coach[language + 'Name'] + " (" + coach[language + 'Team'] + ')</option>')
     });
 }
 
 /**
  * Update coach sprite when selecting a coach
  */
-function updateSprite() {
+function updateCoachSprite() {
     var coachDropdown = document.getElementById('coach-dropdown');
     var selectedCoach = coachDropdown.options[coachDropdown.selectedIndex];
     // Set source of the coach sprite equal to the image url of the selected coach
@@ -187,13 +227,12 @@ function changePlayer(newPlayer) {
 
     playerBoxToChange.outerHTML = htmlInsert;
 
-    console.log("playerToChange:", playerToChange);
-    console.log("playerToChangeId:", playerToChangeId);
-    console.log("newPlayer:", newPlayer);
+    // console.log("playerToChange:", playerToChange);
+    // console.log("playerToChangeId:", playerToChangeId);
+    // console.log("newPlayer:", newPlayer);
 
     addButtonActions();
 }
-
 
 /**
  * Dragging player boxes
