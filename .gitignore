@@ -1,4 +1,5 @@
 /_pgbackup
+/css/_pgbackup
 /bootstrap/css
 pinegrow.json
 .gitignore

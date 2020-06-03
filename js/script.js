@@ -1,6 +1,7 @@
 var characters;
 var players;
 var coaches;
+var emblems;
 var playerToChange;
 var playerToChangeId;
 
@@ -28,6 +29,28 @@ function getCharacters() {
         players = characters.filter(c => c.Role == "Player");
         renderCoaches(coaches, "English");
         renderPlayers(players, "English");
+        getEmblems();
+    });
+}
+
+function getEmblems() {
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://api.jsonbin.io/v3/b/5ed6744d79382f568bd1bf80/latest",
+        "method": "GET",
+        "headers": {
+            "content-type": "application/json",
+            "X-Master-Key": "$2b$10$AKrGdlO/SJPOrsrrh3wASeeIsMk92eFqLQbMyTwVTWvOcxxuj9eXy",
+            "cache-control": "no-cache"
+        }
+    };
+
+    $.ajax(settings).done(function (response) {
+        // Emblems
+        emblems = response.record;
+        // console.log(response.record);
+        renderEmblems(emblems, "English");
     });
 }
 
@@ -36,7 +59,7 @@ function getCharacters() {
  */
 function addButtonActions() {
     var fieldPlayers = Array.from(document.getElementsByClassName('drag-box'));
-    console.log("fieldplayers:", fieldPlayers);
+    // console.log("fieldplayers:", fieldPlayers);
     fieldPlayers.forEach(fieldPlayer => {
         fieldPlayer.addEventListener("click", () => {
             // console.log(fieldPlayer);
@@ -49,11 +72,13 @@ function addButtonActions() {
     $("#english-names-input").click(function () {
         renderCoaches(coaches, "English");
         renderPlayers(players, "English");
+        renderEmblems(emblems, "English");
     });
 
     $("#japanese-names-input").click(function () {
         renderCoaches(coaches, "Japanese");
         renderPlayers(players, "Japanese");
+        renderEmblems(emblems, "Japanese");
     });
 }
 
@@ -88,7 +113,7 @@ html2canvas(element, {
  * @param {string} language chosen language of player names
  */
 function renderPlayers(players, language) {
-    console.log(players);
+    // console.log(players);
     var teamsList = [];
     getTeamsList(players, teamsList, language)
 
@@ -97,7 +122,7 @@ function renderPlayers(players, language) {
     var htmlInsert = '';
 
     // Cycle through all teams and add a panel for each
-    console.log("Teamslist:", teamsList);
+    // console.log("Teamslist:", teamsList);
     teamsList.forEach(team => {
         // console.log("team:", team[0])
         htmlInsert +=
@@ -108,11 +133,35 @@ function renderPlayers(players, language) {
             if (player[language + 'Team'] == team[0]) {
                 // console.log(player[language + 'Team']);
                 htmlInsert +=
+                /*
+                <div class="modal-player-box">
+	                <p class="modal-player-name">Erik</p>
+	                <div class="modal-player-box-container" style="display: flex;">
+		                <div class="modal-player-props-container">
+			                <div class="modal-player-position" style="height: 24px;width: 36px;background-image: url(https://cdn-3d.niceshops.com/upload/image/product/large/default/vallejo-game-air-bloody-red-17-ml-278443-nl.jpg);"></div>
+			                <div class="modal-player-element" style="height: 24px;width: 36px;background-image: url(https://cdn-3d.niceshops.com/upload/image/product/large/default/vallejo-game-air-bloody-red-17-ml-278443-nl.jpg);"></div>
+			                <div class="modal-player-gender" style="height: 24px;width: 36px;background-image: url(https://cdn-3d.niceshops.com/upload/image/product/large/default/vallejo-game-air-bloody-red-17-ml-278443-nl.jpg);"></div>
+		                </div>
+		                <div class="modal-player-sprite-container" data-dismiss="modal" data-name="Erik" data-sprite="https://vignette.wikia.nocookie.net/inazuma-eleven/images/d/dc/Ichinose_Raimon.png" data-team-sprite="https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/4a/Raimon_Logo_Sprite.png">
+			                <img src="https://vignette.wikia.nocookie.net/inazuma-eleven/images/d/dc/Ichinose_Raimon.png" alt="Erik.png" class="modal-player-sprite">
+			                <div class="icon">+</div>
+		                </div>
+	                </div>
+                </div>
+                */
                     '<div class="modal-player-box">' +
                     '<p class="modal-player-name">' + player[language + 'Name'] + '</p>' +
+                    '<div class="modal-player-box-container" style="display: flex;">' +
+                    '<div class="modal-player-props-container">' +
+                    // Will change this to fit player
+                    `<div class='modal-player-position' style='height: 24px; width: 36px; background-image: url("/images/positions/` + player.Position + `.png");'></div>` +
+                    `<div class='modal-player-element' style='height: 24px; width: 36px; background-image: url("/images/elements/` + player.Element + `.png");'></div>` +
+                    `<div class='modal-player-gender' style='height: 24px; width: 36px; background-image: url("/images/genders/` + player.Gender + `.png");'></div>` +
+                    '</div>' +
                     '<div class="modal-player-sprite-container" data-dismiss="modal" data-name="' + player[language + 'Name'] + '" data-sprite="' + player.Sprite + '" data-team-sprite="' + player.TeamSprite + '">' +
                     '<img src="' + player.Sprite + '" alt="' + player[language + 'Name'] + '.png" class="modal-player-sprite"/>' +
                     '<div class="icon">+</div>' +
+                    '</div>' +
                     '</div>' +
                     '</div>';
             }
@@ -202,14 +251,27 @@ function renderCoaches(coaches, language) {
     });
 }
 
+function renderEmblems(emblems, language) {
+    var emblemDropdown = $("#emblem-dropdown");
+    emblemDropdown.empty();
+
+    // Add a dropdown option for each emblem, and store some information in data attributes
+    emblems.forEach(emblem => {
+        $(emblemDropdown).append('<option value="' + emblem[language + 'Team'] + '" data-emblemSprite="' + emblem.Sprite + '" class="emblem-option">' + emblem[language + 'Team'] + '</option>');
+    });
+}
+
 /**
- * Update coach sprite when selecting a coach
+ * Update sprite when selecting a different option
+ * @param {string} type Type of sprite e.g. coach or emblem
  */
-function updateCoachSprite() {
-    var coachDropdown = document.getElementById('coach-dropdown');
-    var selectedCoach = coachDropdown.options[coachDropdown.selectedIndex];
-    // Set source of the coach sprite equal to the image url of the selected coach
-    $("#coach-sprite").attr("src", selectedCoach.dataset.coachsprite);
+function updateSprite(type) {
+    var dropdown = document.getElementById([type] + '-dropdown');
+    var selectedOption = dropdown.options[dropdown.selectedIndex];
+
+    // Set source of the sprite equal to the image url of the selected option
+    var spriteToChange = document.getElementById([type + "-sprite"]);
+    spriteToChange.src = selectedOption.dataset[type + 'sprite'];
 }
 
 /**

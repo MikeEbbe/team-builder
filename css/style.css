@@ -66,20 +66,39 @@
     src: url(segoe-ui.ttf);
 }
 
-img,
-.drag-box {
+img, .drag-box, .sub-element-container, .modal-player-box-container {
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
 }
 
 .modal-player-box {
-    display: inline-block;
+    display: inline-grid;
     margin-right: 11px;
     text-align: center;
 }
 
+.modal-player-box-container {
+    display: flex;
+    border: 1px solid black;
+}
+
+.modal-player-position, .modal-player-element, .modal-player-gender {
+    height: 24px;
+    width: 36px;
+    background-image: url("https://cdn-3d.niceshops.com/upload/image/product/large/default/vallejo-game-air-bloody-red-17-ml-278443-nl.jpg");
+}
+
+.modal-player-props-container {
+    border-right: 1px solid black;
+}
+
+.modal-player-position, .modal-player-element {
+    border-bottom: 1px solid black;
+}
+
 .modal-player-sprite-container {
     position: relative;
+    background-color: #AAB7D7;
 }
 
 .modal-player-sprite-container:hover .modal-player-sprite {
@@ -99,6 +118,7 @@ img,
     transition: .5s ease;
     backface-visibility: hidden;
     margin: auto;
+    height: 72px;
 }
 
 .icon {
@@ -1242,4 +1262,24 @@ button.close {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+.button:hover {
+    background-color: #006687;
+}
+
+.button {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.5s;
 }

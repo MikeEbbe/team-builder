@@ -1,0 +1,55 @@
+DevOps: https://dev.azure.com/mikeebbe/Inazuma%20Eleven%20Team%20Builder/
+
+[MVP] REVISING PLAYER BOXES INSIDE MODAL:
+    - Make border around name
+    - Background-color of sprite (gradient)
+
+[MVP] FINALISE WEBSITE STRUCTURE USING PINEGROW:
+    - Add field as background-image
+    - Add player boxes across field corresponding to the formation
+
+[MVP] DESIGNING FRONT-END:
+Try to fit to the Inazuma Eleven style
+
+[MVP] MAKE FORMATIONS:
+    - Create variable that contains an array with HTML code of all formations.
+        - Depending on the difficulty I will add 5 to 10 formations for now.
+    - When selecting a formation run a changeFormation function to sets the innerHTML to the HTML of the corresponding formation.
+
+[MVP] MAKE SAVE AS IMAGE FUNCTION:
+Using html2canvas
+
+[MVP] MAKE RESET TEAM FUNCTION:
+Make function that resets all team members
+
+SORTING CHARACTERS BY POSITION:
+    - Sort characters like so: GK -> DF -> MF -> FW
+    - Also sort by alphabet
+
+ADDING MORE CHARACTERS:
+- [MVP] IE1     Teams ⍻  Scouts ✔ ---> Players are added, but still need their sprites
+- [MVP] IE2     Teams    Scouts ✔ ---> Still need all players from the teams
+- [MVP] IE3     Teams    Scouts ⍻ ---> Still need all players from teams, and most of the scout players
+-       GO1     Teams    Scouts
+-       GO2     Teams    Scouts
+-       GO3     Teams    Scouts
+-       Ares    Teams    Scouts
+-       Orion   Teams    Scouts
+
+ADDING POLL QUESTIONS:
+Poll 1:
+In which order would you like to see the players?
+Option A: Order teams by the Inazuma arc/game and the order in which they appeared in
+Option B: Order teams by alphabet
+Option C: A combination of both: Teams seperated by arc/game and sorted by alphabet
+
+Poll 2:
+Which field do you prefer?
+Option A: Single field
+Option B: Double field
+Option C: Both! (user may change by preference)
+
+DRAG BOXES:
+Create draggable player boxes instead of clickable boxes
+<div id="drag-box-sub-1-container" draggable="true" ondragstart="onDragStart(event);" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+<div class="drag-box" id="drag-box-sub-1" style="background-image: url('character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 118px; height: 118px; border-top: 2px solid; border-right: 2px solid; border-left: 2px solid;" draggable="false">
