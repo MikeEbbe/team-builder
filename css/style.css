@@ -74,12 +74,19 @@ img, .drag-box, .sub-element-container, .modal-player-box-container {
 .modal-player-box {
     display: inline-grid;
     margin-right: 11px;
+    margin-top: 8px;
     text-align: center;
 }
 
 .modal-player-box-container {
     display: flex;
-    border: 1px solid black;
+    border: 3px solid black;
+}
+
+.modal-player-name {
+    font-size: 22px;
+    border: solid black;
+    border-width: 3px 3px 0 3px;
 }
 
 .modal-player-position, .modal-player-element, .modal-player-gender {
@@ -89,16 +96,16 @@ img, .drag-box, .sub-element-container, .modal-player-box-container {
 }
 
 .modal-player-props-container {
-    border-right: 1px solid black;
+    border-right: 3px solid black;
 }
 
 .modal-player-position, .modal-player-element {
-    border-bottom: 1px solid black;
+    border-bottom: 3px solid black;
 }
 
 .modal-player-sprite-container {
     position: relative;
-    background-color: #AAB7D7;
+    background-image: linear-gradient(#aab7d7 58%, #58688e 42%);
 }
 
 .modal-player-sprite-container:hover .modal-player-sprite {

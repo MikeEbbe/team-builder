@@ -1,3 +1,4 @@
+// Global variables
 var characters;
 var players;
 var coaches;
@@ -6,7 +7,7 @@ var playerToChange;
 var playerToChangeId;
 
 /**
- * Get request to all characters
+ * GET request to all characters
  */
 function getCharacters() {
     var settings = {
@@ -24,15 +25,21 @@ function getCharacters() {
     $.ajax(settings).done(function (response) {
         // All Inazuma Eleven characters
         characters = response.record;
-        // Filter out all coaches and store into variable
+
+        // Filter coaches and players and store into variables
         coaches = characters.filter(c => c.Role == "Coach");
         players = characters.filter(c => c.Role == "Player");
+
+        // Fetch emblems and render coaches and players
+        getEmblems();
         renderCoaches(coaches, "English");
         renderPlayers(players, "English");
-        getEmblems();
     });
 }
 
+/**
+ * GET request to all team emblems
+ */
 function getEmblems() {
     var settings = {
         "async": true,
@@ -47,9 +54,8 @@ function getEmblems() {
     };
 
     $.ajax(settings).done(function (response) {
-        // Emblems
+        // All emblems
         emblems = response.record;
-        // console.log(response.record);
         renderEmblems(emblems, "English");
     });
 }
@@ -58,23 +64,24 @@ function getEmblems() {
  * Adds actions to buttons
  */
 function addButtonActions() {
+    // Select all player boxes (11 on the pitch and 5 on the bench) and store into a variable  
     var fieldPlayers = Array.from(document.getElementsByClassName('drag-box'));
-    // console.log("fieldplayers:", fieldPlayers);
+    // Collect data for each player when clicked on
     fieldPlayers.forEach(fieldPlayer => {
         fieldPlayer.addEventListener("click", () => {
-            // console.log(fieldPlayer);
             playerToChange = fieldPlayer;
             playerToChangeId = fieldPlayer.dataset.id;
-            // console.log(playerToChange);
         });
     });
 
+    // Render coaches, players and emblems again when changing language to English 
     $("#english-names-input").click(function () {
         renderCoaches(coaches, "English");
         renderPlayers(players, "English");
         renderEmblems(emblems, "English");
     });
 
+    // Render coaches, players and emblems again when changing language to Japanese
     $("#japanese-names-input").click(function () {
         renderCoaches(coaches, "Japanese");
         renderPlayers(players, "Japanese");
@@ -82,38 +89,13 @@ function addButtonActions() {
     });
 }
 
-/*var button = document.getElementById('player-container');
-button.addEventListener("click", function () {
-    var node = document.getElementById('bench-container');
-
-    domtoimage.toPng(node)
-        .then(function (dataUrl) {
-            var img = new Image();
-            img.src = dataUrl;
-            document.body.appendChild(img);
-        })
-        .catch(function (error) {
-            console.error('oops, something went wrong!', error);
-        });
-});
-
-var element = $("#bench-container"); // global variable
-var getCanvas; // global variable
-html2canvas(element, {
-    onrendered: function (canvas) {
-        canvas.setAttribute("id", "canvas");
-        document.body.append(canvas);
-        getCanvas = canvas;
-    }
-});*/
-
 /**
  * Render players to choose from inside modal
  * @param {array} players players to be rendered inside of modal
  * @param {string} language chosen language of player names
  */
 function renderPlayers(players, language) {
-    // console.log(players);
+    // Get Teamslist - TODO: Make teamslist a JSON object
     var teamsList = [];
     getTeamsList(players, teamsList, language)
 
@@ -121,39 +103,22 @@ function renderPlayers(players, language) {
     // HTML code to insert inside of modal
     var htmlInsert = '';
 
-    // Cycle through all teams and add a panel for each
-    // console.log("Teamslist:", teamsList);
-    teamsList.forEach(team => {
-        // console.log("team:", team[0])
+    // Cycle through all teams and add an accordion panel for each
+    for (var i = 0; i < teamsList.length; i++) {
+        var team = teamsList[i];
         htmlInsert +=
             '<button class="accordion"><img src="' + team[1] + '" class="modal-team-sprite">' + team[0] + '</button>' +
             '<div class="panel">';
         // Cycle through all players and add them to the teams panel
-        players.forEach(player => {
+        for (var j = 0; j < players.length; j++) {
+            var player = players[j];
+            // If current player is in the current team add a player box
             if (player[language + 'Team'] == team[0]) {
-                // console.log(player[language + 'Team']);
                 htmlInsert +=
-                /*
-                <div class="modal-player-box">
-	                <p class="modal-player-name">Erik</p>
-	                <div class="modal-player-box-container" style="display: flex;">
-		                <div class="modal-player-props-container">
-			                <div class="modal-player-position" style="height: 24px;width: 36px;background-image: url(https://cdn-3d.niceshops.com/upload/image/product/large/default/vallejo-game-air-bloody-red-17-ml-278443-nl.jpg);"></div>
-			                <div class="modal-player-element" style="height: 24px;width: 36px;background-image: url(https://cdn-3d.niceshops.com/upload/image/product/large/default/vallejo-game-air-bloody-red-17-ml-278443-nl.jpg);"></div>
-			                <div class="modal-player-gender" style="height: 24px;width: 36px;background-image: url(https://cdn-3d.niceshops.com/upload/image/product/large/default/vallejo-game-air-bloody-red-17-ml-278443-nl.jpg);"></div>
-		                </div>
-		                <div class="modal-player-sprite-container" data-dismiss="modal" data-name="Erik" data-sprite="https://vignette.wikia.nocookie.net/inazuma-eleven/images/d/dc/Ichinose_Raimon.png" data-team-sprite="https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/4a/Raimon_Logo_Sprite.png">
-			                <img src="https://vignette.wikia.nocookie.net/inazuma-eleven/images/d/dc/Ichinose_Raimon.png" alt="Erik.png" class="modal-player-sprite">
-			                <div class="icon">+</div>
-		                </div>
-	                </div>
-                </div>
-                */
                     '<div class="modal-player-box">' +
                     '<p class="modal-player-name">' + player[language + 'Name'] + '</p>' +
                     '<div class="modal-player-box-container" style="display: flex;">' +
                     '<div class="modal-player-props-container">' +
-                    // Will change this to fit player
                     `<div class='modal-player-position' style='height: 24px; width: 36px; background-image: url("/images/positions/` + player.Position + `.png");'></div>` +
                     `<div class='modal-player-element' style='height: 24px; width: 36px; background-image: url("/images/elements/` + player.Element + `.png");'></div>` +
                     `<div class='modal-player-gender' style='height: 24px; width: 36px; background-image: url("/images/genders/` + player.Gender + `.png");'></div>` +
@@ -165,37 +130,42 @@ function renderPlayers(players, language) {
                     '</div>' +
                     '</div>';
             }
-        });
+        }
         htmlInsert += '</div>';
-    });
+    }
     // Insert HTML code inside modal
     modal.innerHTML = htmlInsert;
 
+    // Initialize modal script
     initializeModal();
 }
 
 /**
  * Get list of all teams
- * @param {array} players 
+ * @param {array} players players to fetch teams from
+ * @param {array} teamsList list of teams to put all teams in
+ * @param {string} language chosen language
  */
 function getTeamsList(players, teamsList, language) {
     var fullTeamsList = [];
     var tempArray = [];
 
-    players.forEach(player => {
-        // console.log(player);
+    // Add all team names and emblem to a list
+    for (var i = 0; i < players.length; i++) {
+        var player = players[i];
         fullTeamsList.push([
             player[language + 'Team'],
             player.TeamSprite
         ]);
-    });
+    }
 
-    // console.log(fullTeamsList);
+    // Add one of each teams to temporary array
     $.each(fullTeamsList, function (i, el) {
         if ($.inArray(el[0], tempArray) === -1) tempArray.push(el[0]);
         if ($.inArray(el[1], tempArray) === -1) tempArray.push(el[1]);
     });
 
+    // Filter data and store into a final list
     var j = 1;
     for (var i = 0; i < tempArray.length; i += 2) {
         teamsList.push(
@@ -228,10 +198,10 @@ function initializeModal() {
         });
     }
 
+    // Add change player action to all modal player boxes
     var modalPlayers = Array.from(document.getElementsByClassName('modal-player-sprite-container'));
     modalPlayers.forEach(modalPlayer => {
         modalPlayer.addEventListener("click", () => {
-            // console.log(fieldPlayer);
             changePlayer(modalPlayer);
         });
     });
@@ -240,25 +210,33 @@ function initializeModal() {
 /**
  * Render coaches in coachdropdown
  * @param {array} coaches Array of coaches
+ * @param {string} language chosen language
  */
 function renderCoaches(coaches, language) {
     var coachDropdown = $("#coach-dropdown");
     coachDropdown.empty();
 
     // Add a dropdown option for each coach, and store some information in data attributes
-    coaches.forEach(coach => {
+    for (var i = 0; i < coaches.length; i++) {
+        var coach = coaches[i]
         $(coachDropdown).append('<option value="' + coach[language + 'Name'] + '" data-coachSprite="' + coach.Sprite + '" class="coach-option">' + coach[language + 'Name'] + " (" + coach[language + 'Team'] + ')</option>')
-    });
+    }
 }
 
+/**
+ * 
+ * @param {array} emblems Array of emblems
+ * @param {string} language chosen language
+ */
 function renderEmblems(emblems, language) {
     var emblemDropdown = $("#emblem-dropdown");
     emblemDropdown.empty();
 
     // Add a dropdown option for each emblem, and store some information in data attributes
-    emblems.forEach(emblem => {
+    for (var i = 0; i < emblems.length; i++) {
+        var emblem = emblems[i]
         $(emblemDropdown).append('<option value="' + emblem[language + 'Team'] + '" data-emblemSprite="' + emblem.Sprite + '" class="emblem-option">' + emblem[language + 'Team'] + '</option>');
-    });
+    }
 }
 
 /**
@@ -279,20 +257,13 @@ function updateSprite(type) {
  * @param {array} newPlayer 
  */
 function changePlayer(newPlayer) {
-    /**
-     * Information to update:
-     * Name
-     * Sprite
-     * Team emblem
-     */
-
-    // console.log(newPlayer);
+    // Define player name, sprite and emblem
     var newPlayerName = newPlayer.dataset.name;
     var newPlayerSprite = newPlayer.dataset.sprite;
     var newPlayerTeamSprite = newPlayer.dataset.teamSprite;
 
+    // Define new player box
     var playerBoxToChange = document.getElementById(playerToChange.id).parentElement;
-    // console.log(playerBoxToChange);
     var htmlInsert = "";
     htmlInsert +=
         '<div id="drag-box-' + playerToChangeId + '-container">' +
@@ -307,59 +278,12 @@ function changePlayer(newPlayer) {
         '</div>' +
         '</div>';
 
+    // Change selected playerbox to new playerbox
     playerBoxToChange.outerHTML = htmlInsert;
 
-    // console.log("playerToChange:", playerToChange);
-    // console.log("playerToChangeId:", playerToChangeId);
-    // console.log("newPlayer:", newPlayer);
-
+    // Add button actions again to make new player box clickable
     addButtonActions();
 }
-
-/**
- * Dragging player boxes
- * @param {object} event 
- */
-/*function onDragStart(event) {
-    // Sprite of dragged player
-    var playerSprite = document.getElementById(event.target.id);
-    // Container of dragged player
-    var playerContainer = playerSprite.parentElement.parentElement;
-    // Info container (team logo & player name) of dragged player
-    var playerInfo = playerContainer.children[1];
-    // Team logo of dragged player
-    var playerTeam = playerInfo.children[0].children[0];
-
-    console.log("playerTeam:", playerTeam.src);
-    event
-        .dataTransfer
-        .setData('text/plain', event.target.id)
-
-    event
-        .currentTarget
-        .style
-        .backgroundColor = "yellow"
-}
-
-function onDragOver(event) {
-    event.preventDefault();
-}
-
-function onDrop(event) {
-    event.preventDefault();
-    const id = event
-        .dataTransfer
-        .getData('text');
-
-    const draggableElement = document.getElementById(id);
-    const dropzone = event.target;
-
-    dropzone.appendChild(draggableElement);
-
-    event
-        .dataTransfer
-        .clearData();
-}*/
 
 // Initialize
 getCharacters();
