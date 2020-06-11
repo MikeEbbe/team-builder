@@ -66,7 +66,7 @@
     src: url(segoe-ui.ttf);
 }
 
-img, .drag-box, .sub-element-container, .modal-player-box-container {
+img, .drag-box, .player-element-container, .sub-element-container, .modal-player-box-container {
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
 }
@@ -1253,7 +1253,7 @@ button.close {
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-.sub-container {
+.player-container, .sub-container {
     position: relative;
 }
 
@@ -1261,12 +1261,19 @@ button.close {
     margin: 0 auto;
 }
 
-.sub-info-container {
+/* drag box subtitles */
+#drag-box-sub-1, #drag-box-sub-2, #drag-box-sub-3, #drag-box-sub-4, #drag-box-sub-5 {
+    border-color: black;
+    border-style: solid;
+    border-width: 2px 2px 0px 2px;
+}
+
+.player-info-container, .sub-info-container {
     position: absolute;
     background-color: white;
 }
 
-.subtitle-name {
+.player-name, .subtitle-name {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
