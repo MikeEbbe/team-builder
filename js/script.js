@@ -1,64 +1,6 @@
 // Global variables
-var characters;
-var players;
-var coaches;
-var emblems;
 var playerToChange;
 var playerToChangeId;
-
-/**
- * GET request to all characters
- */
-function getCharacters() {
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://api.jsonbin.io/v3/b/5ed3febf7741ef56a5657abf/latest",
-        "method": "GET",
-        "headers": {
-            "content-type": "application/json",
-            "X-Master-Key": "$2b$10$AKrGdlO/SJPOrsrrh3wASeeIsMk92eFqLQbMyTwVTWvOcxxuj9eXy",
-            "cache-control": "no-cache"
-        }
-    };
-
-    $.ajax(settings).done(function (response) {
-        // All Inazuma Eleven characters
-        characters = response.record;
-
-        // Filter coaches and players and store into variables
-        coaches = characters.filter(c => c.Role == "Coach");
-        players = characters.filter(c => c.Role == "Player");
-
-        // Fetch emblems and render coaches and players
-        getEmblems();
-        renderCoaches(coaches, "English");
-        renderPlayers(players, "English");
-    });
-}
-
-/**
- * GET request to all team emblems
- */
-function getEmblems() {
-    var settings = {
-        "async": true,
-        "crossDomain": true,
-        "url": "https://api.jsonbin.io/v3/b/5ed6744d79382f568bd1bf80/latest",
-        "method": "GET",
-        "headers": {
-            "content-type": "application/json",
-            "X-Master-Key": "$2b$10$AKrGdlO/SJPOrsrrh3wASeeIsMk92eFqLQbMyTwVTWvOcxxuj9eXy",
-            "cache-control": "no-cache"
-        }
-    };
-
-    $.ajax(settings).done(function (response) {
-        // All emblems
-        emblems = response.record;
-        renderEmblems(emblems, "English");
-    });
-}
 
 /**
  * Adds actions to buttons
@@ -89,46 +31,64 @@ function addButtonActions() {
     });
 }
 
+
 /**
  * Render players to choose from inside modal
  * @param {array} players players to be rendered inside of modal
  * @param {string} language chosen language of player names
  */
 function renderPlayers(players, language) {
-    // Get Teamslist - TODO: Make teamslist a JSON object
-    var teamsList = [];
-    getTeamsList(players, teamsList, language)
+    // players.sort((a,b) => (a[language + 'Name'] > b[language + 'Name']) ? 1 : ((b[language + 'Name'] > a[language + 'Name']) ? -1 : 0));
 
     var modal = document.getElementById('modal');
     // HTML code to insert inside of modal
     var htmlInsert = '';
 
-    // Cycle through all teams and add an accordion panel for each
-    for (var i = 0; i < teamsList.length; i++) {
-        var team = teamsList[i];
+    var games = [
+        {
+            'IE1': 'Inazuma Eleven',
+            'IE2': 'Inazuma Eleven 2',
+            'IE3': 'Inazuma Eleven 3',
+        }
+    ];
+
+    // Cycle through all games and add an accordion panel for each game
+    for (var i = 0; i < Object.keys(games[0]).length; i++) {
         htmlInsert +=
-            '<button class="accordion"><img src="' + team[1] + '" class="modal-team-sprite">' + team[0] + '</button>' +
-            '<div class="panel">';
-        // Cycle through all players and add them to the teams panel
-        for (var j = 0; j < players.length; j++) {
-            var player = players[j];
-            // If current player is in the current team add a player box
-            if (player[language + 'Team'] == team[0]) {
+            '<h4 class="game-title">' + Object.values(games[0])[i]; + '</button>';
+
+        // Cycle through all teams and add an accordion panel for each team
+        for (var j = 0; j < teams.length; j++) {
+            var team = teams[j];
+            if (team.Game == Object.keys(games[0])[i]) {
                 htmlInsert +=
-                    '<div class="modal-player-box">' +
-                    '<p class="modal-player-name">' + player[language + 'Name'] + '</p>' +
-                    '<div class="modal-player-box-container" style="display: flex;">' +
-                    '<div class="modal-player-props-container">' +
-                    `<div class='modal-player-position' style='height: 24px; width: 36px; background-image: url("/images/positions/` + player.Position + `.png");'></div>` +
-                    `<div class='modal-player-element' style='height: 24px; width: 36px; background-image: url("/images/elements/` + player.Element + `.png");'></div>` +
-                    `<div class='modal-player-gender' style='height: 24px; width: 36px; background-image: url("/images/genders/` + player.Gender + `.png");'></div>` +
-                    '</div>' +
-                    '<div class="modal-player-sprite-container" data-dismiss="modal" data-name="' + player[language + 'Name'] + '" data-sprite="' + player.Sprite + '" data-team-sprite="' + player.TeamSprite + '">' +
-                    '<img src="' + player.Sprite + '" alt="' + player[language + 'Name'] + '.png" class="modal-player-sprite"/>' +
-                    '<div class="icon">+</div>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>';
+                    '<button class="accordion"><img src="' + team.Sprite + '" class="modal-team-sprite">' + team[language + 'Name'] + '</button>' +
+                    '<div class="panel">';
+                // Cycle through all players and add them to the teams panel
+                for (var k = 0; k < players.length; k++) {
+                    var player = players[k];
+                    // If current player is in the current team add a player box
+                    if (player[language + 'Team'] == team[language + 'Name']) {
+                        if (player.Game == team.Game) {
+                            htmlInsert +=
+                                '<div class="modal-player-box">' +
+                                '<p class="modal-player-name">' + player[language + 'Name'] + '</p>' +
+                                '<div class="modal-player-box-container" style="display: flex;">' +
+                                '<div class="modal-player-props-container">' +
+                                `<div class='modal-player-position' style='height: 24px; width: 36px; background-image: url("/images/positions/` + player.Position + `.png");'></div>` +
+                                `<div class='modal-player-element' style='height: 24px; width: 36px; background-image: url("/images/elements/` + player.Element + `.png");'></div>` +
+                                `<div class='modal-player-gender' style='height: 24px; width: 36px; background-image: url("/images/genders/` + player.Gender + `.png");'></div>` +
+                                '</div>' +
+                                '<div class="modal-player-sprite-container" data-dismiss="modal" data-name="' + player[language + 'Name'] + '" data-sprite="' + player.Sprite + '" data-team-sprite="' + player.TeamSprite + '">' +
+                                '<img src="' + player.Sprite + '" alt="' + player[language + 'Name'] + '.png" class="modal-player-sprite"/>' +
+                                '<div class="icon">+</div>' +
+                                '</div>' +
+                                '</div>' +
+                                '</div>';
+                        }
+                    }
+                }
+                htmlInsert += '</div>';
             }
         }
         htmlInsert += '</div>';
@@ -138,45 +98,6 @@ function renderPlayers(players, language) {
 
     // Initialize modal script
     initializeModal();
-}
-
-/**
- * Get list of all teams
- * @param {array} players players to fetch teams from
- * @param {array} teamsList list of teams to put all teams in
- * @param {string} language chosen language
- */
-function getTeamsList(players, teamsList, language) {
-    var fullTeamsList = [];
-    var tempArray = [];
-
-    // Add all team names and emblem to a list
-    for (var i = 0; i < players.length; i++) {
-        var player = players[i];
-        fullTeamsList.push([
-            player[language + 'Team'],
-            player.TeamSprite
-        ]);
-    }
-
-    // Add one of each teams to temporary array
-    $.each(fullTeamsList, function (i, el) {
-        if ($.inArray(el[0], tempArray) === -1) tempArray.push(el[0]);
-        if ($.inArray(el[1], tempArray) === -1) tempArray.push(el[1]);
-    });
-
-    // Filter data and store into a final list
-    var j = 1;
-    for (var i = 0; i < tempArray.length; i += 2) {
-        teamsList.push(
-            [
-                tempArray[i],
-                tempArray[j]
-            ]);
-        j += 2;
-    }
-
-    return teamsList;
 }
 
 /**
@@ -229,6 +150,8 @@ function renderCoaches(coaches, language) {
  * @param {string} language chosen language
  */
 function renderEmblems(emblems, language) {
+    emblems.sort((a, b) => (a[language + 'Team'] > b[language + 'Team']) ? 1 : ((b[language + 'Team'] > a[language + 'Team']) ? -1 : 0));
+
     var emblemDropdown = $("#emblem-dropdown");
     emblemDropdown.empty();
 
@@ -286,5 +209,7 @@ function changePlayer(newPlayer) {
 }
 
 // Initialize
-getCharacters();
+renderEmblems(emblems, "English");
+renderCoaches(coaches, "English");
+renderPlayers(players, "English");
 addButtonActions();

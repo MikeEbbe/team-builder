@@ -87,6 +87,7 @@ img, .drag-box, .sub-element-container, .modal-player-box-container {
     font-size: 22px;
     border: solid black;
     border-width: 3px 3px 0 3px;
+    font-weight: normal;
 }
 
 .modal-player-position, .modal-player-element, .modal-player-gender {
@@ -449,7 +450,7 @@ button.close {
     border: none;
     text-align: left;
     outline: none;
-    font-size: 15px;
+    font-size: 24px;
     transition: 0.4s;
 }
 
