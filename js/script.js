@@ -56,7 +56,7 @@ function renderPlayers(players, language) {
         }
     ];
 
-    // Cycle through all games and add an accordion panel for each game
+    // Cycle through all games and add a heading for each game
     for (var i = 0; i < Object.keys(games[0]).length; i++) {
         htmlInsert +=
             '<h4 class="game-title">' + Object.values(games[0])[i]; + '</button>';
@@ -194,8 +194,8 @@ function changePlayer(newPlayer) {
     var htmlInsert = "";
     htmlInsert +=
         '<div id="drag-box-' + playerToChangeId + '-container">' +
-        '<div class="drag-box" id="drag-box-' + playerToChangeId + '" style="width: 126px; height: 126px;" data-toggle="modal" data-target="#myModal"  data-id="' + playerToChangeId + '">' +
-        '<img src="' + newPlayerSprite + '" style="width: 126px; height: 126px;" id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="sub-sprite"/>' +
+        '<div class="drag-box" id="drag-box-' + playerToChangeId + '" style="text-align: center; width: 126px; height: 126px;" data-toggle="modal" data-target="#myModal"  data-id="' + playerToChangeId + '">' +
+        '<img src="' + newPlayerSprite + '" style="height: 126px;" id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="sub-sprite"/>' +
         '</div>' +
         '<div class="sub-info-container" style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px;" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">' +
         '<div style="height: 100%; width: 28px; border-right: 2px solid;" id="' + playerToChangeId + '-element-container">' +
