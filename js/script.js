@@ -133,7 +133,21 @@ function initializeModal() {
 }
 
 /**
- * Render coaches in coachdropdown
+ * Render formations in formation dropdown
+ * @param {*} formations 
+ */
+function renderFormations(formations) {
+    var formationDropdown = $("#formation-dropdown");
+
+    // Add a dropdown option for each formation, and store some information in data attributes
+    for (var i = 0; i < formations.length; i++) {
+        var formation = formations[i];
+        $(formationDropdown).append("<option value='" + formation.name + "' data-html='" + he.encode(formation.html) + "' class='formation-option'>" + formation.name + "</option>");
+    }
+}
+
+/**
+ * Render coaches in coach dropdown
  * @param {array} coaches Array of coaches
  * @param {string} language chosen language
  */
@@ -143,13 +157,22 @@ function renderCoaches(coaches, language) {
 
     // Add a dropdown option for each coach, and store some information in data attributes
     for (var i = 0; i < coaches.length; i++) {
-        var coach = coaches[i]
-        $(coachDropdown).append('<option value="' + coach[language + 'Name'] + '" data-coachSprite="' + coach.Sprite + '" class="coach-option">' + coach[language + 'Name'] + " (" + coach[language + 'Team'] + ')</option>')
+        var coach = coaches[i];
+        $(coachDropdown).append('<option value="' + coach[language + 'Name'] + '" data-coachSprite="' + coach.Sprite + '" class="coach-option">' + coach[language + 'Name'] + " (" + coach[language + 'Team'] + ')</option>');
     }
 }
 
+function changeFormation() {
+    var formationDropdown = document.getElementById('formation-dropdown');
+    var selectedOption = formationDropdown.options[formationDropdown.selectedIndex];
+    
+    $(".Field").html(he.decode(selectedOption.dataset.html));
+
+    addButtonActions();
+}
+
 /**
- * 
+ * Render emblems in emblem dropdown
  * @param {array} emblems Array of emblems
  * @param {string} language chosen language
  */
@@ -161,7 +184,7 @@ function renderEmblems(emblems, language) {
 
     // Add a dropdown option for each emblem, and store some information in data attributes
     for (var i = 0; i < emblems.length; i++) {
-        var emblem = emblems[i]
+        var emblem = emblems[i];
         $(emblemDropdown).append('<option value="' + emblem[language + 'Team'] + '" data-emblemSprite="' + emblem.Sprite + '" class="emblem-option">' + emblem[language + 'Team'] + '</option>');
     }
 }
@@ -240,7 +263,8 @@ function clearPlayers() {
 }
 
 // Initialize
-renderEmblems(emblems, "English");
+renderFormations(formations);
 renderCoaches(coaches, "English");
+renderEmblems(emblems, "English");
 renderPlayers(players, "English");
 addButtonActions();
