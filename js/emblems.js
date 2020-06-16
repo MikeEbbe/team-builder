@@ -330,12 +330,12 @@ var emblems = [
         "JapaneseTeam": "Cyber Hack"
     },
     {
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/6/65/Dark_angel_emblem.png",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/b/b2/Dark_Angel_2_emblem_new.png",
         "EnglishTeam": "Dark Angels 1",
         "JapaneseTeam": "Dark Angel 1"
     },
     {
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/b/b2/Dark_Angel_2_emblem_new.png",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/6/65/Dark_angel_emblem.png",
         "EnglishTeam": "Dark Angels 2",
         "JapaneseTeam": "Dark Angel 2"
     },
@@ -588,6 +588,11 @@ var emblems = [
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/0/0a/Soccer_Robots_emblem.png",
         "EnglishTeam": "Footballbots",
         "JapaneseTeam": "Soccer Robots"
+    },
+    {
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/f/ff/Jukai_team.png",
+        "EnglishTeam": "Forest Team",
+        "JapaneseTeam": "Jukai Team"
     },
     {
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/d/dd/Omote_to_Ura_no_Oujiya_emblem.png",
@@ -1201,13 +1206,13 @@ var emblems = [
     },
     {
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/78/Protocol_Omega_2.0_emblem.png",
-        "EnglishTeam": "Protocol Omega 2.0¹",
-        "JapaneseTeam": "Protocol Omega 2.0¹"
+        "EnglishTeam": "Protocol Omega 2.0 1",
+        "JapaneseTeam": "Protocol Omega 2.0 1"
     },
     {
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/6/65/Imagawagun_emblem.png",
-        "EnglishTeam": "Protocol Omega 2.0²",
-        "JapaneseTeam": "Protocol Omega 2.0²"
+        "EnglishTeam": "Protocol Omega 2.0 2",
+        "JapaneseTeam": "Protocol Omega 2.0 2"
     },
     {
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/e/e8/Protocol_Omega_3.0_emblem.png",
@@ -1295,14 +1300,14 @@ var emblems = [
         "JapaneseTeam": "Resistance Japan"
     },
     {
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/7c/Kakumei_Senbatsu_Team_emblem.png",
-        "EnglishTeam": "Revolutionaries¹",
-        "JapaneseTeam": "Kakumei Senbatsu¹"
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/e/e5/Kakumei_Senbatsu_Logo.png",
+        "EnglishTeam": "Revolutionaries 1",
+        "JapaneseTeam": "Kakumei Senbatsu 1"
     },
     {
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/e/e5/Kakumei_Senbatsu_Logo.png",
-        "EnglishTeam": "Revolutionaries²",
-        "JapaneseTeam": "Kakumei Senbatsu²"
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/7c/Kakumei_Senbatsu_Team_emblem.png",
+        "EnglishTeam": "Revolutionaries 2",
+        "JapaneseTeam": "Kakumei Senbatsu 2"
     },
     {
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/8/85/Ribbon_Cuties_emblem.png",
@@ -1313,6 +1318,11 @@ var emblems = [
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/0/07/Shin_Pirates_symbol.png",
         "EnglishTeam": "Rip Curles Redux",
         "JapaneseTeam": "Shin Pirates"
+    },
+    {
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/a/ae/Keibi_Robots.png/revision/latest?cb=20200612154247",
+        "EnglishTeam": "Robot Guards",
+        "JapaneseTeam": "Keibi Machines"
     },
     {
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/70/Rose_Griffon_symbol.png",
@@ -1491,12 +1501,12 @@ var emblems = [
     },
     {
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/5/53/CCC_Osaka_Gals_emblem.png",
-        "EnglishTeam": "Super Triple C¹",
+        "EnglishTeam": "Super Triple C",
         "JapaneseTeam": "CCC Osaka Gals"
     },
     {
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/3/35/Super_Osaka_CCC_emblem.png",
-        "EnglishTeam": "Super Triple C²",
+        "EnglishTeam": "Super Triple C 2",
         "JapaneseTeam": "Super Osaka CCC"
     },
     {
@@ -1666,13 +1676,13 @@ var emblems = [
     },
     {
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/e/e9/The_Card_Emblem_IE2.png",
-        "EnglishTeam": "The Card¹",
-        "JapaneseTeam": "The Card¹"
+        "EnglishTeam": "The Card 1",
+        "JapaneseTeam": "The Card 1"
     },
     {
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/9/9e/The_Card_symbol.png",
-        "EnglishTeam": "The Card²",
-        "JapaneseTeam": "The Card²"
+        "EnglishTeam": "The Card 2",
+        "JapaneseTeam": "The Card 2"
     },
     {
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/f/f1/Chronicles_emblem.png",

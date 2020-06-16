@@ -104,7 +104,7 @@ if (typeof jQuery === 'undefined') {
 
       that.$element
         .show()
-        .scrollTop(0)
+        //.scrollTop(0)
 
       that.adjustDialog()
 
