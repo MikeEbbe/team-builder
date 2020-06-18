@@ -159,9 +159,6 @@
             height: 100%;
         }
     </style>
-    <!--link
-        href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic|Bebas+Neue:regular"
-        rel="stylesheet" type="text/css"-->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -169,216 +166,217 @@
 </head>
 
 <body class="htmlNoPages" data-pg-overlay="../Nieuwe%20wireframe%20schets.png" data-pg-overlay-opacity="0.4">
-    <div class="grid-container">
-        <div class="Field"
-            style="background-image: url(images/field-wide-2.svg); background-size: contain; background-repeat: no-repeat; background-position: center; position: relative; background-size: cover">
-            <div id="player-1-container" data-pg-name="Player 1 container"
-                style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; justify-self: center; bottom: 0;"
-                class="player-container">
-                <div id="drag-box-player-1-container">
-                    <div class="drag-box" id="drag-box-player-1"
-                        style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
-                        data-toggle="modal" data-target="#myModal" data-id="player-1"></div>
-                    <div class="player-info-container"
-                        style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
-                        id="player-1-info-container" data-pg-name="Player 1 info container">
-                        <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                            id="player-1-element-container" class="player-element-container"></div>
-                        <span
-                            style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
-                            id="player-1-name" data-pg-name="Player 1 name" class="player-name">Player #1</span>
+    <div id="body-grid" class="grid-container">
+        <div class="Field">
+            <input id="team-name"
+                style="height: 45px; padding-top: 5px; border: 6px solid black; font-family: 'Bebas Neue'; font-size: 40px; width: 30%; margin: 0 auto; margin-top: 10px;"
+                placeholder="TEAM NAME" />
+            <div id="field-players-container"
+                style="background-image: url(images/field-wide-3.svg); background-size: contain; background-repeat: no-repeat; background-position: center; position: relative; background-size: contain; margin-top: -40px; display: grid;">
+                <div id="player-1-container" data-pg-name="Player 1 container"
+                    style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; justify-self: center; bottom: 0;"
+                    class="player-container">
+                    <div id="drag-box-player-1-container">
+                        <div class="drag-box" id="drag-box-player-1"
+                            style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
+                            data-toggle="modal" data-target="#myModal" data-id="player-1"></div>
+                        <div class="player-info-container"
+                            style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
+                            id="player-1-info-container" data-pg-name="Player 1 info container">
+                            <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                                id="player-1-element-container" class="player-element-container"></div>
+                            <span
+                                style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
+                                id="player-1-name" data-pg-name="Player 1 name" class="player-name">Player #1</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="player-2-container" data-pg-name="Player 2 container"
-                style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-left: 5.5%; bottom: 230px; left: 0px;"
-                class="player-container">
-                <div id="drag-box-player-2-container">
-                    <div class="drag-box" id="drag-box-player-2"
-                        style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
-                        data-toggle="modal" data-target="#myModal" data-id="player-2"></div>
-                    <div class="player-info-container"
-                        style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
-                        id="player-2-info-container" data-pg-name="Player 2 info container">
-                        <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                            id="player-2-element-container" class="player-element-container"></div>
-                        <span
-                            style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
-                            id="player-2-name" data-pg-name="Player 2 name" class="player-name">Player #2</span>
+                <div id="player-2-container" data-pg-name="Player 2 container"
+                    style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-left: 5.5%; bottom: 230px; left: 0px;"
+                    class="player-container">
+                    <div id="drag-box-player-2-container">
+                        <div class="drag-box" id="drag-box-player-2"
+                            style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
+                            data-toggle="modal" data-target="#myModal" data-id="player-2"></div>
+                        <div class="player-info-container"
+                            style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
+                            id="player-2-info-container" data-pg-name="Player 2 info container">
+                            <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                                id="player-2-element-container" class="player-element-container"></div>
+                            <span
+                                style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
+                                id="player-2-name" data-pg-name="Player 2 name" class="player-name">Player #2</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="player-3-container" data-pg-name="Player 3 container"
-                style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-left: 29.5%; bottom: 140px; left: 0px;"
-                class="player-container">
-                <div id="drag-box-player-3-container">
-                    <div class="drag-box" id="drag-box-player-3"
-                        style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
-                        data-toggle="modal" data-target="#myModal" data-id="player-3"></div>
-                    <div class="player-info-container"
-                        style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
-                        id="player-3-info-container" data-pg-name="Player 3 info container">
-                        <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                            id="player-3-element-container" class="player-element-container"></div>
-                        <span
-                            style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
-                            id="player-3-name" data-pg-name="Player 3 name" class="player-name">Player #3</span>
+                <div id="player-3-container" data-pg-name="Player 3 container"
+                    style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-left: 29.5%; bottom: 140px; left: 0px;"
+                    class="player-container">
+                    <div id="drag-box-player-3-container">
+                        <div class="drag-box" id="drag-box-player-3"
+                            style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
+                            data-toggle="modal" data-target="#myModal" data-id="player-3"></div>
+                        <div class="player-info-container"
+                            style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
+                            id="player-3-info-container" data-pg-name="Player 3 info container">
+                            <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                                id="player-3-element-container" class="player-element-container"></div>
+                            <span
+                                style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
+                                id="player-3-name" data-pg-name="Player 3 name" class="player-name">Player #3</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="player-4-container" data-pg-name="Player 4 container"
-                style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-right: 29.5%; bottom: 140px; right: 0px;"
-                class="player-container">
-                <div id="drag-box-player-4-container">
-                    <div class="drag-box" id="drag-box-player-4"
-                        style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
-                        data-toggle="modal" data-target="#myModal" data-id="player-4"></div>
-                    <div class="player-info-container"
-                        style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
-                        id="player-4-info-container" data-pg-name="Player 4 info container">
-                        <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                            id="player-4-element-container" class="player-element-container"></div>
-                        <span
-                            style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
-                            id="player-4-name" data-pg-name="Player 4 name" class="player-name">Player #4</span>
+                <div id="player-4-container" data-pg-name="Player 4 container"
+                    style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-right: 29.5%; bottom: 140px; right: 0px;"
+                    class="player-container">
+                    <div id="drag-box-player-4-container">
+                        <div class="drag-box" id="drag-box-player-4"
+                            style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
+                            data-toggle="modal" data-target="#myModal" data-id="player-4"></div>
+                        <div class="player-info-container"
+                            style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
+                            id="player-4-info-container" data-pg-name="Player 4 info container">
+                            <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                                id="player-4-element-container" class="player-element-container"></div>
+                            <span
+                                style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
+                                id="player-4-name" data-pg-name="Player 4 name" class="player-name">Player #4</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="player-5-container" data-pg-name="Player 5 container"
-                style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-right: 5.5%; bottom: 230px; right: 0px;"
-                class="player-container">
-                <div id="drag-box-player-5-container">
-                    <div class="drag-box" id="drag-box-player-5"
-                        style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
-                        data-toggle="modal" data-target="#myModal" data-id="player-5"></div>
-                    <div class="player-info-container"
-                        style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
-                        id="player-5-info-container" data-pg-name="Player 5 info container">
-                        <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                            id="player-5-element-container" class="player-element-container"></div>
-                        <span
-                            style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
-                            id="player-5-name" data-pg-name="Player 5 name" class="player-name">Player #5</span>
+                <div id="player-5-container" data-pg-name="Player 5 container"
+                    style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-right: 5.5%; bottom: 230px; right: 0px;"
+                    class="player-container">
+                    <div id="drag-box-player-5-container">
+                        <div class="drag-box" id="drag-box-player-5"
+                            style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
+                            data-toggle="modal" data-target="#myModal" data-id="player-5"></div>
+                        <div class="player-info-container"
+                            style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
+                            id="player-5-info-container" data-pg-name="Player 5 info container">
+                            <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                                id="player-5-element-container" class="player-element-container"></div>
+                            <span
+                                style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
+                                id="player-5-name" data-pg-name="Player 5 name" class="player-name">Player #5</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="player-6-container" data-pg-name="Player 6 container"
-                style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-left: 5.5%; top: 298px; left: 0px;"
-                class="player-container">
-                <div id="drag-box-player-6-container">
-                    <div class="drag-box" id="drag-box-player-6"
-                        style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
-                        data-toggle="modal" data-target="#myModal" data-id="player-6"></div>
-                    <div class="player-info-container"
-                        style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
-                        id="player-6-info-container" data-pg-name="Player 6 info container">
-                        <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                            id="player-6-element-container" class="player-element-container"></div>
-                        <span
-                            style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
-                            id="player-6-name" data-pg-name="Player 6 name" class="player-name">Player #6</span>
+                <div id="player-6-container" data-pg-name="Player 6 container"
+                    style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-left: 5.5%; top: 298px; left: 0px;"
+                    class="player-container">
+                    <div id="drag-box-player-6-container">
+                        <div class="drag-box" id="drag-box-player-6"
+                            style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
+                            data-toggle="modal" data-target="#myModal" data-id="player-6"></div>
+                        <div class="player-info-container"
+                            style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
+                            id="player-6-info-container" data-pg-name="Player 6 info container">
+                            <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                                id="player-6-element-container" class="player-element-container"></div>
+                            <span
+                                style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
+                                id="player-6-name" data-pg-name="Player 6 name" class="player-name">Player #6</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="player-7-container" data-pg-name="Player 7 container"
-                style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; top: 388px; margin-left: 29.5%"
-                class="player-container">
-                <div id="drag-box-player-7-container">
-                    <div class="drag-box" id="drag-box-player-7"
-                        style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
-                        data-toggle="modal" data-target="#myModal" data-id="player-7"></div>
-                    <div class="player-info-container"
-                        style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
-                        id="player-7-info-container" data-pg-name="Player 7 info container">
-                        <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                            id="player-7-element-container" class="player-element-container"></div>
-                        <span
-                            style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
-                            id="player-7-name" data-pg-name="Player 7 name" class="player-name">Player #7</span>
+                <div id="player-7-container" data-pg-name="Player 7 container"
+                    style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; top: 388px; margin-left: 29.5%"
+                    class="player-container">
+                    <div id="drag-box-player-7-container">
+                        <div class="drag-box" id="drag-box-player-7"
+                            style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
+                            data-toggle="modal" data-target="#myModal" data-id="player-7"></div>
+                        <div class="player-info-container"
+                            style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
+                            id="player-7-info-container" data-pg-name="Player 7 info container">
+                            <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                                id="player-7-element-container" class="player-element-container"></div>
+                            <span
+                                style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
+                                id="player-7-name" data-pg-name="Player 7 name" class="player-name">Player #7</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="player-8-container" data-pg-name="Player 8 container"
-                style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-right: 29.5%; top: 388px; right: 0px;"
-                class="player-container">
-                <div id="drag-box-player-8-container">
-                    <div class="drag-box" id="drag-box-player-8"
-                        style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
-                        data-toggle="modal" data-target="#myModal" data-id="player-8"></div>
-                    <div class="player-info-container"
-                        style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
-                        id="player-8-info-container" data-pg-name="Player 8 info container">
-                        <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                            id="player-8-element-container" class="player-element-container"></div>
-                        <span
-                            style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
-                            id="player-8-name" data-pg-name="Player 8 name" class="player-name">Player #8</span>
+                <div id="player-8-container" data-pg-name="Player 8 container"
+                    style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-right: 29.5%; top: 388px; right: 0px;"
+                    class="player-container">
+                    <div id="drag-box-player-8-container">
+                        <div class="drag-box" id="drag-box-player-8"
+                            style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
+                            data-toggle="modal" data-target="#myModal" data-id="player-8"></div>
+                        <div class="player-info-container"
+                            style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
+                            id="player-8-info-container" data-pg-name="Player 8 info container">
+                            <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                                id="player-8-element-container" class="player-element-container"></div>
+                            <span
+                                style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
+                                id="player-8-name" data-pg-name="Player 8 name" class="player-name">Player #8</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="player-9-container" data-pg-name="Player 9 container"
-                style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-right: 5.5%; top: 298px; right: 0px"
-                class="player-container">
-                <div id="drag-box-player-9-container">
-                    <div class="drag-box" id="drag-box-player-9"
-                        style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
-                        data-toggle="modal" data-target="#myModal" data-id="player-9"></div>
-                    <div class="player-info-container"
-                        style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
-                        id="player-9-info-container" data-pg-name="Player 9 info container">
-                        <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                            id="player-9-element-container" class="player-element-container"></div>
-                        <span
-                            style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
-                            id="player-9-name" data-pg-name="Player 9 name" class="player-name">Player #9</span>
+                <div id="player-9-container" data-pg-name="Player 9 container"
+                    style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-right: 5.5%; top: 298px; right: 0px"
+                    class="player-container">
+                    <div id="drag-box-player-9-container">
+                        <div class="drag-box" id="drag-box-player-9"
+                            style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
+                            data-toggle="modal" data-target="#myModal" data-id="player-9"></div>
+                        <div class="player-info-container"
+                            style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
+                            id="player-9-info-container" data-pg-name="Player 9 info container">
+                            <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                                id="player-9-element-container" class="player-element-container"></div>
+                            <span
+                                style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
+                                id="player-9-name" data-pg-name="Player 9 name" class="player-name">Player #9</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="player-10-container" data-pg-name="Player 10 container"
-                style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; top: 75px; margin-left: 25%"
-                class="player-container">
-                <div id="drag-box-player-10-container">
-                    <div class="drag-box" id="drag-box-player-10"
-                        style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
-                        data-toggle="modal" data-target="#myModal" data-id="player-10"></div>
-                    <div class="player-info-container"
-                        style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
-                        id="player-10-info-container" data-pg-name="Player 10 info container">
-                        <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                            id="player-10-element-container" class="player-element-container"></div>
-                        <span
-                            style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
-                            id="player-10-name" data-pg-name="Player 10 name" class="player-name">Player #10</span>
+                <div id="player-10-container" data-pg-name="Player 10 container"
+                    style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; top: 75px; margin-left: 25%"
+                    class="player-container">
+                    <div id="drag-box-player-10-container">
+                        <div class="drag-box" id="drag-box-player-10"
+                            style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
+                            data-toggle="modal" data-target="#myModal" data-id="player-10"></div>
+                        <div class="player-info-container"
+                            style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
+                            id="player-10-info-container" data-pg-name="Player 10 info container">
+                            <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                                id="player-10-element-container" class="player-element-container"></div>
+                            <span
+                                style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
+                                id="player-10-name" data-pg-name="Player 10 name" class="player-name">Player #10</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div id="player-11-container" data-pg-name="Player 11 container"
-                style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-right: 25%; top: 75px; right: 0px;"
-                class="player-container">
-                <div id="drag-box-player-11-container">
-                    <div class="drag-box" id="drag-box-player-11"
-                        style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
-                        data-toggle="modal" data-target="#myModal" data-id="player-11"></div>
-                    <div class="player-info-container"
-                        style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
-                        id="player-11-info-container" data-pg-name="Player 11 info container">
-                        <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
-                            id="player-11-element-container" class="player-element-container"></div>
-                        <span
-                            style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
-                            id="player-11-name" data-pg-name="Player 11 name" class="player-name">Player #11</span>
+                <div id="player-11-container" data-pg-name="Player 11 container"
+                    style="height: 153px; width: 167px; margin-bottom: 12px; position: absolute; margin-right: 25%; top: 75px; right: 0px;"
+                    class="player-container">
+                    <div id="drag-box-player-11-container">
+                        <div class="drag-box" id="drag-box-player-11"
+                            style="background-image: url('/images/character-placeholder.png'); background-repeat: no-repeat; background-size: cover; width: 126px; height: 126px;"
+                            data-toggle="modal" data-target="#myModal" data-id="player-11"></div>
+                        <div class="player-info-container"
+                            style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px; /* position: absolute */ /* background-color: white */"
+                            id="player-11-info-container" data-pg-name="Player 11 info container">
+                            <div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url('/images/team-placeholder.png'); background-repeat: no-repeat; background-size: cover;"
+                                id="player-11-element-container" class="player-element-container"></div>
+                            <span
+                                style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;"
+                                id="player-11-name" data-pg-name="Player 11 name" class="player-name">Player #11</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="Left">
-            <div style="height: 80px; border: 6px solid;
-
-/* width: 277px */
-padding-left: 6px; padding-right: 6px; padding-bottom: 30px; margin-top: 82px; position: relative;
-
-/* margin-right: -6px */
-/* margin-left: auto */" id="formation-container" data-pg-name="Formation container" class="Formation">
+            <div style="height: 80px; border: 6px solid; padding-left: 6px; padding-right: 6px; padding-bottom: 30px; margin-top: 82px; position: relative;"
+                id="formation-container" data-pg-name="Formation container" class="Formation"
+                data-html2canvas-ignore="true">
                 <h1 id="formation-label" data-pg-name="Formation label"
                     style="font-family: 'Bebas Neue'; font-size: 36px;">
                     Formation</h1>
@@ -397,7 +395,7 @@ padding-left: 6px; padding-right: 6px; padding-bottom: 30px; margin-top: 82px; p
                 <img src="/images/team-placeholder.png" style="height: 155px; width: auto; margin-top: 2%;"
                     id="emblem-sprite" data-pg-name="Emblem sprite" />
                 <select onmousedown="if(this.options.length>8){this.size=6;}" onblur="this.size=0;" id="emblem-dropdown"
-                    data-pg-name="Emblem dropdown"
+                    data-pg-name="Emblem dropdown" data-html2canvas-ignore="true"
                     style="font-family: Segoe UI Regular; font-size: 24px; display: block; border: 6px solid; width: 100%; position: absolute; padding: 1px 3px; margin-top: -15px; background-color: white; z-index: 1;"
                     data-dropup-auto="false" onchange="'this.size=0;', updateSprite('emblem')"></select>
             </div>
@@ -414,7 +412,8 @@ padding-left: 6px; padding-right: 6px; padding-bottom: 30px; margin-top: 82px; p
                     data-dropup-auto="false" onchange="'this.size=0;', updateSprite('coach')"></select>
             </div>
             <div id="preferences-container" data-pg-name="Preferences container"
-                style="width: 65%; margin-left: auto; margin-top: -39px;" class="Preferences">
+                style="width: 65%; margin-left: auto; margin-top: -39px;" class="Preferences"
+                data-html2canvas-ignore="true">
                 <h1 id="preferences-label" data-pg-name="Preferences label"
                     style="font-family: 'Bebas Neue'; font-size: 36px; margin-bottom: -2px; text-align: center;">
                     Preferences </h1>
@@ -434,7 +433,8 @@ padding-left: 6px; padding-right: 6px; padding-bottom: 30px; margin-top: 82px; p
                         <input id="japanese-names-input" data-pg-name="Japanese names input" type="radio"
                             name="language" style="vertical-align: sub;">
                     </div>
-                    <button id="save-button" class="button">Save as image</button>
+                    <button id="save-button" class="button" data-toggle="modal" data-target="#image-modal">Save as
+                        image</button>
                     <button id="reset-button" class="button">Reset</button>
                 </div>
             </div>
@@ -540,7 +540,6 @@ padding-left: 6px; padding-right: 6px; padding-bottom: 30px; margin-top: 82px; p
             </div>
         </div>
     </div>
-    <!--a id="downloadAnchorElem" style="display:none"></a-->
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
@@ -556,16 +555,30 @@ padding-left: 6px; padding-right: 6px; padding-bottom: 30px; margin-top: 82px; p
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="image-modal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Your image</h4>
+                </div>
+                <div class="modal-body" id="image-modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <!-- <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script> -->
     <script src="js/teams.js"></script>
     <script src="js/formations.js"></script>
     <script src="js/emblems.js"></script>
     <script src="js/coaches.js"></script>
     <script src="js/players.js"></script>
     <script src="js/he.js"></script>
+    <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
     <script src="js/script.js"></script>
 
 </body>

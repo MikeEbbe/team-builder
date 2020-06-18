@@ -17,21 +17,25 @@ function addButtonActions() {
     });
 
     // Render coaches, players and emblems again when changing language to English 
-    $("#english-names-input").click(function () {
+    $("#english-names-input").unbind("click").click(function () {
         renderCoaches(coaches, "English");
         renderPlayers(players, "English");
         renderEmblems(emblems, "English");
     });
 
     // Render coaches, players and emblems again when changing language to Japanese
-    $("#japanese-names-input").click(function () {
+    $("#japanese-names-input").unbind("click").click(function () {
         renderCoaches(coaches, "Japanese");
         renderPlayers(players, "Japanese");
         renderEmblems(emblems, "Japanese");
     });
 
-    $("#reset-button").click(function () {
+    $("#reset-button").unbind("click").click(function () {
         clearPlayers();
+    });
+
+    $("#save-button").unbind("click").click(function () {
+        saveTeam();
     });
 }
 
@@ -165,8 +169,8 @@ function renderCoaches(coaches, language) {
 function changeFormation() {
     var formationDropdown = document.getElementById('formation-dropdown');
     var selectedOption = formationDropdown.options[formationDropdown.selectedIndex];
-    
-    $(".Field").html(he.decode(selectedOption.dataset.html));
+
+    $("#field-players-container").html(he.decode(selectedOption.dataset.html));
 
     addButtonActions();
 }
@@ -218,7 +222,7 @@ function changePlayer(newPlayer) {
     htmlInsert +=
         '<div id="drag-box-' + playerToChangeId + '-container">' +
         '<div class="drag-box" id="drag-box-' + playerToChangeId + '" style="text-align: center; width: 126px; height: 126px;" data-toggle="modal" data-target="#myModal"  data-id="' + playerToChangeId + '">' +
-        '<img src="' + newPlayerSprite + '" style="height: 126px;" id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="sub-sprite"/>' +
+        '<img src="' + newPlayerSprite + '" style="height: 126px; max-width: 126px" id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="sub-sprite"/>' +
         '</div>' +
         '<div class="sub-info-container" style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px;" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">' +
         '<div style="height: 100%; width: 28px; border-right: 2px solid;" id="' + playerToChangeId + '-element-container">' +
@@ -260,6 +264,23 @@ function clearPlayers() {
             '</div>';
     }
     addButtonActions();
+}
+
+function saveTeam() {
+    var element = document.getElementById("body-grid");
+    var modalImage = $("#image-modal-body");
+    modalImage.html('<img src="/images/loading.gif" style="width: 100%; height: auto;"/>');
+    html2canvas(element, {
+        allowTaint: true,
+        x: 200,
+        /*responsive: true,*/
+        onrendered: function (canvas) {
+            canvas.setAttribute("id", "canvas");
+            canvas.getContext('2d').imageSmoothingEnabled = false;
+            modalImage.html('<p style="text-align: center; font-weight: bold;">To save: right click + "Save image as"</p>')
+            modalImage.append(canvas);
+        }
+    });
 }
 
 // Initialize

@@ -149,6 +149,11 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     margin-right: 10px;
 }
 
+#canvas {
+    height: auto;
+    width: 100%;
+}
+
 /* Modal */
 article,
 aside,
