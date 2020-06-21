@@ -2,10 +2,7 @@
 var playerToChange;
 var playerToChangeId;
 
-/**
- * Adds actions to buttons
- */
-function addButtonActions() {
+function addPlayerBoxActions() {
     // Select all player boxes (11 on the pitch and 5 on the bench) and store into a variable  
     var fieldPlayers = Array.from(document.getElementsByClassName('drag-box'));
     // Collect data for each player when clicked on
@@ -15,7 +12,12 @@ function addButtonActions() {
             playerToChangeId = fieldPlayer.dataset.id;
         });
     });
+}
 
+/**
+ * Adds actions to buttons
+ */
+function addButtonActions() {
     // Render coaches, players and emblems again when changing language to English 
     $("#english-names-input").unbind("click").click(function () {
         renderCoaches(coaches, "English");
@@ -172,7 +174,7 @@ function changeFormation() {
 
     $("#field-players-container").html(he.decode(selectedOption.dataset.html));
 
-    addButtonActions();
+    addPlayerBoxActions();
 }
 
 /**
@@ -236,7 +238,7 @@ function changePlayer(newPlayer) {
     playerBoxToChange.outerHTML = htmlInsert;
 
     // Add button actions again to make new player box clickable
-    addButtonActions();
+    addPlayerBoxActions();
 }
 
 function clearPlayers() {
@@ -263,13 +265,13 @@ function clearPlayers() {
             '</div>' +
             '</div>';
     }
-    addButtonActions();
+    addPlayerBoxActions();
 }
 
 function saveTeam() {
     var element = document.getElementById("body-grid");
     var modalImage = $("#image-modal-body");
-    modalImage.html('<img src="/images/loading.gif" style="width: 100%; height: auto;"/>');
+    modalImage.html('<img src="/images/loading.gif" style="width: 100%; height: 622px;"/>');
     html2canvas(element, {
         allowTaint: true,
         x: 200,
@@ -288,4 +290,5 @@ renderFormations(formations);
 renderCoaches(coaches, "English");
 renderEmblems(emblems, "English");
 renderPlayers(players, "English");
+addPlayerBoxActions();
 addButtonActions();

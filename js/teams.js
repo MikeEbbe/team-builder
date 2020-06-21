@@ -198,6 +198,126 @@ var teams = [
         "Game": "IE2"
     },
     {
+        "EnglishName": "Inazuma National",
+        "JapaneseName": "Inazuma Japan",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/8/81/Inazuma_Japan_emblem_new.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Neo National",
+        "JapaneseName": "Neo Japan",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/c/c3/Neo_Japan_Emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Big Waves",
+        "JapaneseName": "Big Waves",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/a/a6/Big_Waves_emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Desert Lions",
+        "JapaneseName": "Desert Lion",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/0/0e/Desert_Lion_emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Fire Dragon",
+        "JapaneseName": "Fire Dragon",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/0/09/Fire_Dragon_emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Knights of Queen",
+        "JapaneseName": "Knights of Queen",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/c/c1/Knights_Of_Queen_emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Team D",
+        "JapaneseName": "Team K",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/0/09/Team_K_emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "The Empire",
+        "JapaneseName": "The Empire",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/d/d1/The_Empire_emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Unicorns",
+        "JapaneseName": "Unicorn",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/47/Unicorn_Emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Orpheus",
+        "JapaneseName": "Orpheus",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/e/e7/Orpheus_Emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "The Kingdom",
+        "JapaneseName": "The Kingdom",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/1/12/The_Kingdom_Emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Team Zoolan",
+        "JapaneseName": "Team Garshield",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/f/f2/Team_Garshield_Emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Little Gigantes",
+        "JapaneseName": "Little Gigant",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/e/ea/Little_Gigant_Emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Rose Griffons",
+        "JapaneseName": "Rose Griffon",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/70/Rose_Griffon_symbol.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Red Matador",
+        "JapaneseName": "Red Matador",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/42/Red_Matador_symbol2.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Brocken Brigade",
+        "JapaneseName": "Brockenborg",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/1/17/Brocken_Bogue_emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "The Cape Crusaders",
+        "JapaneseName": "The Great Horn",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/a/aa/The_Great_Horn_emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Team Ogre",
+        "JapaneseName": "Ogre",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/a/a8/Ogre_Emblem.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Apostles from the Sky",
+        "JapaneseName": "Tenkuu no Shito",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/f/fd/Tenkuu_no_Shito_symbol.png",
+        "Game": "IE3"
+    },
+    {
+        "EnglishName": "Devil Army Z",
+        "JapaneseName": "Makai Gundan Z",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/74/Makai_Gundan.png",
+        "Game": "IE3"
+    },
+    {
         "EnglishName": "Scouts",
         "JapaneseName": "Scouts",
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/4d/Inazuma_Eleven_Wi-Fi_emblem.png",
