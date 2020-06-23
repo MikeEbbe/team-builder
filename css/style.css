@@ -12,7 +12,7 @@
     grid-template-rows: 1fr 8fr;
     gap: 10px 1px;
     grid-template-areas: "Name" "Field";
-    grid-area: Field;
+    position: relative;
 }
 
 .Field {
@@ -88,12 +88,6 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     border: solid black;
     border-width: 3px 3px 0 3px;
     font-weight: normal;
-}
-
-.modal-player-position, .modal-player-element, .modal-player-gender {
-    height: 24px;
-    width: 36px;
-    background-image: url("https://cdn-3d.niceshops.com/upload/image/product/large/default/vallejo-game-air-bloody-red-17-ml-278443-nl.jpg");
 }
 
 .modal-player-props-container {
@@ -186,6 +180,9 @@ body {
     line-height: 1.42857143;
     color: #333333;
     background-color: #ffffff;
+    background-image: url('../images/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 a {
@@ -1259,12 +1256,30 @@ button.close {
 }
 
 .player-container, .sub-container {
-    position: relative;
+    height: 153px;
+    width: 193px;
+    margin-bottom: 12px;
+}
+
+.player-container {
+    position: absolute;
 }
 
 .drag-box {
-    margin: 0 auto;
+    /* margin: 0 auto; */
+    margin-left: 43px;
+    background-image: url('/images/character-placeholder.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 126px;
+    height: 126px;
 }
+
+/*.sub-container > div > div {
+    border-top: 2px solid;
+    border-right: 2px solid;
+    border-left: 2px solid;
+}*/
 
 /* drag box subtitles */
 #drag-box-sub-1, #drag-box-sub-2, #drag-box-sub-3, #drag-box-sub-4, #drag-box-sub-5 {
@@ -1273,15 +1288,52 @@ button.close {
     border-width: 2px 2px 0px 2px;
 }
 
+.drag-box-container {
+    text-align: center;
+}
+
 .player-info-container, .sub-info-container {
     position: absolute;
-    background-color: white;
+    background-image: url('../images/player-name-background.png');
+    background-size: cover;
+    width: 173px;
+    height: 28px;
+    margin-top: -4px;
+    border-radius: 20px;
+    /* text-align: center; */
+    margin-left: 17px;
 }
+
+.player-element-container, .sub-element-container {
+    height: 38px;
+    width: 38px;
+    background-image: url('/images/team-placeholder.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    margin-top: -6px;
+    margin-left: -16px;
+}
+
+/*.player-name-container, .subtitle-name-container {
+    width: 193px;
+    margin-left: -19px;
+}*/
 
 .player-name, .subtitle-name {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-family: Segoe UI Regular;
+    font-size: 24px;
+    display: block;
+    position: relative;
+    color: white;
+    /* width: 142px; */
+    /* margin: 0 auto; */
+    margin-top: -5px;
+    padding-left: 23px;
+    padding-right: 11px;
 }
 
 .button:hover {
@@ -1289,7 +1341,7 @@ button.close {
 }
 
 .button {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
     background-color: #008CBA;
     border: none;

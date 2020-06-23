@@ -221,16 +221,30 @@ function changePlayer(newPlayer) {
     // Define new player box
     var playerBoxToChange = document.getElementById(playerToChange.id).parentElement;
     var htmlInsert = "";
+
+    /*
+        <div id="drag-box-player-11-container">
+            <div class="drag-box" id="drag-box-player-11" data-toggle="modal" data-target="#myModal"
+            data-id="player-11"></div>
+            <div class="player-info-container" id="player-11-info-container"
+            data-pg-name="Player 11 info container">
+                <div id="player-11-element-container" class="player-element-container"></div>
+                <span id="player-11-name" data-pg-name="Player 11 name" class="player-name">Player
+                #11</span>
+            </div>
+        </div>
+    */
+
     htmlInsert +=
-        '<div id="drag-box-' + playerToChangeId + '-container">' +
-        '<div class="drag-box" id="drag-box-' + playerToChangeId + '" style="text-align: center; width: 126px; height: 126px;" data-toggle="modal" data-target="#myModal"  data-id="' + playerToChangeId + '">' +
+        '<div id="drag-box-' + playerToChangeId + '-container" class="drag-box-container">' +
+        '<div class="drag-box" id="drag-box-' + playerToChangeId + '" data-toggle="modal" data-target="#myModal"  data-id="' + playerToChangeId + '" style="background-image: none">' +
         '<img src="' + newPlayerSprite + '" style="height: 126px; max-width: 126px" id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="sub-sprite"/>' +
         '</div>' +
-        '<div class="sub-info-container" style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px;" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">' +
-        '<div style="height: 100%; width: 28px; border-right: 2px solid;" id="' + playerToChangeId + '-element-container">' +
+        '<div class="sub-info-container" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">' +
+        '<div id="' + playerToChangeId + '-element-container" class="player-element-container" style="background-image: none">' +
         '<img style="width: auto; height: 100%;" id="' + playerToChangeId + '-element" data-pg-name="' + playerToChangeId + '-element" class="subtitle-element" src="' + newPlayerTeamSprite + '"/>' +
         '</div>' +
-        '<span style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;" id="' + playerToChangeId + '-name" data-pg-name="' + playerToChangeId + '-name" class="subtitle-name">' + newPlayerName + '</span>' +
+        '<span id="' + playerToChangeId + '-name" data-pg-name="' + playerToChangeId + '-name" class="subtitle-name">' + newPlayerName + '</span>' +
         '</div>' +
         '</div>';
 
@@ -247,21 +261,21 @@ function clearPlayers() {
     for (var i = 0; i < playerContainers.length; i++) {
         var j = i + 1;
         playerContainers[i].innerHTML =
-            '<div id="drag-box-player-' + j + '-container">' +
-            '<div class="drag-box" id="drag-box-player-' + j + '" style="background-image: url(\'/images/character-placeholder.png\'); background-repeat: no-repeat; background-size: cover;width: 126px; height: 126px;" data-toggle="modal" data-target="#myModal"  data-id="player-' + j + '"></div>' +
-            '<div class="player-info-container" style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px;" id="player-' + j + '-info-container" data-pg-name="player-' + j + '-info-container">' +
-            '<div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url(\'/images/team-placeholder.png\'); background-repeat: no-repeat; background-size: cover;" class="player-element-container" id="player-' + j + '-element-container"></div>' +
-            '<span style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;" id="player-' + j + '-name" data-pg-name="player-' + j + '-name" class="player-name">Player #' + j + '</span>' +
+            '<div id="drag-box-player-' + j + '-container" class="drag-box-container">' +
+            '<div class="drag-box" id="drag-box-player-' + j + '" data-toggle="modal" data-target="#myModal"  data-id="player-' + j + '"></div>' +
+            '<div class="player-info-container" id="player-' + j + '-info-container" data-pg-name="player-' + j + '-info-container">' +
+            '<div class="player-element-container" id="player-' + j + '-element-container"></div>' +
+            '<span id="player-' + j + '-name" data-pg-name="player-' + j + '-name" class="player-name">Player #' + j + '</span>' +
             '</div>' +
             '</div>';
     } for (var k = 0; k < subContainers.length; k++) {
         var l = k + 1;
         subContainers[k].innerHTML =
-            '<div id="drag-box-sub-' + l + '-container">' +
-            '<div class="drag-box" id="drag-box-sub-' + l + '" style="background-image: url(\'/images/character-placeholder.png\'); background-repeat: no-repeat; background-size: cover;width: 126px; height: 126px;" data-toggle="modal" data-target="#myModal"  data-id="sub-' + l + '"></div>' +
-            '<div class="sub-info-container" style="border: 2px solid; width: 163px; height: 28px; margin-top: -4px;" id="sub-' + l + '-info-container" data-pg-name="sub-' + l + '-info-container">' +
-            '<div style="height: 100%; width: 28px; border-right: 2px solid; background-image: url(\'/images/team-placeholder.png\'); background-repeat: no-repeat; background-size: cover;" class="sub-element-container" id="sub-' + l + '-element-container"></div>' +
-            '<span style="font-family: Segoe UI Regular; font-size: 24px; display: block; width: calc(100% - 32px); height: auto; margin-left: 32px; margin-top: -32px;" id="sub-' + l + '-name" data-pg-name="sub-' + l + '-name" class="subtitle-name">Sub #' + l + '</span>' +
+            '<div id="drag-box-sub-' + l + '-container"  class="drag-box-container">' +
+            '<div class="drag-box" id="drag-box-sub-' + l + '" data-toggle="modal" data-target="#myModal"  data-id="sub-' + l + '"></div>' +
+            '<div class="sub-info-container" id="sub-' + l + '-info-container" data-pg-name="sub-' + l + '-info-container">' +
+            '<div class="sub-element-container" id="sub-' + l + '-element-container"></div>' +
+            '<span id="sub-' + l + '-name" data-pg-name="sub-' + l + '-name" class="subtitle-name">Sub #' + l + '</span>' +
             '</div>' +
             '</div>';
     }

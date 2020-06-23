@@ -12905,7 +12905,7 @@ var players = [
         "Gender": "Female",
         "Position": "DF",
         "Element": "Wood",
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/a/a3/Kouka.png/revision/latest?cb=20200614171927",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/a/a3/Kouka.png/revision/latest?cb=20200623153058",
         "EnglishTeam": "Super Triple C",
         "JapaneseTeam": "Osaka Gals CCC",
         "TeamSprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/5/53/CCC_Osaka_Gals_emblem.png",
