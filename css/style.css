@@ -103,17 +103,21 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     background-image: linear-gradient(#aab7d7 58%, #58688e 42%);
 }
 
-.modal-player-sprite-container:hover .modal-player-sprite {
+.modal-player-sprite-container:hover .modal-player-sprite, .drag-box-container:hover .drag-box {
     cursor: pointer;
     opacity: 0.3;
 }
 
-.modal-player-sprite-container:hover .icon {
+.modal-player-sprite-container:hover .icon, .drag-box-container:hover .icon {
     cursor: pointer;
     opacity: 1;
 }
 
-.modal-player-sprite {
+.drag-box-container {
+    position: relative;
+}
+
+.modal-player-sprite, .drag-box {
     font-size: 16px;
     opacity: 1;
     display: block;
@@ -133,7 +137,16 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     -ms-transform: translate(-50%, -50%);
     text-align: center;
     color: green;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
     font-size: 48px;
+    pointer-events: none;
+}
+
+.drag-box-container > .icon {
+    color: white;
+    font-size: 36px;
+    top: 52%;
+    left: 55%;
 }
 
 .modal-team-sprite {

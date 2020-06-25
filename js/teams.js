@@ -2,7 +2,7 @@ var teams = [
     {
         "EnglishName": "Raimon",
         "JapaneseName": "Raimon",
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/4a/Raimon_Logo_Sprite.png/revision/latest?cb=20200515174337",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/47/Raimon_emblem_new.png/revision/latest?cb=20171115062613",
         "Game": "IE1"
     },
     {
@@ -32,7 +32,7 @@ var teams = [
     {
         "EnglishName": "Royal Academy",
         "JapaneseName": "Teikoku Gakuen",
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/b/b4/Teikoku_emblem_sprite.png/revision/latest?cb=20200515175542",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/b/b4/Teikoku_Emblem.png/revision/latest?cb=20130324101801",
         "Game": "IE1"
     },
     {
@@ -50,13 +50,13 @@ var teams = [
     {
         "EnglishName": "Kirkwood",
         "JapaneseName": "Kidokawa Seishuu",
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/f/fe/Kidokawa_Seishuu_sprite.png/revision/latest?cb=20200515175941",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/9/9e/Kidokawa_Seishuu_%28GO%29_emblem.png/revision/latest?cb=20171126183137",
         "Game": "IE1"
     },
     {
         "EnglishName": "Zeus",
         "JapaneseName": "Zeus",
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/6/67/Zeus_emblem_sprite.png/revision/latest?cb=20200515180136",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/5/59/Zeus_Emblem.png",
         "Game": "IE1"
     },
     {

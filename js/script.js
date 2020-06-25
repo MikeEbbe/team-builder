@@ -240,6 +240,7 @@ function changePlayer(newPlayer) {
         '<div class="drag-box" id="drag-box-' + playerToChangeId + '" data-toggle="modal" data-target="#myModal"  data-id="' + playerToChangeId + '" style="background-image: none">' +
         '<img src="' + newPlayerSprite + '" style="height: 126px; max-width: 126px" id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="sub-sprite"/>' +
         '</div>' +
+        '<div class="icon">✎</div>' +
         '<div class="sub-info-container" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">' +
         '<div id="' + playerToChangeId + '-element-container" class="player-element-container" style="background-image: none">' +
         '<img style="width: auto; height: 100%;" id="' + playerToChangeId + '-element" data-pg-name="' + playerToChangeId + '-element" class="subtitle-element" src="' + newPlayerTeamSprite + '"/>' +
@@ -258,32 +259,53 @@ function changePlayer(newPlayer) {
 function clearPlayers() {
     var playerContainers = $('.player-container');
     var subContainers = $('.sub-container');
+
+    // Clear all field players
     for (var i = 0; i < playerContainers.length; i++) {
         var j = i + 1;
         playerContainers[i].innerHTML =
             '<div id="drag-box-player-' + j + '-container" class="drag-box-container">' +
             '<div class="drag-box" id="drag-box-player-' + j + '" data-toggle="modal" data-target="#myModal"  data-id="player-' + j + '"></div>' +
+            '<div class="icon">✎</div>' +
             '<div class="player-info-container" id="player-' + j + '-info-container" data-pg-name="player-' + j + '-info-container">' +
             '<div class="player-element-container" id="player-' + j + '-element-container"></div>' +
             '<span id="player-' + j + '-name" data-pg-name="player-' + j + '-name" class="player-name">Player #' + j + '</span>' +
             '</div>' +
             '</div>';
+
+    // Clear all bench players
     } for (var k = 0; k < subContainers.length; k++) {
         var l = k + 1;
         subContainers[k].innerHTML =
             '<div id="drag-box-sub-' + l + '-container"  class="drag-box-container">' +
             '<div class="drag-box" id="drag-box-sub-' + l + '" data-toggle="modal" data-target="#myModal"  data-id="sub-' + l + '"></div>' +
+            '<div class="icon">✎</div>' +
             '<div class="sub-info-container" id="sub-' + l + '-info-container" data-pg-name="sub-' + l + '-info-container">' +
             '<div class="sub-element-container" id="sub-' + l + '-element-container"></div>' +
             '<span id="sub-' + l + '-name" data-pg-name="sub-' + l + '-name" class="subtitle-name">Sub #' + l + '</span>' +
             '</div>' +
             '</div>';
     }
+    // Reset formation
+    document.getElementById('formation-dropdown').selectedIndex = 2;
+    changeFormation();
+
+    // Reset emblem
+    document.getElementById('emblem-dropdown').selectedIndex = 0;
+    updateSprite('emblem');
+
+    // Reset coach
+    document.getElementById('coach-dropdown').selectedIndex = 0;
+    updateSprite('coach');
+
+    // Reset name
+    document.getElementById('team-name').value = "";
+
     addPlayerBoxActions();
 }
 
 function saveTeam() {
-    var element = document.getElementById("body-grid");
+    var element = document.getElementsByTagName('BODY')[0];
     var modalImage = $("#image-modal-body");
     modalImage.html('<img src="/images/loading.gif" style="width: 100%; height: 622px;"/>');
     html2canvas(element, {
@@ -306,3 +328,4 @@ renderEmblems(emblems, "English");
 renderPlayers(players, "English");
 addPlayerBoxActions();
 addButtonActions();
+document.getElementById('formation-dropdown').selectedIndex = 2;
