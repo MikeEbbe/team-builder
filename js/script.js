@@ -279,13 +279,14 @@ function loadSprite(file) {
 
 function addCustomPlayer() {
     var name = $('#custom-player-name').val();
+    var cleanName = name.toLowerCase().replace(/[^0-9a-z]/gi, '');
     var sprite = customSprite;
     var container = $('#custom-player-panel');
 
     var htmlInsert = '<div class="modal-player-box">' +
-        '<p class="modal-player-name">' + name + '</p>' +
-        '<div style="3px solid black;" class="modal-player-sprite-container" id="custom-player-' + name + '" data-dismiss="modal" data-name="' + name + '" data-sprite="' + sprite + '">' +
-        '<img src="' + sprite + '" alt="' + name + '.png" class="modal-player-sprite"/>' +
+        '<p class="modal-player-name">' + name.replace(/<|>/g, '') + '</p>' +
+        '<div style="3px solid black;" class="modal-player-sprite-container custom-modal-player-sprite-container" id="custom-player-' + cleanName + '" data-dismiss="modal" data-name="' + cleanName + '" data-sprite="' + sprite + '">' +
+        '<img src="' + sprite + '" alt="' + cleanName + '.png" class="modal-player-sprite"/>' +
         '<div class="icon">+</div>' +
         '</div>' +
         '</div>';
@@ -293,7 +294,7 @@ function addCustomPlayer() {
     container.prepend(htmlInsert);
 
     // TODO changePlayer() aanroepen
-    var customPlayer = document.getElementById('custom-player-' + name);
+    var customPlayer = document.getElementById('custom-player-' + cleanName);
     customPlayer.addEventListener("click", () => {
         changePlayer(customPlayer);
     });
@@ -370,6 +371,16 @@ function saveTeam() {
         }
     });
 }
+
+$(document).ready(function () {
+    // Remove webhostapp image 
+    $('body > div:last').remove();
+    //Remove analitycs script
+    $('body > script:last').remove();
+    // Remove cookies script
+    $('body > script:last').remove();
+
+})
 
 // Initialize
 renderFormations(formations);

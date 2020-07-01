@@ -161,9 +161,9 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     width: 100%;
 }
 
-/*#custom-player-panel {
-    display: contents;
-}*/
+.custom-modal-player-sprite-container {
+    border: 3px solid black;
+}
 
 /* Modal */
 article,
