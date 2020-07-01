@@ -1,5 +1,11 @@
 var teams = [
     {
+        "EnglishName": "Custom players",
+        "JapaneseName": "Custom players",
+        "Sprite": "https://lh3.googleusercontent.com/proxy/ME4Hz-eH2_3jzQt88rCnefmBf8b1mXm0aHk2xs1deGlg78Iq0xg1nENCHfQj0cBotuY3gI8hmkh4jtkcNhAykwJENWoqBAuR",
+        "Game": "Custom"
+    },
+    {
         "EnglishName": "Raimon",
         "JapaneseName": "Raimon",
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/47/Raimon_emblem_new.png/revision/latest?cb=20171115062613",
@@ -86,7 +92,7 @@ var teams = [
     {
         "EnglishName": "Scouts",
         "JapaneseName": "Scouts",
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/4d/Inazuma_Eleven_Wi-Fi_emblem.png",
+        "Sprite": "/images/scout.png",
         "Game": "IE1"
     },
     {
@@ -194,7 +200,7 @@ var teams = [
     {
         "EnglishName": "Scouts",
         "JapaneseName": "Scouts",
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/4d/Inazuma_Eleven_Wi-Fi_emblem.png",
+        "Sprite": "/images/scout.png",
         "Game": "IE2"
     },
     {
@@ -320,7 +326,7 @@ var teams = [
     {
         "EnglishName": "Scouts",
         "JapaneseName": "Scouts",
-        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/4d/Inazuma_Eleven_Wi-Fi_emblem.png",
+        "Sprite": "/images/scout.png",
         "Game": "IE3"
     }
 ];

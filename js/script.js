@@ -1,6 +1,7 @@
 // Global variables
 var playerToChange;
 var playerToChangeId;
+var customSprite;
 
 function addPlayerBoxActions() {
     // Select all player boxes (11 on the pitch and 5 on the bench) and store into a variable  
@@ -39,8 +40,11 @@ function addButtonActions() {
     $("#save-button").unbind("click").click(function () {
         saveTeam();
     });
-}
 
+    $('#add-button').unbind('click').click(function () {
+        addCustomPlayer();
+    })
+}
 
 /**
  * Render players to choose from inside modal
@@ -62,10 +66,15 @@ function renderPlayers(players, language) {
         }
     ];
 
+    // Add Custom players heading
+    htmlInsert += '<h4 class="game-title">Custom</h4>' +
+        '<button class="accordion"><img src="https://image.flaticon.com/icons/png/512/61/61456.png" class="modal-team-sprite">Custom players</button>' +
+        '<div id="custom-player-panel" class="panel"><div style="display: inline-grid;"><input id="custom-player-name" placeholder="Player name" style="width: max-content;"><input type="file" id="custom-player-file" accept="image/*" onchange="loadSprite(event)" style="width: max-content;"><input type="submit" id="add-button" value="Add player" style="width: max-content;"></div></div>';
+
     // Cycle through all games and add a heading for each game
     for (var i = 0; i < Object.keys(games[0]).length; i++) {
         htmlInsert +=
-            '<h4 class="game-title">' + Object.values(games[0])[i]; + '</button>';
+            '<h4 class="game-title">' + Object.values(games[0])[i] + '</h4>';
 
         // Cycle through all teams and add an accordion panel for each team
         for (var j = 0; j < teams.length; j++) {
@@ -108,6 +117,7 @@ function renderPlayers(players, language) {
 
     // Initialize modal script
     initializeModal();
+    addModalPlayerActions();
 }
 
 /**
@@ -128,7 +138,9 @@ function initializeModal() {
             }
         });
     }
+}
 
+function addModalPlayerActions() {
     // Add change player action to all modal player boxes
     var modalPlayers = Array.from(document.getElementsByClassName('modal-player-sprite-container'));
     modalPlayers.forEach(modalPlayer => {
@@ -148,8 +160,11 @@ function renderFormations(formations) {
     // Add a dropdown option for each formation, and store some information in data attributes
     for (var i = 0; i < formations.length; i++) {
         var formation = formations[i];
-        $(formationDropdown).append("<option value='" + formation.name + "' data-html='" + he.encode(formation.html) + "' class='formation-option'>" + formation.name + "</option>");
+        $(formationDropdown).append('<option value="' + formation.name + '" data-html="' + he.encode(formation.html) + '" class="formation-option">' + formation.name + '</option>');
     }
+
+    // Select 4-4-2 (F-Basic)
+    document.querySelectorAll('[value="4-4-2 (F-Basic)"]')[0].selected = true;
 }
 
 /**
@@ -222,29 +237,23 @@ function changePlayer(newPlayer) {
     var playerBoxToChange = document.getElementById(playerToChange.id).parentElement;
     var htmlInsert = "";
 
-    /*
-        <div id="drag-box-player-11-container">
-            <div class="drag-box" id="drag-box-player-11" data-toggle="modal" data-target="#myModal"
-            data-id="player-11"></div>
-            <div class="player-info-container" id="player-11-info-container"
-            data-pg-name="Player 11 info container">
-                <div id="player-11-element-container" class="player-element-container"></div>
-                <span id="player-11-name" data-pg-name="Player 11 name" class="player-name">Player
-                #11</span>
-            </div>
-        </div>
-    */
-
     htmlInsert +=
         '<div id="drag-box-' + playerToChangeId + '-container" class="drag-box-container">' +
         '<div class="drag-box" id="drag-box-' + playerToChangeId + '" data-toggle="modal" data-target="#myModal"  data-id="' + playerToChangeId + '" style="background-image: none">' +
         '<img src="' + newPlayerSprite + '" style="height: 126px; max-width: 126px" id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="sub-sprite"/>' +
         '</div>' +
         '<div class="icon">✎</div>' +
-        '<div class="sub-info-container" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">' +
-        '<div id="' + playerToChangeId + '-element-container" class="player-element-container" style="background-image: none">' +
-        '<img style="width: auto; height: 100%;" id="' + playerToChangeId + '-element" data-pg-name="' + playerToChangeId + '-element" class="subtitle-element" src="' + newPlayerTeamSprite + '"/>' +
-        '</div>' +
+        '<div class="sub-info-container" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">';
+    if (newPlayerTeamSprite) {
+        console.log('yes team');
+        htmlInsert +=
+            '<div id="' + playerToChangeId + '-element-container" class="player-element-container" style="background-image: none">' +
+            '<img style="width: auto; height: 100%;" id="' + playerToChangeId + '-element" data-pg-name="' + playerToChangeId + '-element" class="subtitle-element" src="' + newPlayerTeamSprite + '"/>' +
+            '</div>';
+    } else {
+        console.log('no team');
+    }
+    htmlInsert +=
         '<span id="' + playerToChangeId + '-name" data-pg-name="' + playerToChangeId + '-name" class="subtitle-name">' + newPlayerName + '</span>' +
         '</div>' +
         '</div>';
@@ -254,6 +263,47 @@ function changePlayer(newPlayer) {
 
     // Add button actions again to make new player box clickable
     addPlayerBoxActions();
+}
+
+function loadSprite(file) {
+    var input = file.target;
+
+    var reader = new FileReader();
+    reader.onload = function () {
+        var dataURL = reader.result;
+
+        customSprite = dataURL
+    };
+    reader.readAsDataURL(input.files[0]);
+}
+
+function addCustomPlayer() {
+    var name = $('#custom-player-name').val();
+    var sprite = customSprite;
+    var container = $('#custom-player-panel');
+
+    var htmlInsert = '<div class="modal-player-box">' +
+        '<p class="modal-player-name">' + name + '</p>' +
+        '<div style="3px solid black;" class="modal-player-sprite-container" id="custom-player-' + name + '" data-dismiss="modal" data-name="' + name + '" data-sprite="' + sprite + '">' +
+        '<img src="' + sprite + '" alt="' + name + '.png" class="modal-player-sprite"/>' +
+        '<div class="icon">+</div>' +
+        '</div>' +
+        '</div>';
+
+    container.prepend(htmlInsert);
+
+    // TODO changePlayer() aanroepen
+    var customPlayer = document.getElementById('custom-player-' + name);
+    customPlayer.addEventListener("click", () => {
+        changePlayer(customPlayer);
+    });
+
+    var panel = document.getElementById('custom-player-panel');
+    if (panel.style.maxHeight) {
+        panel.style.maxHeight = '130px';
+    } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+    }
 }
 
 function clearPlayers() {
@@ -273,7 +323,7 @@ function clearPlayers() {
             '</div>' +
             '</div>';
 
-    // Clear all bench players
+        // Clear all bench players
     } for (var k = 0; k < subContainers.length; k++) {
         var l = k + 1;
         subContainers[k].innerHTML =
@@ -328,4 +378,3 @@ renderEmblems(emblems, "English");
 renderPlayers(players, "English");
 addPlayerBoxActions();
 addButtonActions();
-document.getElementById('formation-dropdown').selectedIndex = 2;

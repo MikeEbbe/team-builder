@@ -161,6 +161,10 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     width: 100%;
 }
 
+/*#custom-player-panel {
+    display: contents;
+}*/
+
 /* Modal */
 article,
 aside,
