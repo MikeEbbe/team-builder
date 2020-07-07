@@ -3,61 +3,17 @@ var playerToChange;
 var playerToChangeId;
 var customSprite;
 
-function addPlayerBoxActions() {
-    // Select all player boxes (11 on the pitch and 5 on the bench) and store into a variable  
-    var fieldPlayers = Array.from(document.getElementsByClassName('drag-box'));
-    // Collect data for each player when clicked on
-    fieldPlayers.forEach(fieldPlayer => {
-        fieldPlayer.addEventListener("click", () => {
-            playerToChange = fieldPlayer;
-            playerToChangeId = fieldPlayer.dataset.id;
-        });
-    });
-}
-
-/**
- * Adds actions to buttons
- */
-function addButtonActions() {
-    // Render coaches, players and emblems again when changing language to English 
-    $("#english-names-input").unbind("click").click(function () {
-        renderCoaches(coaches, "English");
-        renderPlayers(players, "English");
-        renderEmblems(emblems, "English");
-    });
-
-    // Render coaches, players and emblems again when changing language to Japanese
-    $("#japanese-names-input").unbind("click").click(function () {
-        renderCoaches(coaches, "Japanese");
-        renderPlayers(players, "Japanese");
-        renderEmblems(emblems, "Japanese");
-    });
-
-    $("#reset-button").unbind("click").click(function () {
-        clearPlayers();
-    });
-
-    $("#save-button").unbind("click").click(function () {
-        saveTeam();
-    });
-
-    $('#add-button').unbind('click').click(function () {
-        addCustomPlayer();
-    })
-}
-
 /**
  * Render players to choose from inside modal
- * @param {array} players players to be rendered inside of modal
- * @param {string} language chosen language of player names
+ * @param {array} players Players to be rendered inside of modal
+ * @param {string} language Chosen language of player names
  */
 function renderPlayers(players, language) {
-    // players.sort((a,b) => (a[language + 'Name'] > b[language + 'Name']) ? 1 : ((b[language + 'Name'] > a[language + 'Name']) ? -1 : 0));
-
     var modal = document.getElementById('modal');
     // HTML code to insert inside of modal
     var htmlInsert = '';
 
+    // List of games
     var games = [
         {
             'IE1': 'Inazuma Eleven',
@@ -115,7 +71,7 @@ function renderPlayers(players, language) {
     // Insert HTML code inside modal
     modal.innerHTML = htmlInsert;
 
-    // Initialize modal script
+    // Initialize
     initializeModal();
     addModalPlayerActions();
 }
@@ -140,19 +96,11 @@ function initializeModal() {
     }
 }
 
-function addModalPlayerActions() {
-    // Add change player action to all modal player boxes
-    var modalPlayers = Array.from(document.getElementsByClassName('modal-player-sprite-container'));
-    modalPlayers.forEach(modalPlayer => {
-        modalPlayer.addEventListener("click", () => {
-            changePlayer(modalPlayer);
-        });
-    });
-}
+
 
 /**
  * Render formations in formation dropdown
- * @param {*} formations 
+ * @param {*} formations Formations to be rendered inside of dropdown
  */
 function renderFormations(formations) {
     var formationDropdown = $("#formation-dropdown");
@@ -170,7 +118,7 @@ function renderFormations(formations) {
 /**
  * Render coaches in coach dropdown
  * @param {array} coaches Array of coaches
- * @param {string} language chosen language
+ * @param {string} language Chosen language
  */
 function renderCoaches(coaches, language) {
     var coachDropdown = $("#coach-dropdown");
@@ -183,6 +131,9 @@ function renderCoaches(coaches, language) {
     }
 }
 
+/**
+ * Change formation to the selected formation
+ */
 function changeFormation() {
     var formationDropdown = document.getElementById('formation-dropdown');
     var selectedOption = formationDropdown.options[formationDropdown.selectedIndex];
@@ -195,7 +146,7 @@ function changeFormation() {
 /**
  * Render emblems in emblem dropdown
  * @param {array} emblems Array of emblems
- * @param {string} language chosen language
+ * @param {string} language Chosen language
  */
 function renderEmblems(emblems, language) {
     emblems.sort((a, b) => (a[language + 'Team'] > b[language + 'Team']) ? 1 : ((b[language + 'Team'] > a[language + 'Team']) ? -1 : 0));
@@ -224,12 +175,12 @@ function updateSprite(type) {
 }
 
 /**
- * Change the selected player with a player selected in a pop-up
- * @param {array} newPlayer 
+ * Change the selected player with a player selected in the modal
+ * @param {array} newPlayer New player to add to team
  */
 function changePlayer(newPlayer) {
     // Define player name, sprite and emblem
-    var newPlayerName = newPlayer.dataset.name;
+    var newPlayerName = newPlayer.dataset.name.replace('<', '&lt;').replace('>', '&gt;');
     var newPlayerSprite = newPlayer.dataset.sprite;
     var newPlayerTeamSprite = newPlayer.dataset.teamSprite;
 
@@ -245,13 +196,10 @@ function changePlayer(newPlayer) {
         '<div class="icon">✎</div>' +
         '<div class="sub-info-container" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">';
     if (newPlayerTeamSprite) {
-        console.log('yes team');
         htmlInsert +=
             '<div id="' + playerToChangeId + '-element-container" class="player-element-container" style="background-image: none">' +
             '<img style="width: auto; height: 100%;" id="' + playerToChangeId + '-element" data-pg-name="' + playerToChangeId + '-element" class="subtitle-element" src="' + newPlayerTeamSprite + '"/>' +
             '</div>';
-    } else {
-        console.log('no team');
     }
     htmlInsert +=
         '<span id="' + playerToChangeId + '-name" data-pg-name="' + playerToChangeId + '-name" class="subtitle-name">' + newPlayerName + '</span>' +
@@ -265,6 +213,10 @@ function changePlayer(newPlayer) {
     addPlayerBoxActions();
 }
 
+/**
+ * Load the uploaded image and store in temporary data URL
+ * @param {object} file Uploaded image
+ */
 function loadSprite(file) {
     var input = file.target;
 
@@ -277,6 +229,9 @@ function loadSprite(file) {
     reader.readAsDataURL(input.files[0]);
 }
 
+/**
+ * Add custom player to custom player panel
+ */
 function addCustomPlayer() {
     var name = $('#custom-player-name').val();
     var cleanName = name.toLowerCase().replace(/[^0-9a-z]/gi, '');
@@ -284,8 +239,8 @@ function addCustomPlayer() {
     var container = $('#custom-player-panel');
 
     var htmlInsert = '<div class="modal-player-box">' +
-        '<p class="modal-player-name">' + name.replace(/<|>/g, '') + '</p>' +
-        '<div style="3px solid black;" class="modal-player-sprite-container custom-modal-player-sprite-container" id="custom-player-' + cleanName + '" data-dismiss="modal" data-name="' + cleanName + '" data-sprite="' + sprite + '">' +
+        '<p class="modal-player-name">' + name.replace('<', '&lt;').replace('>', '&gt;') + '</p>' +
+        '<div style="3px solid black;" class="modal-player-sprite-container custom-modal-player-sprite-container" id="custom-player-' + cleanName + '" data-dismiss="modal" data-name="' + name.replace('<', '&lt;').replace('>', '&gt;') + '" data-sprite="' + sprite + '">' +
         '<img src="' + sprite + '" alt="' + cleanName + '.png" class="modal-player-sprite"/>' +
         '<div class="icon">+</div>' +
         '</div>' +
@@ -293,7 +248,6 @@ function addCustomPlayer() {
 
     container.prepend(htmlInsert);
 
-    // TODO changePlayer() aanroepen
     var customPlayer = document.getElementById('custom-player-' + cleanName);
     customPlayer.addEventListener("click", () => {
         changePlayer(customPlayer);
@@ -307,7 +261,10 @@ function addCustomPlayer() {
     }
 }
 
-function clearPlayers() {
+/**
+ * Reset entire team to original state
+ */
+function clearTeam() {
     var playerContainers = $('.player-container');
     var subContainers = $('.sub-container');
 
@@ -323,9 +280,9 @@ function clearPlayers() {
             '<span id="player-' + j + '-name" data-pg-name="player-' + j + '-name" class="player-name">Player #' + j + '</span>' +
             '</div>' +
             '</div>';
-
-        // Clear all bench players
-    } for (var k = 0; k < subContainers.length; k++) {
+    }
+    // Clear all bench players
+    for (var k = 0; k < subContainers.length; k++) {
         var l = k + 1;
         subContainers[k].innerHTML =
             '<div id="drag-box-sub-' + l + '-container"  class="drag-box-container">' +
@@ -355,34 +312,100 @@ function clearPlayers() {
     addPlayerBoxActions();
 }
 
+/**
+ * Save team as image
+ */
 function saveTeam() {
+    var watermark = document.createElement('div');
+    watermark.id = 'watermark';
+    watermark.innerHTML = 'inazuma-team-builder.tk';
+
+    document.getElementById('field-players-container').parentElement.appendChild(watermark);
     var element = document.getElementsByTagName('BODY')[0];
     var modalImage = $("#image-modal-body");
     modalImage.html('<img src="/images/loading.gif" style="width: 100%; height: 622px;"/>');
     html2canvas(element, {
         allowTaint: true,
-        x: 200,
-        /*responsive: true,*/
         onrendered: function (canvas) {
             canvas.setAttribute("id", "canvas");
             canvas.getContext('2d').imageSmoothingEnabled = false;
             modalImage.html('<p style="text-align: center; font-weight: bold;">To save: right click + "Save image as"</p>')
             modalImage.append(canvas);
+            watermark.remove();
         }
     });
 }
 
-$(document).ready(function () {
-    // Remove webhostapp image 
-    $('body > div:last').remove();
-    //Remove analitycs script
-    $('body > script:last').remove();
-    // Remove cookies script
-    $('body > script:last').remove();
+/**
+ * Add button actions for all modal player boxes
+ */
+function addModalPlayerActions() {
+    var modalPlayers = Array.from(document.getElementsByClassName('modal-player-sprite-container'));
+    modalPlayers.forEach(modalPlayer => {
+        modalPlayer.addEventListener("click", () => {
+            changePlayer(modalPlayer);
+        });
+    });
+}
 
-})
+/**
+ * Add button actions for all player boxes
+ */
+function addPlayerBoxActions() {
+    // Select all player boxes (11 on the pitch and 5 on the bench) and store into a variable  
+    var fieldPlayers = Array.from(document.getElementsByClassName('drag-box'));
+    // Collect data for each player when clicked on
+    fieldPlayers.forEach(fieldPlayer => {
+        fieldPlayer.addEventListener("click", () => {
+            playerToChange = fieldPlayer;
+            playerToChangeId = fieldPlayer.dataset.id;
+        });
+    });
+}
+
+/**
+ * Add actions to buttons
+ */
+function addButtonActions() {
+    // Render coaches, players and emblems again when changing language to English 
+    $("#english-names-input").unbind("click").click(function () {
+        renderCoaches(coaches, "English");
+        renderPlayers(players, "English");
+        renderEmblems(emblems, "English");
+    });
+
+    // Render coaches, players and emblems again when changing language to Japanese
+    $("#japanese-names-input").unbind("click").click(function () {
+        renderCoaches(coaches, "Japanese");
+        renderPlayers(players, "Japanese");
+        renderEmblems(emblems, "Japanese");
+    });
+
+    $("#reset-button").unbind("click").click(function () {
+        clearTeam();
+    });
+
+    $("#save-button").unbind("click").click(function () {
+        saveTeam();
+    });
+
+    $('#add-button').unbind('click').click(function () {
+        addCustomPlayer();
+    })
+}
 
 // Initialize
+$(document).ready(function () {
+    if (window.location.href == 'http://inazuma-team-builder.tk/') {
+        // Remove webhostapp image 
+        $('body > div:last').remove();
+        //Remove analitycs script
+        $('body > script:last').remove();
+        // Remove cookies script
+        $('body > script:last').remove();
+    }
+})
+
 renderFormations(formations);
 renderCoaches(coaches, "English");
 renderEmblems(emblems, "English");

@@ -165,6 +165,20 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     border: 3px solid black;
 }
 
+#watermark {
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    background-image: url("/images/player-name-background.png");
+    background-size: cover;
+    color: white;
+    padding: 0px 5px;
+    border-radius: 8px;
+    font-size: 17px;
+    display: block;
+    font-family: Segoe UI Regular;
+}
+
 /* Modal */
 article,
 aside,
@@ -1372,3 +1386,9 @@ button.close {
     border-radius: 6px;
     transition: 0.5s;
 }
+
+/*@media only screen and (max-width: 1800px) and (min-width: 128px) {
+    #field-players-container {
+        height: 670px;
+    }
+}*/
