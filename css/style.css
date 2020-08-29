@@ -66,6 +66,199 @@
     src: url(segoe-ui.ttf);
 }
 
+/* LEFT SIDE */
+
+#formation-container {
+    height: 80px;
+    border: 6px solid;
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-bottom: 30px;
+    margin-top: 82px;
+    position: relative;
+    width: 74.5%;
+    margin-left: auto;
+}
+
+#formation-label {
+    font-family: 'Bebas Neue';
+    font-size: 36px;
+}
+
+#formation-dropdown {
+    width: calc(100% - 12px);
+    border: 3px solid;
+    margin-top: 10px;
+    font-family: Segoe UI Regular;
+    font-size: 24px;
+    display: block;
+    padding: 1px 3px;
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+}
+
+#emblem-container {
+    width: 74.5%;
+    position: relative;
+    height: 238px;
+    text-align: center;
+    margin-top: -33px;
+    margin-left: auto;
+}
+
+#emblem-label {
+    font-family: 'Bebas Neue';
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: -9px;
+}
+
+#emblem-sprite {
+    height: 155px;
+    width: auto;
+    margin-top: 2%;
+}
+
+#emblem-dropdown {
+    font-family: "Segoe UI Regular";
+    font-size: 24px;
+    display: block;
+    border: 6px solid;
+    width: 100%;
+    position: absolute;
+    padding: 1px 3px;
+    margin-top: -15px;
+    background-color: white;
+    z-index: 1;
+}
+
+#coach-container {
+    width: 74.5%;
+    position: relative;
+    height: 238px;
+    text-align: center;
+    margin-left: auto;
+    margin-top: -35px;
+}
+
+#coach-label {
+    font-family: 'Bebas Neue';
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: -9px;
+}
+
+#coach-sprite {
+    height: 155px;
+    width: auto;
+    margin-top: 2%;
+}
+
+#coach-dropdown {
+    font-family: "Segoe UI Regular";
+    font-size: 24px;
+    display: block;
+    border: 6px solid;
+    width: 100%;
+    position: absolute;
+    padding: 1px 3px;
+    margin-top: -15px;
+    background-color: white;
+}
+
+#preferences-container {
+    width: 74.5%;
+    margin-left: auto;
+    margin-top: -39px;
+    background-color: white;
+}
+
+#preferences-label {
+    font-family: 'Bebas Neue';
+    font-size: 36px;
+    margin-bottom: -2px;
+    text-align: center;
+}
+
+#preferences-options-container {
+    height: 220px;
+    border: 6px solid;
+    padding: 4px 8px;
+}
+
+#english-names-label {
+    font-family: "Segoe UI Regular";
+    font-size: 19px;
+    width: 136px;
+    display: inline-block;
+}
+
+#english-names-input {
+    vertical-align: sub;
+}
+
+#japanese-names-label {
+    font-family: "Segoe UI Regular";
+    font-size: 19px;
+    width: 136px;
+    display: inline-block;
+}
+
+#japanese-names-input {
+    vertical-align: sub;
+}
+
+/* CENTRAL SIDE */
+
+#team-name {
+    height: 45px;
+    padding-top: 5px;
+    border: 6px solid black;
+    font-family: 'Bebas Neue';
+    font-size: 40px;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
+#field-players-container {
+    background-image: url(/images/field.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    margin-top: -40px;
+    display: grid;
+}
+
+/* RIGHT SIDE */
+
+#bench-container {
+    height: 100%;
+    width: 252.5px;
+}
+
+#bench-label {
+    font-family: 'Bebas Neue';
+    font-size: 36px;
+    margin-bottom: 23px;
+    text-align: center;
+    margin-top: 73px;
+    padding: 0px;
+}
+
+#bench-container>div {
+    margin-top: -29px;
+    padding: 24px;
+    width: 193px;
+    border: 6px solid;
+    background-color: white
+}
+
+/* MODAL */
+
 img, .drag-box, .player-element-container, .sub-element-container, .modal-player-box-container {
     image-rendering: pixelated;
     image-rendering: -moz-crisp-edges;
@@ -94,6 +287,11 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     border-right: 3px solid black;
 }
 
+.modal-player-position, .modal-player-element, .modal-player-gender {
+    height: 24px;
+    width: 36px;
+}
+
 .modal-player-position, .modal-player-element {
     border-bottom: 3px solid black;
 }
@@ -115,6 +313,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
 
 .drag-box-container {
     position: relative;
+    text-align: center;
 }
 
 .modal-player-sprite, .drag-box {
@@ -142,7 +341,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     pointer-events: none;
 }
 
-.drag-box-container > .icon {
+.drag-box-container>.icon {
     color: white;
     font-size: 36px;
     top: 52%;
@@ -156,13 +355,50 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     margin-right: 10px;
 }
 
-#canvas {
-    height: auto;
-    width: 100%;
+.custom-modal-player-sprite-container {
+    border: 3px solid black;
+}
+
+#custom-player-panel>div {
+    display: inline-grid;
+}
+
+#custom-player-name {
+    width: max-content;
+}
+
+#custom-player-file {
+    width: max-content;
+}
+
+#add-button {
+    width: max-content;
 }
 
 .custom-modal-player-sprite-container {
     border: 3px solid black;
+}
+
+.sub-sprite, .player-sprite {
+    height: 126px;
+    max-width: 126px;
+}
+
+.sub-element, .player-element {
+    width: auto;
+    height: 100%;
+}
+
+/* RENDERED IMAGE */
+
+#loading-gif {
+    width: 100%;
+    height: 622px;
+}
+
+#canvas {
+    height: auto;
+    width: 100%;
 }
 
 #watermark {
@@ -179,20 +415,14 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     font-family: Segoe UI Regular;
 }
 
-/* Modal */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
+#save-instructions {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Modal init */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
     display: block;
 }
 
@@ -221,8 +451,7 @@ a {
     text-decoration: none;
 }
 
-a:hover,
-a:focus {
+a:hover, a:focus {
     color: #23527c;
     text-decoration: underline;
 }
@@ -244,8 +473,7 @@ a:focus {
     filter: alpha(opacity=20);
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
     color: #000000;
     text-decoration: none;
     cursor: pointer;
@@ -303,7 +531,7 @@ button.close {
 .modal-dialog {
     position: relative;
     margin: 10px;
-    width: 60% !important;
+    width: 60%;
     font-family: Segoe UI Regular;
     font-size: 24px;
 }
@@ -371,16 +599,16 @@ button.close {
     border-top: 1px solid #e5e5e5;
 }
 
-.modal-footer .btn + .btn {
+.modal-footer .btn+.btn {
     margin-left: 5px;
     margin-bottom: 0;
 }
 
-.modal-footer .btn-group .btn + .btn {
+.modal-footer .btn-group .btn+.btn {
     margin-left: -1px;
 }
 
-.modal-footer .btn-block + .btn-block {
+.modal-footer .btn-block+.btn-block {
     margin-left: 0;
 }
 
@@ -398,15 +626,13 @@ button.close {
 
 @media (min-width: 768px) {
     .modal-dialog {
-        width: 600px;
+        /* width: 600px; */
         margin: 30px auto;
     }
-
     .modal-content {
         -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
     }
-
     .modal-sm {
         width: 300px;
     }
@@ -418,16 +644,12 @@ button.close {
     }
 }
 
-.clearfix:before,
-.clearfix:after,
-.modal-footer:before,
-.modal-footer:after {
+.clearfix:before, .clearfix:after, .modal-footer:before, .modal-footer:after {
     content: " ";
     display: table;
 }
 
-.clearfix:after,
-.modal-footer:after {
+.clearfix:after, .modal-footer:after {
     clear: both;
 }
 
@@ -474,6 +696,7 @@ button.close {
 }
 
 /* Accordion */
+
 .accordion {
     background-color: #eee;
     color: #444;
@@ -487,8 +710,7 @@ button.close {
     transition: 0.4s;
 }
 
-.active,
-.accordion:hover {
+.active, .accordion:hover {
     background-color: #ccc;
 }
 
@@ -513,6 +735,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Bebas Neue';
     font-style: normal;
@@ -522,6 +745,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Bebas Neue';
     font-style: normal;
@@ -531,6 +755,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -540,6 +765,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -549,6 +775,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -558,6 +785,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -567,6 +795,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -576,6 +805,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -585,6 +815,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -594,6 +825,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -603,6 +835,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -612,6 +845,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -621,6 +855,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -630,6 +865,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -639,6 +875,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -648,6 +885,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -657,6 +895,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -666,6 +905,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -675,6 +915,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -684,6 +925,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -693,6 +935,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -702,6 +945,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -711,6 +955,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -720,6 +965,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -729,6 +975,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -738,6 +985,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -747,6 +995,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -756,6 +1005,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -765,6 +1015,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -774,6 +1025,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -783,6 +1035,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -792,6 +1045,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -801,6 +1055,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -810,6 +1065,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -819,6 +1075,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -828,6 +1085,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -837,6 +1095,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -846,6 +1105,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -855,6 +1115,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -864,6 +1125,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -873,6 +1135,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -882,6 +1145,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -891,6 +1155,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -900,6 +1165,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: italic;
@@ -909,6 +1175,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -918,6 +1185,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -927,6 +1195,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -936,6 +1205,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -945,6 +1215,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -954,6 +1225,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -963,6 +1235,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -972,6 +1245,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -981,6 +1255,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -990,6 +1265,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -999,6 +1275,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1008,6 +1285,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1017,6 +1295,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1026,6 +1305,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1035,6 +1315,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1044,6 +1325,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1053,6 +1335,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1062,6 +1345,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1071,6 +1355,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1080,6 +1365,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1089,6 +1375,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1098,6 +1385,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1107,6 +1395,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1116,6 +1405,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1125,6 +1415,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1134,6 +1425,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1143,6 +1435,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1152,6 +1445,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1161,6 +1455,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1170,6 +1465,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1179,6 +1475,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1188,6 +1485,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1197,6 +1495,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1206,6 +1505,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1215,6 +1515,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1224,6 +1525,7 @@ button.close {
 }
 
 /* cyrillic-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1233,6 +1535,7 @@ button.close {
 }
 
 /* cyrillic */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1242,6 +1545,7 @@ button.close {
 }
 
 /* greek-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1251,6 +1555,7 @@ button.close {
 }
 
 /* greek */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1260,6 +1565,7 @@ button.close {
 }
 
 /* vietnamese */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1269,6 +1575,7 @@ button.close {
 }
 
 /* latin-ext */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1278,6 +1585,7 @@ button.close {
 }
 
 /* latin */
+
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
@@ -1313,14 +1621,11 @@ button.close {
 }*/
 
 /* drag box subtitles */
+
 #drag-box-sub-1, #drag-box-sub-2, #drag-box-sub-3, #drag-box-sub-4, #drag-box-sub-5 {
     border-color: black;
     border-style: solid;
     border-width: 2px 2px 0px 2px;
-}
-
-.drag-box-container {
-    text-align: center;
 }
 
 .player-info-container, .sub-info-container {
@@ -1330,7 +1635,7 @@ button.close {
     width: 173px;
     height: 28px;
     margin-top: -4px;
-    border-radius: 20px;
+    border-radius: 14px;
     /* text-align: center; */
     margin-left: 17px;
 }
@@ -1351,7 +1656,7 @@ button.close {
     margin-left: -19px;
 }*/
 
-.player-name, .subtitle-name {
+.player-name, .sub-name {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -1387,8 +1692,234 @@ button.close {
     transition: 0.5s;
 }
 
-/*@media only screen and (max-width: 1800px) and (min-width: 128px) {
-    #field-players-container {
-        height: 670px;
+/* DESKTOPS */
+
+@media screen and (max-width: 991px) {}
+
+/* TABLETS */
+
+@media screen and (max-width: 767px) {}
+
+/* SMART PHONES */
+
+@media screen and (max-width: 479px) {
+    /* LEFT SIDE (MOVES TO TOP) */
+    .Left {
+        display: flex;
+        height: 200px;
     }
-}*/
+    #formation-container {
+        height: 21px;
+        border: 3px solid;
+        padding-left: 3px;
+        padding-right: 3px;
+        padding-bottom: 36px;
+        margin-top: 5px;
+        width: 94%;
+        margin-left: 5px;
+        position: absolute;
+    }
+    #formation-label {
+        font-size: 24px;
+    }
+    #formation-dropdown {
+        width: 98%;
+        border: 2px solid;
+        margin-top: -7px;
+        font-size: 15px;
+        padding: 0;
+    }
+    #emblem-container {
+        width: 26.5%;
+        margin-top: 68px;
+        margin-left: 5px;
+    }
+    #emblem-label {
+        font-size: 24px;
+        margin-bottom: -12px;
+    }
+    #emblem-sprite {
+        height: 96px;
+        width: 96px;
+        margin-top: 5%;
+    }
+    #emblem-dropdown {
+        font-size: 15px;
+        border: 2px solid;
+        padding: 0;
+    }
+    #coach-container {
+        width: 26.5%;
+        margin-top: 68px;
+        margin-left: 5px;
+    }
+    #coach-label {
+        font-size: 24px;
+        margin-bottom: -12px;
+    }
+    #coach-sprite {
+        height: 96px;
+        width: 96px;
+        margin-top: 5%;
+    }
+    #coach-dropdown {
+        font-size: 15px;
+        border: 2px solid;
+        padding: 0;
+    }
+    #preferences-container {
+        width: 50%;
+        margin-left: 5px;
+        margin-top: 67px;
+    }
+    .preferences-option {
+        margin-bottom: -1px;
+    }
+    #preferences-label {
+        font-size: 24px;
+    }
+    #preferences-options-container {
+        height: 100px;
+        padding: 1px 2px;
+        border: 3px solid;
+        width: 150px;
+    }
+    #english-names-label {
+        font-size: 14px;
+        width: 100px;
+    }
+    #japanese-names-label {
+        font-size: 14px;
+        width: 100px;
+    }
+    #save-button {
+        font-size: 14px;
+        padding: 3px 1px;
+        margin-top: 5px;
+    }
+    #reset-button {
+        font-size: 14px;
+        padding: 3px 1px;
+        margin-top: 5px;
+    }
+    /* MIDDLE SIDE */
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr) repeat(3, 12fr) repeat(2, 1fr);
+    }
+    .Field {
+        margin-top: 210px;
+        grid-template-rows: 0fr 12fr;
+        width: 121%;
+        height: 63%;
+        margin-left: -32px;
+    }
+    #team-name {
+        height: 20px;
+        padding-top: 2px;
+        padding-left: 2px;
+        border: 3px solid;
+        font-size: 24px;
+        width: 94%;
+        margin-top: 11px;
+    }
+    #field-players-container {
+        margin-top: -5px;
+    }
+    .player-container {
+        height: 69px;
+        width: 87.5px;
+        margin-bottom: 7px;
+    }
+    #field-players-container>div>.drag-box-container>.drag-box {
+        height: 57px;
+        width: 57px;
+        margin-left: 16px;
+    }
+    .player-sprite {
+        height: 57px;
+        max-width: 57px;
+        /* margin-left: -26px; */
+        /* margin-left: 2%; */
+    }
+    .player-info-container {
+        height: 13px;
+        width: 78px;
+        margin-left: 8px;
+        border-radius: 7px;
+    }
+    .player-element-container {
+        height: 17px;
+        width: 17px;
+        margin-top: -2.5px;
+        margin-left: -7px;
+    }
+    .player-name {
+        font-size: 12px;
+        margin-top: -2.5px;
+        padding-left: 12px;
+        padding-right: 0px;
+        margin-left: -12px;
+    }
+    .player-container>.drag-box-container>.icon {
+        top: 50%;
+        left: 50%;
+        font-size: 22px;
+    }
+    .sub-container>.drag-box-container>.icon {
+        top: 50%;
+        left: 69%;
+        /* nice */
+        font-size: 22px;
+    }
+    /* RIGHT SIDE (MOVES TO BOTTOM) */
+    .Right {
+        margin-top: 733px;
+        margin-left: -359px;
+        width: 100%;
+    }
+    #bench-container {
+        width: 100%;
+    }
+    #bench-label {
+        display: none;
+    }
+    #bench-container>div {
+        display: flex;
+        padding: 0;
+        border: 0;
+        margin: 0;
+    }
+    .sub-container {
+        height: 60.5px;
+        width: 72.5px;
+        margin-bottom: none;
+    }
+    .sub-container>.drag-box-container>.drag-box {
+        height: 50px;
+        width: 50px;
+        margin-left: 24px;
+    }
+    .sub-container>.drag-box-container>.drag-box>.sub-sprite {
+        height: 50px;
+        max-width: 50px;
+    }
+    .sub-info-container {
+        height: 15px;
+        width: 68.5px;
+        border-radius: 7px;
+    }
+    .sub-element-container {
+        display: none;
+    }
+    .sub-name {
+        font-size: 12px;
+        margin-top: -2px;
+        padding-left: 9.5px;
+        padding-right: 5.5px;
+    }
+    /* MODAL */
+    .modal-dialog {
+        width: 100%;
+        margin-left: -0px;
+    }
+}

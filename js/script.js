@@ -19,13 +19,14 @@ function renderPlayers(players, language) {
             'IE1': 'Inazuma Eleven',
             'IE2': 'Inazuma Eleven 2',
             'IE3': 'Inazuma Eleven 3',
+            'GO1': 'Inazuma Eleven GO',
         }
     ];
 
     // Add Custom players heading
     htmlInsert += '<h4 class="game-title">Custom</h4>' +
         '<button class="accordion"><img src="https://image.flaticon.com/icons/png/512/61/61456.png" class="modal-team-sprite">Custom players</button>' +
-        '<div id="custom-player-panel" class="panel"><div style="display: inline-grid;"><input id="custom-player-name" placeholder="Player name" style="width: max-content;"><input type="file" id="custom-player-file" accept="image/*" onchange="loadSprite(event)" style="width: max-content;"><input type="submit" id="add-button" value="Add player" style="width: max-content;"></div></div>';
+        '<div id="custom-player-panel" class="panel"><div><input id="custom-player-name" placeholder="Player name"><input type="file" id="custom-player-file" accept="image/*" onchange="loadSprite(event)"><input type="submit" id="add-button" value="Add player"></div></div>';
 
     // Cycle through all games and add a heading for each game
     for (var i = 0; i < Object.keys(games[0]).length; i++) {
@@ -48,11 +49,11 @@ function renderPlayers(players, language) {
                             htmlInsert +=
                                 '<div class="modal-player-box">' +
                                 '<p class="modal-player-name">' + player[language + 'Name'] + '</p>' +
-                                '<div class="modal-player-box-container" style="display: flex;">' +
+                                '<div class="modal-player-box-container">' +
                                 '<div class="modal-player-props-container">' +
-                                `<div class='modal-player-position' style='height: 24px; width: 36px; background-image: url("/images/positions/` + player.Position + `.png");'></div>` +
-                                `<div class='modal-player-element' style='height: 24px; width: 36px; background-image: url("/images/elements/` + player.Element + `.png");'></div>` +
-                                `<div class='modal-player-gender' style='height: 24px; width: 36px; background-image: url("/images/genders/` + player.Gender + `.png");'></div>` +
+                                `<div class='modal-player-position' style='background-image: url("/images/positions/` + player.Position + `.png");'></div>` +
+                                `<div class='modal-player-element' style='background-image: url("/images/elements/` + player.Element + `.png");'></div>` +
+                                `<div class='modal-player-gender' style='background-image: url("/images/genders/` + player.Gender + `.png");'></div>` +
                                 '</div>' +
                                 '<div class="modal-player-sprite-container" data-dismiss="modal" data-name="' + player[language + 'Name'] + '" data-sprite="' + player.Sprite + '" data-team-sprite="' + player.TeamSprite + '">' +
                                 '<img src="' + player.Sprite + '" alt="' + player[language + 'Name'] + '.png" class="modal-player-sprite"/>' +
@@ -100,15 +101,22 @@ function initializeModal() {
 
 /**
  * Render formations in formation dropdown
- * @param {*} formations Formations to be rendered inside of dropdown
+ * @param {array} formations Formations to be rendered inside of dropdown
  */
 function renderFormations(formations) {
     var formationDropdown = $("#formation-dropdown");
 
-    // Add a dropdown option for each formation, and store some information in data attributes
-    for (var i = 0; i < formations.length; i++) {
-        var formation = formations[i];
-        $(formationDropdown).append('<option value="' + formation.name + '" data-html="' + he.encode(formation.html) + '" class="formation-option">' + formation.name + '</option>');
+    // Add a dropdown option for each formation, and store some information in data attributes depending on which device is being used
+    if ($(window).width() <= 479) {
+        for (var i = 0; i < formations.length; i++) {
+            var formation = formations[i];
+            $(formationDropdown).append('<option value="' + formation.name + '" data-html="' + he.encode(formation.phone_html) + '" class="formation-option">' + formation.name + '</option>');
+        }
+    } else {
+        for (var i = 0; i < formations.length; i++) {
+            var formation = formations[i];
+            $(formationDropdown).append('<option value="' + formation.name + '" data-html="' + he.encode(formation.html) + '" class="formation-option">' + formation.name + '</option>');
+        }
     }
 
     // Select 4-4-2 (F-Basic)
@@ -132,7 +140,7 @@ function renderCoaches(coaches, language) {
 }
 
 /**
- * Change formation to the selected formation
+ * Change field's formation to the selected formation
  */
 function changeFormation() {
     var formationDropdown = document.getElementById('formation-dropdown');
@@ -186,23 +194,30 @@ function changePlayer(newPlayer) {
 
     // Define new player box
     var playerBoxToChange = document.getElementById(playerToChange.id).parentElement;
+    // console.log(playerBoxToChange);
+    var playerType;
+    if (playerBoxToChange.id.includes("sub")) {
+        playerType = "sub";
+    } else if (playerBoxToChange.id.includes("player")) {
+        playerType = "player";
+    }
     var htmlInsert = "";
 
     htmlInsert +=
         '<div id="drag-box-' + playerToChangeId + '-container" class="drag-box-container">' +
         '<div class="drag-box" id="drag-box-' + playerToChangeId + '" data-toggle="modal" data-target="#myModal"  data-id="' + playerToChangeId + '" style="background-image: none">' +
-        '<img src="' + newPlayerSprite + '" style="height: 126px; max-width: 126px" id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="sub-sprite"/>' +
+        '<img src="' + newPlayerSprite + '" id="' + playerToChangeId + '-sprite" data-pg-name="' + playerToChangeId + '-sprite" class="' + playerType + '-sprite"/>' +
         '</div>' +
         '<div class="icon">✎</div>' +
-        '<div class="sub-info-container" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">';
+        '<div class="' + playerType + '-info-container" id="' + playerToChangeId + '-info-container" data-pg-name="' + playerToChangeId + '-info-container">';
     if (newPlayerTeamSprite) {
         htmlInsert +=
-            '<div id="' + playerToChangeId + '-element-container" class="player-element-container" style="background-image: none">' +
-            '<img style="width: auto; height: 100%;" id="' + playerToChangeId + '-element" data-pg-name="' + playerToChangeId + '-element" class="subtitle-element" src="' + newPlayerTeamSprite + '"/>' +
+            '<div id="' + playerToChangeId + '-element-container" class="' + playerType + '-element-container" style="background-image: none">' +
+            '<img id="' + playerToChangeId + '-element" data-pg-name="' + playerToChangeId + '-element" class="' + playerType + '-element" src="' + newPlayerTeamSprite + '"/>' +
             '</div>';
     }
     htmlInsert +=
-        '<span id="' + playerToChangeId + '-name" data-pg-name="' + playerToChangeId + '-name" class="subtitle-name">' + newPlayerName + '</span>' +
+        '<span id="' + playerToChangeId + '-name" data-pg-name="' + playerToChangeId + '-name" class="' + playerType + '-name">' + newPlayerName + '</span>' +
         '</div>' +
         '</div>';
 
@@ -240,7 +255,7 @@ function addCustomPlayer() {
 
     var htmlInsert = '<div class="modal-player-box">' +
         '<p class="modal-player-name">' + name.replace('<', '&lt;').replace('>', '&gt;') + '</p>' +
-        '<div style="3px solid black;" class="modal-player-sprite-container custom-modal-player-sprite-container" id="custom-player-' + cleanName + '" data-dismiss="modal" data-name="' + name.replace('<', '&lt;').replace('>', '&gt;') + '" data-sprite="' + sprite + '">' +
+        '<div class="modal-player-sprite-container custom-modal-player-sprite-container" id="custom-player-' + cleanName + '" data-dismiss="modal" data-name="' + name.replace('<', '&lt;').replace('>', '&gt;') + '" data-sprite="' + sprite + '">' +
         '<img src="' + sprite + '" alt="' + cleanName + '.png" class="modal-player-sprite"/>' +
         '<div class="icon">+</div>' +
         '</div>' +
@@ -290,7 +305,7 @@ function clearTeam() {
             '<div class="icon">✎</div>' +
             '<div class="sub-info-container" id="sub-' + l + '-info-container" data-pg-name="sub-' + l + '-info-container">' +
             '<div class="sub-element-container" id="sub-' + l + '-element-container"></div>' +
-            '<span id="sub-' + l + '-name" data-pg-name="sub-' + l + '-name" class="subtitle-name">Sub #' + l + '</span>' +
+            '<span id="sub-' + l + '-name" data-pg-name="sub-' + l + '-name" class="sub-name">Sub #' + l + '</span>' +
             '</div>' +
             '</div>';
     }
@@ -323,13 +338,13 @@ function saveTeam() {
     document.getElementById('field-players-container').parentElement.appendChild(watermark);
     var element = document.getElementsByTagName('BODY')[0];
     var modalImage = $("#image-modal-body");
-    modalImage.html('<img src="/images/loading.gif" style="width: 100%; height: 622px;"/>');
+    modalImage.html('<img src="/images/loading.gif" id="loading-gif"/>');
     html2canvas(element, {
         allowTaint: true,
         onrendered: function (canvas) {
             canvas.setAttribute("id", "canvas");
             canvas.getContext('2d').imageSmoothingEnabled = false;
-            modalImage.html('<p style="text-align: center; font-weight: bold;">To save: right click + "Save image as"</p>')
+            modalImage.html('<p id="save-instructions">To save: right click + "Save image as"</p>')
             modalImage.append(canvas);
             watermark.remove();
         }
@@ -399,7 +414,7 @@ $(document).ready(function () {
     if (window.location.href == 'http://inazuma-team-builder.tk/') {
         // Remove webhostapp image 
         $('body > div:last').remove();
-        //Remove analitycs script
+        // Remove analitycs script
         $('body > script:last').remove();
         // Remove cookies script
         $('body > script:last').remove();
@@ -407,6 +422,7 @@ $(document).ready(function () {
 })
 
 renderFormations(formations);
+changeFormation();
 renderCoaches(coaches, "English");
 renderEmblems(emblems, "English");
 renderPlayers(players, "English");
