@@ -1,3 +1,5 @@
+/* GRID */
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr) repeat(3, 1.5fr) repeat(2, 1fr);
@@ -187,6 +189,26 @@
     padding: 4px 8px;
 }
 
+.button:hover {
+    background-color: #006687;
+}
+
+.button {
+    margin-top: 10px;
+    width: 100%;
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.5s;
+}
+
 #english-names-label {
     font-family: "Segoe UI Regular";
     font-size: 19px;
@@ -257,170 +279,7 @@
     background-color: white
 }
 
-/* MODAL */
-
-img, .drag-box, .player-element-container, .sub-element-container, .modal-player-box-container {
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-}
-
-.modal-player-box {
-    display: inline-grid;
-    margin-right: 11px;
-    margin-top: 8px;
-    text-align: center;
-}
-
-.modal-player-box-container {
-    display: flex;
-    border: 3px solid black;
-}
-
-.modal-player-name {
-    font-size: 22px;
-    border: solid black;
-    border-width: 3px 3px 0 3px;
-    font-weight: normal;
-}
-
-.modal-player-props-container {
-    border-right: 3px solid black;
-}
-
-.modal-player-position, .modal-player-element, .modal-player-gender {
-    height: 24px;
-    width: 36px;
-}
-
-.modal-player-position, .modal-player-element {
-    border-bottom: 3px solid black;
-}
-
-.modal-player-sprite-container {
-    position: relative;
-    background-image: linear-gradient(#aab7d7 58%, #58688e 42%);
-}
-
-.modal-player-sprite-container:hover .modal-player-sprite, .drag-box-container:hover .drag-box {
-    cursor: pointer;
-    opacity: 0.3;
-}
-
-.modal-player-sprite-container:hover .icon, .drag-box-container:hover .icon {
-    cursor: pointer;
-    opacity: 1;
-}
-
-.drag-box-container {
-    position: relative;
-    text-align: center;
-}
-
-.modal-player-sprite, .drag-box {
-    font-size: 16px;
-    opacity: 1;
-    display: block;
-    transition: .5s ease;
-    backface-visibility: hidden;
-    margin: auto;
-    height: 72px;
-}
-
-.icon {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: center;
-    color: green;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
-    font-size: 48px;
-    pointer-events: none;
-}
-
-.drag-box-container>.icon {
-    color: white;
-    font-size: 36px;
-    top: 52%;
-    left: 55%;
-}
-
-.modal-team-sprite {
-    height: 32px;
-    width: 32px;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-
-.custom-modal-player-sprite-container {
-    border: 3px solid black;
-}
-
-#custom-player-panel>div {
-    display: inline-grid;
-}
-
-#custom-player-name {
-    width: max-content;
-}
-
-#custom-player-file {
-    width: max-content;
-}
-
-#add-button {
-    width: max-content;
-}
-
-.custom-modal-player-sprite-container {
-    border: 3px solid black;
-}
-
-.sub-sprite, .player-sprite {
-    height: 126px;
-    max-width: 126px;
-}
-
-.sub-element, .player-element {
-    width: auto;
-    height: 100%;
-}
-
-/* RENDERED IMAGE */
-
-#loading-gif {
-    width: 100%;
-    height: 622px;
-}
-
-#canvas {
-    height: auto;
-    width: 100%;
-}
-
-#watermark {
-    position: absolute;
-    bottom: 16px;
-    right: 20px;
-    background-image: url("/images/player-name-background.png");
-    background-size: cover;
-    color: white;
-    padding: 0px 5px;
-    border-radius: 8px;
-    font-size: 17px;
-    display: block;
-    font-family: Segoe UI Regular;
-}
-
-#save-instructions {
-    text-align: center;
-    font-weight: bold;
-}
-
-/* Modal init */
+/* MODAL INITIALIZATION */
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
     display: block;
@@ -695,7 +554,7 @@ button.close {
     position: fixed;
 }
 
-/* Accordion */
+/* ACCORDION */
 
 .accordion {
     background-color: #eee;
@@ -1594,6 +1453,171 @@ button.close {
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* PLAYERS MODAL */
+
+img, .drag-box, .player-element-container, .sub-element-container, .modal-player-box-container {
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+}
+
+.modal-player-box {
+    display: inline-grid;
+    margin-right: 11px;
+    margin-top: 8px;
+    text-align: center;
+}
+
+.modal-player-box-container {
+    display: flex;
+    border: 3px solid black;
+}
+
+.modal-player-name {
+    font-size: 22px;
+    border: solid black;
+    border-width: 3px 3px 0 3px;
+    font-weight: normal;
+}
+
+.modal-player-props-container {
+    border-right: 3px solid black;
+}
+
+.modal-player-position, .modal-player-element, .modal-player-gender {
+    height: 24px;
+    width: 36px;
+}
+
+.modal-player-position, .modal-player-element {
+    border-bottom: 3px solid black;
+}
+
+.modal-player-sprite-container {
+    position: relative;
+    background-image: linear-gradient(#aab7d7 58%, #58688e 42%);
+}
+
+.modal-player-sprite-container:hover .modal-player-sprite, .drag-box-container:hover .drag-box {
+    cursor: pointer;
+    opacity: 0.3;
+}
+
+.modal-player-sprite-container:hover .icon, .drag-box-container:hover .icon {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.drag-box-container {
+    position: relative;
+    text-align: center;
+}
+
+.modal-player-sprite, .drag-box {
+    font-size: 16px;
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    margin: auto;
+    height: 72px;
+}
+
+.icon {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    color: green;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-size: 48px;
+    pointer-events: none;
+}
+
+.drag-box-container>.icon {
+    color: white;
+    font-size: 36px;
+    top: 52%;
+    left: 55%;
+}
+
+.modal-team-sprite {
+    height: 32px;
+    width: 32px;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.custom-modal-player-sprite-container {
+    border: 3px solid black;
+}
+
+#custom-player-panel>div {
+    display: inline-grid;
+}
+
+#custom-player-name {
+    width: max-content;
+}
+
+#custom-player-file {
+    width: max-content;
+}
+
+#add-button {
+    width: max-content;
+}
+
+.custom-modal-player-sprite-container {
+    border: 3px solid black;
+}
+
+.sub-sprite, .player-sprite {
+    height: 126px;
+    max-width: 126px;
+}
+
+.sub-element, .player-element {
+    width: auto;
+    height: 100%;
+}
+
+/* RENDERED IMAGE */
+
+#loading-gif {
+    width: 100%;
+    height: 622px;
+}
+
+#canvas {
+    height: auto;
+    width: 100%;
+}
+
+#watermark {
+    position: absolute;
+    bottom: 16px;
+    right: 20px;
+    background-image: url("/images/player-name-background.png");
+    background-size: cover;
+    color: white;
+    padding: 0px 5px;
+    border-radius: 8px;
+    font-size: 17px;
+    display: block;
+    font-family: Segoe UI Regular;
+}
+
+#save-instructions {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* PLAYER BOXES */
+
 .player-container, .sub-container {
     height: 153px;
     width: 193px;
@@ -1605,7 +1629,6 @@ button.close {
 }
 
 .drag-box {
-    /* margin: 0 auto; */
     margin-left: 43px;
     background-image: url('/images/character-placeholder.png');
     background-repeat: no-repeat;
@@ -1613,14 +1636,6 @@ button.close {
     width: 126px;
     height: 126px;
 }
-
-/*.sub-container > div > div {
-    border-top: 2px solid;
-    border-right: 2px solid;
-    border-left: 2px solid;
-}*/
-
-/* drag box subtitles */
 
 #drag-box-sub-1, #drag-box-sub-2, #drag-box-sub-3, #drag-box-sub-4, #drag-box-sub-5 {
     border-color: black;
@@ -1636,7 +1651,6 @@ button.close {
     height: 28px;
     margin-top: -4px;
     border-radius: 14px;
-    /* text-align: center; */
     margin-left: 17px;
 }
 
@@ -1651,11 +1665,6 @@ button.close {
     margin-left: -16px;
 }
 
-/*.player-name-container, .subtitle-name-container {
-    width: 193px;
-    margin-left: -19px;
-}*/
-
 .player-name, .sub-name {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1665,31 +1674,9 @@ button.close {
     display: block;
     position: relative;
     color: white;
-    /* width: 142px; */
-    /* margin: 0 auto; */
     margin-top: -5px;
     padding-left: 23px;
     padding-right: 11px;
-}
-
-.button:hover {
-    background-color: #006687;
-}
-
-.button {
-    margin-top: 10px;
-    width: 100%;
-    background-color: #008CBA;
-    border: none;
-    color: white;
-    padding: 15px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: 0.5s;
 }
 
 /* DESKTOPS */
