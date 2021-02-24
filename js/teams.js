@@ -1,11 +1,5 @@
 var teams = [
     {
-        "EnglishName": "Custom players",
-        "JapaneseName": "Custom players",
-        "Sprite": "https://lh3.googleusercontent.com/proxy/ME4Hz-eH2_3jzQt88rCnefmBf8b1mXm0aHk2xs1deGlg78Iq0xg1nENCHfQj0cBotuY3gI8hmkh4jtkcNhAykwJENWoqBAuR",
-        "Game": "Custom"
-    },
-    {
         "EnglishName": "Raimon",
         "JapaneseName": "Raimon",
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/47/Raimon_emblem_new.png/revision/latest?cb=20171115062613",
@@ -328,5 +322,149 @@ var teams = [
         "JapaneseName": "Scouts",
         "Sprite": "/images/scout.png",
         "Game": "IE3"
+    },
+    {
+        "EnglishName": "Raimon",
+        "JapaneseName": "Raimon",
+        "Sprite": "/images/Raimon_GO.png",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Raimon Reserves",
+        "JapaneseName": "Raimon 2gun",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/3/36/Raimon_2nd_team_emblem.png/revision/latest?cb=20171126183139",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Black Templars",
+        "JapaneseName": "Kuro no Kishidan",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/a/a2/Kuro_no_Kishidan_emblem.png/revision/latest?cb=20171126183138",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Prodigy Grammar",
+        "JapaneseName": "Eito Gakuen",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/f/fc/Eito_Gakuen_emblem.png/revision/latest?cb=20171126181242",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Milky Way Charter",
+        "JapaneseName": "Tengawara",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/e/ea/Tengawara_emblem.png/revision/latest?cb=20171126184725",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Almighty Faith",
+        "JapaneseName": "Mannouzaka",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/b/b2/Mannouzaka_emblem.png/revision/latest?cb=20171126183138",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Royal Academy",
+        "JapaneseName": "Teikoku Gakuen",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/3/3a/Teikoku_Gakuen_%28GO%29_emblem.png/revision/latest?cb=20171126183141",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Pirates Cove",
+        "JapaneseName": "Kaiou Gakuen",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/2/20/Kaiou_Gakuen_emblem.png/revision/latest?cb=20171126183137",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Lunar Sea",
+        "JapaneseName": "Gassan Kunimitsu",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/c/c7/Gassan_Kunimitsu_emblem.png/revision/latest?cb=20171126181242",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Alpine",
+        "JapaneseName": "Hakuren",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/2/2a/Hakuren_%28GO%29_emblem.png/revision/latest?cb=20171126181242",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Kirkwood",
+        "JapaneseName": "Kidokawa Seishuu",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/9/9e/Kidokawa_Seishuu_%28GO%29_emblem.png/revision/latest?cb=20171126183137",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Mirage Academy",
+        "JapaneseName": "Genei Gakuen",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/0/04/Genei_Gakuen_Emblem.png/revision/latest?cb=20130324083319",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Universal",
+        "JapaneseName": "Arakumo Gakuen",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/5/5b/Arakumo_Gakuen_emblem.png/revision/latest?cb=20171126181241",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Mount Olympus",
+        "JapaneseName": "Seidouzan",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/3/30/Seidouzan_emblem.png/revision/latest?cb=20171126183139",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Dragon Link",
+        "JapaneseName": "Dragonlink",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/1/1a/Dragonlink_emblem.png/revision/latest?cb=20171126181241",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Inazuma Kids FC",
+        "JapaneseName": "Inazuma KFC",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/7b/Inazuma_KFC_%28GO%29_emblem.png/revision/latest?cb=20171126181243",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Golden Oldies",
+        "JapaneseName": "Akizora Challengers",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/8/8b/Akizoura_Challengers_emblem.png/revision/latest?cb=20171126181239",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Ivy Selective",
+        "JapaneseName": "Aoba",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/9/9e/Aoba_emblem.png/revision/latest?cb=20171126181240",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Eternal Light",
+        "JapaneseName": "Unlimited Shining",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/b/b3/Unlimited_Shining_emblem.png/revision/latest?cb=20171126184725",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Ancient Darkness",
+        "JapaneseName": "Ancient Dark",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/b/be/Ancient_Dark_emblem.png/revision/latest?cb=20171126181240",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Zero",
+        "JapaneseName": "Zero",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/9/9f/Zero_emblem.png/revision/latest?cb=20171126184726",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Southern Claw",
+        "JapaneseName": "Southern Claw",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/b/b7/Southern_Claw_emblem.png/revision/latest?cb=20171126183140",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Northern Fang",
+        "JapaneseName": "Northern Fang",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/3/34/Northern_Fang_emblem.png/revision/latest?cb=20171126183138",
+        "Game": "GO1"
+    },
+    {
+        "EnglishName": "Demon's Horn",
+        "JapaneseName": "Demon's Horn",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/c/cf/Demon%27s_Horn_emblem.png/revision/latest?cb=20171126181543",
+        "Game": "GO1"
     }
 ];

@@ -331,14 +331,15 @@ function clearTeam() {
  * Save team as image
  */
 function saveTeam() {
+    var modalImage = $("#image-modal-body");
+    modalImage.html('<img src="/images/loading.gif" id="loading-gif"/>');
+
     var watermark = document.createElement('div');
     watermark.id = 'watermark';
     watermark.innerHTML = 'inazuma-team-builder.tk';
 
     document.getElementById('field-players-container').parentElement.appendChild(watermark);
     var element = document.getElementsByTagName('BODY')[0];
-    var modalImage = $("#image-modal-body");
-    modalImage.html('<img src="/images/loading.gif" id="loading-gif"/>');
     html2canvas(element, {
         allowTaint: true,
         onrendered: function (canvas) {
@@ -346,6 +347,11 @@ function saveTeam() {
             canvas.getContext('2d').imageSmoothingEnabled = false;
             modalImage.html('<p id="save-instructions">To save: right click + "Save image as"</p>')
             modalImage.append(canvas);
+            var newCanvas = document.getElementById('canvas');
+            newCanvas.style.cursor = 'pointer';
+            newCanvas.addEventListener("click", () => {
+                window.open(newCanvas.toDataURL(), '_blank');
+            });
             watermark.remove();
         }
     });

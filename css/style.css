@@ -64,7 +64,7 @@
 }
 
 @font-face {
-    font-family: Segoe UI Regular;
+    font-family: "Segoe UI Regular";
     src: url(segoe-ui.ttf);
 }
 
@@ -91,7 +91,7 @@
     width: calc(100% - 12px);
     border: 3px solid;
     margin-top: 10px;
-    font-family: Segoe UI Regular;
+    font-family: "Segoe UI Regular";
     font-size: 24px;
     display: block;
     padding: 1px 3px;
@@ -391,7 +391,7 @@ button.close {
     position: relative;
     margin: 10px;
     width: 60%;
-    font-family: Segoe UI Regular;
+    font-family: "Segoe UI Regular";
     font-size: 24px;
 }
 
@@ -1608,7 +1608,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     border-radius: 8px;
     font-size: 17px;
     display: block;
-    font-family: Segoe UI Regular;
+    font-family: "Segoe UI Regular";
 }
 
 #save-instructions {
@@ -1669,7 +1669,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-family: Segoe UI Regular;
+    font-family: "Segoe UI Regular";
     font-size: 24px;
     display: block;
     position: relative;
@@ -1692,7 +1692,8 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
 @media screen and (max-width: 479px) {
     /* LEFT SIDE (MOVES TO TOP) */
     .Left {
-        display: flex;
+        display: inline-flex;
+        width: auto;
         height: 200px;
     }
     #formation-container {
@@ -1717,9 +1718,10 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         padding: 0;
     }
     #emblem-container {
-        width: 26.5%;
+        width: auto;
         margin-top: 68px;
         margin-left: 5px;
+        height: 139px;
     }
     #emblem-label {
         font-size: 24px;
@@ -1736,9 +1738,10 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         padding: 0;
     }
     #coach-container {
-        width: 26.5%;
+        width: auto;
         margin-top: 68px;
         margin-left: 5px;
+        height: 139px;
     }
     #coach-label {
         font-size: 24px;
@@ -1755,7 +1758,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         padding: 0;
     }
     #preferences-container {
-        width: 50%;
+        width: auto;
         margin-left: 5px;
         margin-top: 67px;
     }
@@ -1801,12 +1804,13 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         margin-left: -32px;
     }
     #team-name {
-        height: 20px;
+        height: 16px;
         padding-top: 2px;
         padding-left: 2px;
         border: 3px solid;
-        font-size: 24px;
-        width: 94%;
+        font-size: 20px;
+        width: 97%;
+        margin: unset;
         margin-top: 11px;
     }
     #field-players-container {
@@ -1861,7 +1865,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     /* RIGHT SIDE (MOVES TO BOTTOM) */
     .Right {
         margin-top: 733px;
-        margin-left: -359px;
+        margin-left: -1405%;
         width: 100%;
     }
     #bench-container {
@@ -1875,6 +1879,10 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         padding: 0;
         border: 0;
         margin: 0;
+        background-color: unset;
+    }
+    .sub-container>.drag-box-container>.drag-box {
+        background-color: white;
     }
     .sub-container {
         height: 60.5px;
@@ -1904,9 +1912,28 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         padding-left: 9.5px;
         padding-right: 5.5px;
     }
-    /* MODAL */
+    /* PLAYERS MODAL */
     .modal-dialog {
         width: 100%;
         margin-left: -0px;
+    }
+    /* RENDERED IMAGE */
+    #watermark {
+        bottom: 7px;
+        right: 10px;
+        background-image: url("/images/player-name-background.png");
+        background-size: cover;
+        color: white;
+        padding: 0px 5px;
+        padding-bottom: 1px;
+        border-radius: 8px;
+        font-size: 10px;
+        display: block;
+        font-family: "Segoe UI Regular";
+    }
+    #loading-gif {
+        width: 100%;
+        height: auto;
+        /* margin-top: 300px; */
     }
 }
