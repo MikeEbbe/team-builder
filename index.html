@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 
+<!-- Hi there :-) -->
+
 <head>
     <meta charset="utf-8">
     <title>Inazuma Eleven Team Builder</title>
@@ -168,6 +170,35 @@
 </head>
 
 <body class="htmlNoPages">
+    <!-- Player Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Choose a player</h4>
+                </div>
+                <div class="modal-body" id="modal">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Save Image Modal -->
+    <div class="modal fade" id="image-modal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Your image</h4>
+                </div>
+                <div class="modal-body" id="image-modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Body -->
     <div id="body-grid" class="grid-container">
         <div class="Field">
             <input id="team-name" placeholder="TEAM NAME" />
@@ -290,34 +321,8 @@
             </div>
         </div>
     </div>
-    <!-- Player Modal -->
-    <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Choose a player</h4>
-                </div>
-                <div class="modal-body" id="modal">
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Save Image Modal -->
-    <div class="modal fade" id="image-modal" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Your image</h4>
-                </div>
-                <div class="modal-body" id="image-modal-body">
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <!-- Scripts -->
     <script src="js/teams.js" type="text/javascript"></script>
     <script src="js/formations.js" type="text/javascript"></script>
     <script src="js/emblems.js" type="text/javascript"></script>
@@ -326,5 +331,8 @@
     <script src="js/he.js" type="text/javascript"></script>
     <script src="js/html2canvas.js" type="text/javascript"></script>
     <script src="js/script.js" type="text/javascript"></script>
+
+    <!-- Remove watermark -->
+    <style> img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] { display: none;} </style> 
 
 </body>

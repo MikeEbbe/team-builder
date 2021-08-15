@@ -416,17 +416,6 @@ function addButtonActions() {
 }
 
 // Initialize
-$(document).ready(function () {
-    if (window.location.href == 'http://inazuma-team-builder.tk/') {
-        // Remove webhostapp image 
-        $('body > div:last').remove();
-        // Remove analitycs script
-        $('body > script:last').remove();
-        // Remove cookies script
-        $('body > script:last').remove();
-    }
-})
-
 renderFormations(formations);
 changeFormation();
 renderCoaches(coaches, "English");
