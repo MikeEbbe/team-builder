@@ -345,7 +345,7 @@ function saveTeam() {
         onrendered: function (canvas) {
             canvas.setAttribute("id", "canvas");
             canvas.getContext('2d').imageSmoothingEnabled = false;
-            modalImage.html('<p id="save-instructions">To save: right click + "Save image as"</p>')
+            modalImage.html('<p id="save-instructions">To save: right click + "Save image as"</p>');
             modalImage.append(canvas);
             var newCanvas = document.getElementById('canvas');
             newCanvas.style.cursor = 'pointer';

@@ -1519,7 +1519,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     transition: .5s ease;
     backface-visibility: hidden;
     margin: auto;
-    height: 72px;
+    height: 76px;
 }
 
 .icon {
