@@ -466,5 +466,119 @@ var teams = [
         "JapaneseName": "Demon's Horn",
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/c/cf/Demon%27s_Horn_emblem.png/revision/latest?cb=20171126181543",
         "Game": "GO1"
+    },
+    {
+        "EnglishName": "Raimon",
+        "JapaneseName": "Raimon",
+        "Sprite": "/images/Raimon_GO.png",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "The Sherwinds",
+        "JapaneseName": "Tenmas",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/8/81/Tenmas_emblem.png/revision/latest?cb=20171126230748",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Protocol Omega",
+        "JapaneseName": "Protocol Omega",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/a/ad/Protocol_Omega_emblem.png/revision/latest?cb=20171126230147",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Protocol Omega 2.0",
+        "JapaneseName": "Protocol Omega 2.0",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/78/Protocol_Omega_2.0_emblem.png/revision/latest?cb=20171126230147",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Protocol Omega 3.0",
+        "JapaneseName": "Protocol Omega 3.0",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/e/e8/Protocol_Omega_3.0_emblem.png/revision/latest?cb=20171126230147",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Zanark's Domain",
+        "JapaneseName": "Zanark Domain",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/8/89/Zanark_Domain_emblem.png/revision/latest?cb=20171126230751",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Perfect Cascade",
+        "JapaneseName": "Perfect Cascade",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/74/Perfect_Cascade_emblem.png/revision/latest?cb=20171126230146",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Zan",
+        "JapaneseName": "Zan",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/f/f0/Zan_emblem.png/revision/latest?cb=20171126230750",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Gihl",
+        "JapaneseName": "Giru",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/6/60/Giru_emblem.png/revision/latest?cb=20171126225653",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Gahl",
+        "JapaneseName": "Garu",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/7b/Garu_emblem.png/revision/latest?cb=20171126225653",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Ragnah",
+        "JapaneseName": "The Lagoon",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/a/af/The_Lagoon_emblem.png/revision/latest?cb=20171126230749",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Chrono Storm",
+        "JapaneseName": "Chrono Storm",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/79/Chrono_Storm_emblem.png/revision/latest?cb=20171126225651",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "White Deer",
+        "JapaneseName": "Shiroshika",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/8/87/Shiroshika_emblem.png/revision/latest?cb=20171126230148",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Footballbots",
+        "JapaneseName": "Soccer Robots",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/0/0a/Soccer_Robots_emblem.png/revision/latest?cb=20171126230148",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "The Terracotta Army",
+        "JapaneseName": "Karakuri Heibayou",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/2/25/Karakuri_Heibayou_emblem.png/revision/latest?cb=20171126230146",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Inazuma Legend National",
+        "JapaneseName": "Inazuma Legend Japan",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/7b/Inazuma_Legend_Japan_emblem.png/revision/latest?cb=20171126230145",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "The Despairadoes",
+        "JapaneseName": "Destructchers",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/0/02/Destructchers_emblem.png/revision/latest?cb=20171126225651",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Lunar Howl",
+        "JapaneseName": "Tsukigami no Ichizoku",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/72/Tsukigami_no_Ichizoku_emblem.png/revision/latest?cb=20171126230750",
+        "Game": "GO2"
+    },
+    {
+        "EnglishName": "Nosfanatica",
+        "JapaneseName": "Vamptym",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/2/25/Vamptym_emblem.png/revision/latest?cb=20171126230750",
+        "Game": "GO2"
     }
 ];

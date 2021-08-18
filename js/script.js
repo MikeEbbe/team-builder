@@ -20,6 +20,7 @@ function renderPlayers(players, language) {
             'IE2': 'Inazuma Eleven 2',
             'IE3': 'Inazuma Eleven 3',
             'GO1': 'Inazuma Eleven GO',
+            'GO2': 'Inazuma Eleven GO Chrono Stones'
         }
     ];
 
