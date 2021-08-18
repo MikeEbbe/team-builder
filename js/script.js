@@ -136,7 +136,7 @@ function renderCoaches(coaches, language) {
     // Add a dropdown option for each coach, and store some information in data attributes
     for (var i = 0; i < coaches.length; i++) {
         var coach = coaches[i];
-        $(coachDropdown).append('<option value="' + coach[language + 'Name'] + '" data-coachSprite="' + coach.Sprite + '" class="coach-option">' + coach[language + 'Name'] + " (" + coach[language + 'Team'] + ')</option>');
+        $(coachDropdown).append('<option value="' + coach[language + 'Name'] + '" data-coachSprite="' + coach.Sprite + '" class="coach-option">' + coach[language + 'Name'] /*+ " (" + coach[language + 'Team'] + ')*/ + '</option>');
     }
 }
 
