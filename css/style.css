@@ -32,6 +32,7 @@
     gap: 1px 1px;
     grid-template-areas: ". Formation" ". Emblem" ". Coach" ". Preferences";
     grid-area: Left;
+    /* background-image: linear-gradient(to right, transparent, #dddedd); */
 }
 
 .Formation {
@@ -80,6 +81,7 @@
     position: relative;
     width: 74.5%;
     margin-left: auto;
+    background-color: rgba(255, 255, 255, 65%);
 }
 
 #formation-label {
@@ -114,6 +116,7 @@
     font-size: 36px;
     text-align: center;
     margin-bottom: -9px;
+    text-shadow: -10px 0px 18px white;
 }
 
 #emblem-sprite {
@@ -149,6 +152,7 @@
     font-size: 36px;
     text-align: center;
     margin-bottom: -9px;
+    text-shadow: -10px 0px 18px white;
 }
 
 #coach-sprite {
@@ -173,7 +177,6 @@
     width: 74.5%;
     margin-left: auto;
     margin-top: -39px;
-    background-color: white;
 }
 
 #preferences-label {
@@ -181,12 +184,14 @@
     font-size: 36px;
     margin-bottom: -2px;
     text-align: center;
+    text-shadow: -10px 0px 18px white;
 }
 
 #preferences-options-container {
     height: 220px;
     border: 6px solid;
     padding: 4px 8px;
+    background-color: rgba(255, 255, 255, 65%);
 }
 
 .button:hover {
@@ -246,7 +251,7 @@
 }
 
 #field-players-container {
-    background-image: url(/images/field.svg);
+    background-image: url('/images/field.svg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -269,6 +274,7 @@
     text-align: center;
     margin-top: 73px;
     padding: 0px;
+    text-shadow: -10px 0px 18px white;
 }
 
 #bench-container>div {
@@ -276,7 +282,11 @@
     padding: 24px;
     width: 193px;
     border: 6px solid;
-    background-color: white
+    background-color: rgba(255, 255, 255, 85%);
+}
+
+.sub-container>.drag-box-container>.drag-box {
+    background-color: white;
 }
 
 /* MODAL INITIALIZATION */
@@ -299,10 +309,12 @@ body {
     font-size: 14px;
     line-height: 1.42857143;
     color: #333333;
-    background-color: #ffffff;
-    background-image: url('../images/background.png');
+    background-image: url('../images/background-3.png');
     background-repeat: no-repeat;
     background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
 }
 
 a {
@@ -384,7 +396,8 @@ button.close {
 
 .modal-open .modal {
     overflow-x: hidden;
-    overflow-y: auto;
+    /* overflow-y: auto; */
+    overflow-y: scroll;
 }
 
 .modal-dialog {
@@ -1679,6 +1692,28 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     padding-right: 11px;
 }
 
+.hidden {
+    display: none;
+}
+
+.game-title {
+    background-color: #eee;
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+.game-title:hover {
+    background-color: #ccc !important;
+}
+
+.game-title>img {
+    height: 90px;
+    width: auto;
+}
+
 /* DESKTOPS */
 
 @media screen and (max-width: 991px) {}
@@ -1879,7 +1914,6 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         padding: 0;
         border: 0;
         margin: 0;
-        background-color: unset;
     }
     .sub-container>.drag-box-container>.drag-box {
         background-color: white;
@@ -1916,6 +1950,19 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     .modal-dialog {
         width: 100%;
         margin-left: -0px;
+    }
+
+    .game-title>img {
+        height: 60px;
+        width: auto;
+    }
+
+    #modal>.btn-group {
+        display: grid;
+    }
+
+    .custom {
+        font-size: 20px;
     }
     /* RENDERED IMAGE */
     #watermark {

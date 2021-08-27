@@ -176,7 +176,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Choose a player</h4>
+                    <h4 class="modal-title">Select a game</h4>
                 </div>
                 <div class="modal-body" id="modal">
                 </div>
@@ -208,8 +208,7 @@
         <div class="Left">
             <div id="formation-container" data-pg-name="Formation container" class="Formation"
                 data-html2canvas-ignore="true">
-                <h1 id="formation-label" data-pg-name="Formation label">
-                    Formation</h1>
+                <h1 id="formation-label" data-pg-name="Formation label">Formation</h1>
                 <select onmousedown="if(this.options.length>4){this.size=5;}" onblur="this.size=0;"
                     id="formation-dropdown" data-pg-name="Formation dropdown" data-dropup-auto="false"
                     onchange="'this.size=0;', changeFormation()">
@@ -231,8 +230,7 @@
             </div>
             <div id="preferences-container" data-pg-name="Preferences container" class="Preferences"
                 data-html2canvas-ignore="true">
-                <h1 id="preferences-label" data-pg-name="Preferences label">
-                    Preferences </h1>
+                <h1 id="preferences-label" data-pg-name="Preferences label">Preferences</h1>
                 <div id="preferences-options-container" data-pg-name="Preferences options container">
                     <div class="preferences-option" data-pg-name="Preferences option 1">
                         <label id="english-names-label" for="english-names-input"
@@ -254,8 +252,7 @@
         </div>
         <div class="Right">
             <div id="bench-container" data-pg-name="Bench container" class="Bench">
-                <h1 id="bench-label" data-pg-name="Bench label">
-                    Bench</h1>
+                <h1 id="bench-label" data-pg-name="Bench label">Bench</h1>
                 <div>
                     <div id="sub-1-container" data-pg-name="Subtitle 1 container" class="sub-container">
                         <div class="drag-box-container" id="drag-box-sub-1-container">
@@ -330,9 +327,14 @@
     <script src="js/players.js" type="text/javascript"></script>
     <script src="js/he.js" type="text/javascript"></script>
     <script src="js/html2canvas.js" type="text/javascript"></script>
+    <script src="js/canvas2image.js" type="text/javascript"></script>
     <script src="js/script.js" type="text/javascript"></script>
 
     <!-- Remove watermark -->
-    <style> img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] { display: none;} </style> 
+    <style>
+        img[src*="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+            display: none;
+        }
+    </style>
 
 </body>

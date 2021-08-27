@@ -1,7 +1,5 @@
 // Global variables
-var playerToChange;
-var playerToChangeId;
-var customSprite;
+var playerToChange, playerToChangeId, customSprite, gamesAmount;
 
 /**
  * Render players to choose from inside modal
@@ -23,16 +21,26 @@ function renderPlayers(players, language) {
             'GO2': 'Inazuma Eleven GO Chrono Stones'
         }
     ];
+    gamesAmount = Object.keys(games[0]).length;
+
+    htmlInsert += '<div class="btn-group" role="group" aria-label="game-buttons">';
+    for (var i = 0; i < Object.keys(games[0]).length; i++) {
+        htmlInsert +=
+            // '<button type="button" onClick=toggle("game-' + i + '"); class="game-title">' + Object.values(games[0])[i] + '</button>';
+            '<button type="button" onClick=toggle("game-' + i + '"); class="game-title" id="game-' + i + '-button"><img src="/images/logos/' + i + '.png" alt="' + Object.values(games[0])[i] + '"/></button>';
+    }
 
     // Add Custom players heading
-    htmlInsert += '<h4 class="game-title">Custom</h4>' +
+    htmlInsert += '</div><h4 class="custom">Select a player (or create your own!)</h4>' +
         '<button class="accordion"><img src="https://image.flaticon.com/icons/png/512/61/61456.png" class="modal-team-sprite">Custom players</button>' +
         '<div id="custom-player-panel" class="panel"><div><input id="custom-player-name" placeholder="Player name"><input type="file" id="custom-player-file" accept="image/*" onchange="loadSprite(event)"><input type="submit" id="add-button" value="Add player"></div></div>';
 
     // Cycle through all games and add a heading for each game
     for (var i = 0; i < Object.keys(games[0]).length; i++) {
         htmlInsert +=
-            '<h4 class="game-title">' + Object.values(games[0])[i] + '</h4>';
+            // '<h4 class="game-title" id="game-' + i + '">' + Object.values(games[0])[i] + '</h4>';
+            // '<div onClick=toggle("game-' + i + '"); class="game-title">' + Object.values(games[0])[i] + '</div>' +
+            '<div class="hidden game-player-panel" id="game-' + i + '">'
 
         // Cycle through all teams and add an accordion panel for each team
         for (var j = 0; j < teams.length; j++) {
@@ -68,7 +76,7 @@ function renderPlayers(players, language) {
                 htmlInsert += '</div>';
             }
         }
-        htmlInsert += '</div>';
+        htmlInsert += '</div></div></div>';
     }
     // Insert HTML code inside modal
     modal.innerHTML = htmlInsert;
@@ -76,6 +84,25 @@ function renderPlayers(players, language) {
     // Initialize
     initializeModal();
     addModalPlayerActions();
+}
+
+/**
+ * Toggle visibility of the games
+ * @param {string} game - Game that has been clicked
+ */
+function toggle(game) {
+    // Show game (hide all others)
+    if ($('#' + game).css('display') == 'none') {
+        $('.game-title').css('background-color', '#eee');
+        $('#' + game + '-button').css('background-color', '#ccc');
+        $('.game-player-panel').addClass('hidden');
+        $('#' + game).removeClass('hidden');
+        // Hide game
+    } else {
+        console.log('game-button-' + game + ' DE-activated!');
+        $('#' + game + '-button').css('background-color', '#eee');
+        $('#' + game).addClass('hidden');
+    }
 }
 
 /**
@@ -96,9 +123,9 @@ function initializeModal() {
             }
         });
     }
+
+    $(".game-title").first().click();
 }
-
-
 
 /**
  * Render formations in formation dropdown
@@ -315,12 +342,10 @@ function clearTeam() {
     changeFormation();
 
     // Reset emblem
-    document.getElementById('emblem-dropdown').selectedIndex = 0;
-    updateSprite('emblem');
+    document.getElementById('emblem-sprite').src = "/images/team-placeholder.png"
 
     // Reset coach
-    document.getElementById('coach-dropdown').selectedIndex = 0;
-    updateSprite('coach');
+    document.getElementById('coach-sprite').src = "/images/character-placeholder.png"
 
     // Reset name
     document.getElementById('team-name').value = "";
@@ -341,20 +366,14 @@ function saveTeam() {
 
     document.getElementById('field-players-container').parentElement.appendChild(watermark);
     var element = document.getElementsByTagName('BODY')[0];
-    html2canvas(element, {
-        allowTaint: true,
-        onrendered: function (canvas) {
-            canvas.setAttribute("id", "canvas");
-            canvas.getContext('2d').imageSmoothingEnabled = false;
-            modalImage.html('<p id="save-instructions">To save: right click + "Save image as"</p>');
-            modalImage.append(canvas);
-            var newCanvas = document.getElementById('canvas');
-            newCanvas.style.cursor = 'pointer';
-            newCanvas.addEventListener("click", () => {
-                window.open(newCanvas.toDataURL(), '_blank');
-            });
-            watermark.remove();
-        }
+    var teamName = $('#team-name').val() + '.png';
+    html2canvas(element, { allowTaint: true, useCORS: true }).then(function (canvas) {
+        canvas.setAttribute("id", "canvas");
+        canvas.setAttribute("crossOrigin", "anonymous");
+        canvas.getContext('2d').imageSmoothingEnabled = false;
+        modalImage.html('<p id="save-instructions">To save: right click + "Save image as"</p>');
+        modalImage.append(canvas);
+        watermark.remove();
     });
 }
 
