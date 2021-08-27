@@ -216,14 +216,16 @@
             </div>
             <div id="emblem-container" data-pg-name="Emblem container" class="Emblem">
                 <h1 id="emblem-label" data-pg-name="Emblem label">Emblem</h1>
-                <img src="/images/team-placeholder.png" id="emblem-sprite" data-pg-name="Emblem sprite" />
+                <img src="/images/team-placeholder.png" alt="Team emblem" id="emblem-sprite"
+                    data-pg-name="Emblem sprite" />
                 <select onmousedown="if(this.options.length>8){this.size=6;}" onblur="this.size=0;" id="emblem-dropdown"
                     data-pg-name="Emblem dropdown" data-html2canvas-ignore="true" data-dropup-auto="false"
                     onchange="'this.size=0;', updateSprite('emblem')"></select>
             </div>
             <div id="coach-container" data-pg-name="Coach container" class="Coach">
                 <h1 id="coach-label" data-pg-name="Coach label">Coach</h1>
-                <img src="/images/character-placeholder.png" id="coach-sprite" data-pg-name="Coach sprite" />
+                <img src="/images/character-placeholder.png" alt="Team emblem" id="coach-sprite"
+                    data-pg-name="Coach sprite" />
                 <select onmousedown="if(this.options.length>8){this.size=6;}" onblur="this.size=0;" id="coach-dropdown"
                     data-pg-name="Coach dropdown" data-dropup-auto="false"
                     onchange="'this.size=0;', updateSprite('coach')"></select>
@@ -239,7 +241,7 @@
                             checked="checked">
                     </div>
                     <div class="preferences-option" data-pg-name="Preferences option 2">
-                        <label id="japanese-names-label" for="japanese-names-input" name="japanese-names-input"
+                        <label id="japanese-names-label" for="japanese-names-input"
                             data-pg-name="Japanese names label">Japanese names</label>
                         <input id="japanese-names-input" data-pg-name="Japanese names input" type="radio"
                             name="language">

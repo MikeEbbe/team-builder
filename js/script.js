@@ -25,9 +25,7 @@ function renderPlayers(players, language) {
 
     htmlInsert += '<div class="btn-group" role="group" aria-label="game-buttons">';
     for (var i = 0; i < Object.keys(games[0]).length; i++) {
-        htmlInsert +=
-            // '<button type="button" onClick=toggle("game-' + i + '"); class="game-title">' + Object.values(games[0])[i] + '</button>';
-            '<button type="button" onClick=toggle("game-' + i + '"); class="game-title" id="game-' + i + '-button"><img src="/images/logos/' + i + '.png" alt="' + Object.values(games[0])[i] + '"/></button>';
+        htmlInsert += '<button type="button" onClick=toggle("game-' + i + '"); class="game-title" id="game-' + i + '-button"><img src="/images/logos/' + i + '.png" alt="' + Object.values(games[0])[i] + '"/></button>';
     }
 
     // Add Custom players heading
@@ -36,16 +34,13 @@ function renderPlayers(players, language) {
         '<div id="custom-player-panel" class="panel"><div><input id="custom-player-name" placeholder="Player name"><input type="file" id="custom-player-file" accept="image/*" onchange="loadSprite(event)"><input type="submit" id="add-button" value="Add player"></div></div>';
 
     // Cycle through all games and add a heading for each game
-    for (var i = 0; i < Object.keys(games[0]).length; i++) {
-        htmlInsert +=
-            // '<h4 class="game-title" id="game-' + i + '">' + Object.values(games[0])[i] + '</h4>';
-            // '<div onClick=toggle("game-' + i + '"); class="game-title">' + Object.values(games[0])[i] + '</div>' +
-            '<div class="hidden game-player-panel" id="game-' + i + '">'
+    for (var x = 0; x < Object.keys(games[0]).length; x++) {
+        htmlInsert += '<div class="hidden game-player-panel" id="game-' + x + '">';
 
         // Cycle through all teams and add an accordion panel for each team
         for (var j = 0; j < teams.length; j++) {
             var team = teams[j];
-            if (team.Game == Object.keys(games[0])[i]) {
+            if (team.Game == Object.keys(games[0])[x]) {
                 htmlInsert +=
                     '<button class="accordion"><img src="' + team.Sprite + '" class="modal-team-sprite">' + team[language + 'Name'] + '</button>' +
                     '<div class="panel">';
@@ -133,16 +128,17 @@ function initializeModal() {
  */
 function renderFormations(formations) {
     var formationDropdown = $("#formation-dropdown");
+    var formation;
 
     // Add a dropdown option for each formation, and store some information in data attributes depending on which device is being used
     if ($(window).width() <= 479) {
         for (var i = 0; i < formations.length; i++) {
-            var formation = formations[i];
+            formation = formations[i];
             $(formationDropdown).append('<option value="' + formation.name + '" data-html="' + he.encode(formation.phone_html) + '" class="formation-option">' + formation.name + '</option>');
         }
     } else {
-        for (var i = 0; i < formations.length; i++) {
-            var formation = formations[i];
+        for (var j = 0; j < formations.length; j++) {
+            formation = formations[j];
             $(formationDropdown).append('<option value="' + formation.name + '" data-html="' + he.encode(formation.html) + '" class="formation-option">' + formation.name + '</option>');
         }
     }
@@ -267,7 +263,7 @@ function loadSprite(file) {
     reader.onload = function () {
         var dataURL = reader.result;
 
-        customSprite = dataURL
+        customSprite = dataURL;
     };
     reader.readAsDataURL(input.files[0]);
 }
@@ -342,10 +338,10 @@ function clearTeam() {
     changeFormation();
 
     // Reset emblem
-    document.getElementById('emblem-sprite').src = "/images/team-placeholder.png"
+    document.getElementById('emblem-sprite').src = "/images/team-placeholder.png";
 
     // Reset coach
-    document.getElementById('coach-sprite').src = "/images/character-placeholder.png"
+    document.getElementById('coach-sprite').src = "/images/character-placeholder.png";
 
     // Reset name
     document.getElementById('team-name').value = "";
@@ -366,7 +362,7 @@ function saveTeam() {
 
     document.getElementById('field-players-container').parentElement.appendChild(watermark);
     var element = document.getElementsByTagName('BODY')[0];
-    var teamName = $('#team-name').val() + '.png';
+    // var teamName = $('#team-name').val() + '.png';
     html2canvas(element, { allowTaint: true, useCORS: true }).then(function (canvas) {
         canvas.setAttribute("id", "canvas");
         canvas.setAttribute("crossOrigin", "anonymous");
@@ -432,7 +428,7 @@ function addButtonActions() {
 
     $('#add-button').unbind('click').click(function () {
         addCustomPlayer();
-    })
+    });
 }
 
 // Initialize

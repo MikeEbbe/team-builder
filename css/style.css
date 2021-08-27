@@ -1914,6 +1914,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         padding: 0;
         border: 0;
         margin: 0;
+        background-color: transparent;
     }
     .sub-container>.drag-box-container>.drag-box {
         background-color: white;
@@ -1921,7 +1922,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     .sub-container {
         height: 60.5px;
         width: 72.5px;
-        margin-bottom: none;
+        /* margin-bottom: 0; */
     }
     .sub-container>.drag-box-container>.drag-box {
         height: 50px;
