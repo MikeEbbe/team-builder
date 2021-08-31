@@ -69,7 +69,39 @@
     src: url(segoe-ui.ttf);
 }
 
+/* latin-ext */
+
+@font-face {
+    font-family: 'Bebas Neue';
+    /* font-style: normal;
+    font-weight: 400; */
+    src: url(BebasNeuePro.ttf);
+    /* src: local('Bebas Neue Regular'), local('BebasNeue-Regular'), url(https://fonts.gstatic.com/s/bebasneue/v1/JTUSjIg69CK48gW7PXoo9Wdhyzbi.woff2) format('woff2'); */
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+
+@font-face {
+    font-family: 'Bebas Neue';
+    /* font-style: normal;
+    font-weight: 400; */
+    src: url(BebasNeuePro.ttf);
+    /* src: local('Bebas Neue Regular'), local('BebasNeue-Regular'), url(https://fonts.gstatic.com/s/bebasneue/v1/JTUSjIg69CK48gW7PXoo9Wlhyw.woff2) format('woff2'); */
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* LEFT SIDE */
+
+select {
+    overflow: auto;
+    text-overflow: ellipsis;
+}
+
+option {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 
 #formation-container {
     height: 80px;
@@ -82,6 +114,7 @@
     width: 74.5%;
     margin-left: auto;
     background-color: rgba(255, 255, 255, 65%);
+    box-shadow: 0 0 10px black;
 }
 
 #formation-label {
@@ -116,13 +149,17 @@
     font-size: 36px;
     text-align: center;
     margin-bottom: -9px;
-    text-shadow: -10px 0px 18px white;
+    text-shadow: 0px 0px 20px white;
 }
 
 #emblem-sprite {
     height: 155px;
     width: auto;
     margin-top: 2%;
+    -webkit-filter: drop-shadow(0px 0px 7px black);
+    /* filter: url(#drop-shadow); */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='black')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='black')";
 }
 
 #emblem-dropdown {
@@ -136,6 +173,7 @@
     margin-top: -15px;
     background-color: white;
     z-index: 1;
+    box-shadow: 0 0 10px black;
 }
 
 #coach-container {
@@ -152,13 +190,17 @@
     font-size: 36px;
     text-align: center;
     margin-bottom: -9px;
-    text-shadow: -10px 0px 18px white;
+    text-shadow: 0px 0px 20px white;
 }
 
 #coach-sprite {
     height: 155px;
     width: auto;
     margin-top: 2%;
+    -webkit-filter: drop-shadow(0px 0px 7px black);
+    /* filter: url(#drop-shadow); */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='black')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=0, OffY=0, Color='black')";
 }
 
 #coach-dropdown {
@@ -171,6 +213,7 @@
     padding: 1px 3px;
     margin-top: -15px;
     background-color: white;
+    box-shadow: 0 0 10px black
 }
 
 #preferences-container {
@@ -184,7 +227,7 @@
     font-size: 36px;
     margin-bottom: -2px;
     text-align: center;
-    text-shadow: -10px 0px 18px white;
+    text-shadow: 0px 0px 20px white;
 }
 
 #preferences-options-container {
@@ -192,6 +235,7 @@
     border: 6px solid;
     padding: 4px 8px;
     background-color: rgba(255, 255, 255, 65%);
+    box-shadow: 0 0 10px black
 }
 
 .button:hover {
@@ -240,7 +284,8 @@
 
 #team-name {
     height: 45px;
-    padding-top: 5px;
+    text-align: center;
+    padding: 3px 0px;
     border: 6px solid black;
     font-family: 'Bebas Neue';
     font-size: 40px;
@@ -258,6 +303,7 @@
     position: relative;
     margin-top: -40px;
     display: grid;
+    box-shadow: 0 0 50px rgba(0,0,0,0.6) inset;
 }
 
 /* RIGHT SIDE */
@@ -274,7 +320,7 @@
     text-align: center;
     margin-top: 73px;
     padding: 0px;
-    text-shadow: -10px 0px 18px white;
+    text-shadow: 0px 0px 20px white;
 }
 
 #bench-container>div {
@@ -283,6 +329,7 @@
     width: 193px;
     border: 6px solid;
     background-color: rgba(255, 255, 255, 85%);
+    box-shadow: 0 0 10px black
 }
 
 .sub-container>.drag-box-container>.drag-box {
@@ -604,26 +651,6 @@ button.close {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
-}
-
-/* latin-ext */
-
-@font-face {
-    font-family: 'Bebas Neue';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Bebas Neue Regular'), local('BebasNeue-Regular'), url(https://fonts.gstatic.com/s/bebasneue/v1/JTUSjIg69CK48gW7PXoo9Wdhyzbi.woff2) format('woff2');
-    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-/* latin */
-
-@font-face {
-    font-family: 'Bebas Neue';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Bebas Neue Regular'), local('BebasNeue-Regular'), url(https://fonts.gstatic.com/s/bebasneue/v1/JTUSjIg69CK48gW7PXoo9Wlhyw.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 /* cyrillic-ext */
@@ -1915,6 +1942,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         border: 0;
         margin: 0;
         background-color: transparent;
+        box-shadow: none;
     }
     .sub-container>.drag-box-container>.drag-box {
         background-color: white;

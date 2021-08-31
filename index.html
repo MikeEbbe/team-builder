@@ -201,21 +201,21 @@
     <!-- Body -->
     <div id="body-grid" class="grid-container">
         <div class="Field">
-            <input id="team-name" placeholder="TEAM NAME" />
+            <input id="team-name" placeholder="Team name" />
             <div id="field-players-container">
             </div>
         </div>
         <div class="Left">
             <div id="formation-container" data-pg-name="Formation container" class="Formation"
                 data-html2canvas-ignore="true">
-                <h1 id="formation-label" data-pg-name="Formation label">Formation</h1>
+                <h1 id="formation-label" data-pg-name="Formation label">FORMATION</h1>
                 <select onmousedown="if(this.options.length>4){this.size=5;}" onblur="this.size=0;"
                     id="formation-dropdown" data-pg-name="Formation dropdown" data-dropup-auto="false"
                     onchange="'this.size=0;', changeFormation()">
                 </select>
             </div>
             <div id="emblem-container" data-pg-name="Emblem container" class="Emblem">
-                <h1 id="emblem-label" data-pg-name="Emblem label">Emblem</h1>
+                <h1 id="emblem-label" data-pg-name="Emblem label">EMBLEM</h1>
                 <img src="/images/team-placeholder.png" alt="Team emblem" id="emblem-sprite"
                     data-pg-name="Emblem sprite" />
                 <select onmousedown="if(this.options.length>8){this.size=6;}" onblur="this.size=0;" id="emblem-dropdown"
@@ -223,7 +223,7 @@
                     onchange="'this.size=0;', updateSprite('emblem')"></select>
             </div>
             <div id="coach-container" data-pg-name="Coach container" class="Coach">
-                <h1 id="coach-label" data-pg-name="Coach label">Coach</h1>
+                <h1 id="coach-label" data-pg-name="Coach label">COACH</h1>
                 <img src="/images/character-placeholder.png" alt="Team emblem" id="coach-sprite"
                     data-pg-name="Coach sprite" />
                 <select onmousedown="if(this.options.length>8){this.size=6;}" onblur="this.size=0;" id="coach-dropdown"
@@ -232,7 +232,7 @@
             </div>
             <div id="preferences-container" data-pg-name="Preferences container" class="Preferences"
                 data-html2canvas-ignore="true">
-                <h1 id="preferences-label" data-pg-name="Preferences label">Preferences</h1>
+                <h1 id="preferences-label" data-pg-name="Preferences label">PREFERENCES</h1>
                 <div id="preferences-options-container" data-pg-name="Preferences options container">
                     <div class="preferences-option" data-pg-name="Preferences option 1">
                         <label id="english-names-label" for="english-names-input"
@@ -254,7 +254,7 @@
         </div>
         <div class="Right">
             <div id="bench-container" data-pg-name="Bench container" class="Bench">
-                <h1 id="bench-label" data-pg-name="Bench label">Bench</h1>
+                <h1 id="bench-label" data-pg-name="Bench label">BENCH</h1>
                 <div>
                     <div id="sub-1-container" data-pg-name="Subtitle 1 container" class="sub-container">
                         <div class="drag-box-container" id="drag-box-sub-1-container">

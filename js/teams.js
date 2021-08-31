@@ -87,7 +87,7 @@ var teams = [
         "EnglishName": "Scouts",
         "JapaneseName": "Scouts",
         "Sprite": "/images/scout.png",
-        "Game": "IE1"
+        "Game": "Scouts"
     },
     {
         "EnglishName": "Secret Service",
@@ -191,12 +191,12 @@ var teams = [
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/6/61/Young_Inazuma_emblem.png",
         "Game": "IE2"
     },
-    {
-        "EnglishName": "Scouts",
-        "JapaneseName": "Scouts",
-        "Sprite": "/images/scout.png",
-        "Game": "IE2"
-    },
+    // {
+    //     "EnglishName": "Scouts",
+    //     "JapaneseName": "Scouts",
+    //     "Sprite": "/images/scout.png",
+    //     "Game": "IE2"
+    // },
     {
         "EnglishName": "Inazuma National",
         "JapaneseName": "Inazuma Japan",
@@ -317,12 +317,12 @@ var teams = [
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/7/74/Makai_Gundan.png",
         "Game": "IE3"
     },
-    {
-        "EnglishName": "Scouts",
-        "JapaneseName": "Scouts",
-        "Sprite": "/images/scout.png",
-        "Game": "IE3"
-    },
+    // {
+    //     "EnglishName": "Scouts",
+    //     "JapaneseName": "Scouts",
+    //     "Sprite": "/images/scout.png",
+    //     "Game": "IE3"
+    // },
     {
         "EnglishName": "Raimon",
         "JapaneseName": "Raimon",
@@ -580,5 +580,101 @@ var teams = [
         "JapaneseName": "Vamptym",
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/2/25/Vamptym_emblem.png/revision/latest?cb=20171126230750",
         "Game": "GO2"
+    },
+    {
+        "EnglishName": "Inazuma National",
+        "JapaneseName": "Inazuma Japan",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/0/03/Inazuma_Japan_%28GO%29_emblem.png/revision/latest?cb=20171115071334",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Fire Dragon",
+        "JapaneseName": "Fire Dragon",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/e/e9/Fire_Dragon_emblem_anime.png/revision/latest?cb=20171115064848",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Big Waves",
+        "JapaneseName": "Big Waves",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/a/a9/Big_Waves_%28GO%29_emblem.png/revision/latest?cb=20171115064732",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Shamshir",
+        "JapaneseName": "Shamshir",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/d/d4/Shamshir_emblem.png/revision/latest?cb=20171115064935",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Muay Tigers",
+        "JapaneseName": "Mach Tiger",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/5/54/Mach_Tiger_Emblem.png/revision/latest?cb=20171115065016",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Storm Wolves",
+        "JapaneseName": "Storm Wolf",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/b/b7/Storm_Wolf_Emblem.png/revision/latest?cb=20171115065135",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Earth Eleven",
+        "JapaneseName": "Earth Eleven",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/3/37/Earth_Eleven_Emblem.png/revision/latest?cb=20171115064621",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Silica Eleven",
+        "JapaneseName": "Sandorius Eleven",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/e/e5/Sandorius_Emblem.png/revision/latest?cb=20171115063952",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Naiadi Eleven",
+        "JapaneseName": "Sazanaara Eleven",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/a/a9/Sazanaara_Emblem.png/revision/latest?cb=20171115063837",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Magmavia Eleven",
+        "JapaneseName": "Gurdon Eleven",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/4/4e/Gurdon_logo.png/revision/latest?cb=20171115063748",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Fertilia Eleven",
+        "JapaneseName": "Ratoniik Eleven",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/2/2b/Ratoniik_Eleven_emblem.png/revision/latest?cb=20171115063633",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Falam Medius",
+        "JapaneseName": "Faram Dite",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/d/d6/Faram_Dite_Emblem.png/revision/latest?cb=20171115063505",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Ixar Fleet",
+        "JapaneseName": "Ixal Fleet",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/f/fa/Ixal_Fleet_Emblem.png/revision/latest?cb=20171115063358",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Big Bang",
+        "JapaneseName": "Big Bang",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/5/51/Big_Bang_Emblem.png/revision/latest?cb=20171115063223",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Supernova",
+        "JapaneseName": "Supernova",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/1/1d/Supernova_Emblem.png/revision/latest?cb=20171115063145",
+        "Game": "GO3"
+    },
+    {
+        "EnglishName": "Terrible Shadow",
+        "JapaneseName": "Osoroshii Kage",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/d/d0/Osoroshii_Kage_team_emblem.png/revision/latest?cb=20171118050242",
+        "Game": "GO3"
     }
 ];

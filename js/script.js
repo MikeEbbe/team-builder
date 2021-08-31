@@ -1,5 +1,5 @@
 // Global variables
-var playerToChange, playerToChangeId, customSprite, gamesAmount;
+var playerToChange, playerToChangeId, customSprite;
 
 /**
  * Render players to choose from inside modal
@@ -8,7 +8,7 @@ var playerToChange, playerToChangeId, customSprite, gamesAmount;
  */
 function renderPlayers(players, language) {
     var modal = document.getElementById('modal');
-    // HTML code to insert inside of modal
+    // HTML to insert inside of modal
     var htmlInsert = '';
 
     // List of games
@@ -18,22 +18,22 @@ function renderPlayers(players, language) {
             'IE2': 'Inazuma Eleven 2',
             'IE3': 'Inazuma Eleven 3',
             'GO1': 'Inazuma Eleven GO',
-            'GO2': 'Inazuma Eleven GO Chrono Stones'
+            'GO2': 'Inazuma Eleven GO Chrono Stones',
+            'GO3': 'Inazuma Eleven GO Galaxy',
+            'Scouts': 'Scout Characters'
         }
     ];
-    gamesAmount = Object.keys(games[0]).length;
 
-    htmlInsert += '<div class="btn-group" role="group" aria-label="game-buttons">';
+    // Add Custom players heading
+    htmlInsert += '</div><h4 class="custom"><img src="https://image.flaticon.com/icons/png/512/61/61456.png" class="modal-team-sprite">Create your own players</h4>' +
+        '<div id="custom-player-panel"><div><input id="custom-player-name" placeholder="Player name"><input type="file" id="custom-player-file" accept="image/*" onchange="loadSprite(event)"><input type="submit" id="add-button" value="Add player"></div></div>';
+
+    htmlInsert += '<h4 class="custom">Or select from the player list!</h4><div class="btn-group" role="group" aria-label="game-buttons">';
     for (var i = 0; i < Object.keys(games[0]).length; i++) {
         htmlInsert += '<button type="button" onClick=toggle("game-' + i + '"); class="game-title" id="game-' + i + '-button"><img src="/images/logos/' + i + '.png" alt="' + Object.values(games[0])[i] + '"/></button>';
     }
 
-    // Add Custom players heading
-    htmlInsert += '</div><h4 class="custom">Select a player (or create your own!)</h4>' +
-        '<button class="accordion"><img src="https://image.flaticon.com/icons/png/512/61/61456.png" class="modal-team-sprite">Custom players</button>' +
-        '<div id="custom-player-panel" class="panel"><div><input id="custom-player-name" placeholder="Player name"><input type="file" id="custom-player-file" accept="image/*" onchange="loadSprite(event)"><input type="submit" id="add-button" value="Add player"></div></div>';
-
-    // Cycle through all games and add a heading for each game
+    // Cycle through all games and add a panel for each game
     for (var x = 0; x < Object.keys(games[0]).length; x++) {
         htmlInsert += '<div class="hidden game-player-panel" id="game-' + x + '">';
 
@@ -73,7 +73,7 @@ function renderPlayers(players, language) {
         }
         htmlInsert += '</div></div></div>';
     }
-    // Insert HTML code inside modal
+    // Insert HTML inside modal
     modal.innerHTML = htmlInsert;
 
     // Initialize
@@ -92,9 +92,8 @@ function toggle(game) {
         $('#' + game + '-button').css('background-color', '#ccc');
         $('.game-player-panel').addClass('hidden');
         $('#' + game).removeClass('hidden');
-        // Hide game
-    } else {
-        console.log('game-button-' + game + ' DE-activated!');
+    } // Hide game
+    else {
         $('#' + game + '-button').css('background-color', '#eee');
         $('#' + game).addClass('hidden');
     }
@@ -291,13 +290,6 @@ function addCustomPlayer() {
     customPlayer.addEventListener("click", () => {
         changePlayer(customPlayer);
     });
-
-    var panel = document.getElementById('custom-player-panel');
-    if (panel.style.maxHeight) {
-        panel.style.maxHeight = '130px';
-    } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-    }
 }
 
 /**
