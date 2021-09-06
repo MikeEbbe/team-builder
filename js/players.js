@@ -2100,6 +2100,18 @@ var players = [
         "Game": "IE1"
     },
     {
+        "EnglishName": "Mr. Veteran",
+        "JapaneseName": "Furukabu",
+        "Gender": "Male",
+        "Position": "GK",
+        "Element": "Fire",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/f/f5/Furukabushot.png/revision/latest?cb=20120407071635",
+        "EnglishTeam": "Inazuma Eleven",
+        "JapaneseTeam": "Inazuma Eleven",
+        "TeamSprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/f/f7/Raimon_OB_symbol.png",
+        "Game": "IE1"
+    },
+    {
         "EnglishName": "Yuma",
         "JapaneseName": "Yaono",
         "Gender": "Female",
@@ -16548,6 +16560,18 @@ var players = [
         "Game": "GO3"
     },
     {
+        "EnglishName": "Viktor",
+        "JapaneseName": "Fake Tsurugi",
+        "Gender": "Male",
+        "Position": "FW",
+        "Element": "Fire",
+        "Sprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/d/df/Manuuba%27s_avatar_soccer_uniform.png/revision/latest?cb=20190202122240",
+        "EnglishTeam": "Earth Eleven",
+        "JapaneseTeam": "Earth Eleven",
+        "TeamSprite": "https://vignette.wikia.nocookie.net/inazuma-eleven/images/3/37/Earth_Eleven_Emblem.png/revision/latest?cb=20171115064621",
+        "Game": "GO3"
+    },
+    {
         "EnglishName": "B'adain",
         "JapaneseName": "Badai",
         "Gender": "Male",
@@ -17248,7 +17272,7 @@ var players = [
         "JapaneseName": "Kuroiwa",
         "Gender": "Male",
         "Position": "FW",
-        "Element": "Chapter 01",
+        "Element": "Earth",
         "Sprite": "https://vignette.wikia.nocookie.net/inazuma/images/5/52/%28FM%29_Black.png/revision/latest?cb=20170422214038&path-prefix=es",
         "EnglishTeam": "Falam Medius",
         "JapaneseTeam": "Faram Dite",

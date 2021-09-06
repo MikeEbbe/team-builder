@@ -348,6 +348,11 @@ function saveTeam() {
     var modalImage = $("#image-modal-body");
     modalImage.html('<img src="/images/loading.gif" id="loading-gif"/>');
 
+    /*padding: 0px 0px;
+      padding-bottom: 10px;*/
+    var teamName = $('#team-name');
+    teamName.css({'padding': '0px 0px', 'padding-bottom': '10px'});
+
     var watermark = document.createElement('div');
     watermark.id = 'watermark';
     watermark.innerHTML = 'inazuma-team-builder.tk';
@@ -361,6 +366,7 @@ function saveTeam() {
         canvas.getContext('2d').imageSmoothingEnabled = false;
         modalImage.html('<p id="save-instructions">To save: right click + "Save image as"</p>');
         modalImage.append(canvas);
+        teamName.css({'padding-bottom': '0px', 'padding': '3px 0px'});
         watermark.remove();
     });
 }
