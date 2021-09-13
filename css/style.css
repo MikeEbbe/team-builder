@@ -1863,6 +1863,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         height: 24px;
         margin-top: -3px;
         margin-left: 10px;
+        border-radius: 12px;
     }
 
     .player-element-container, .sub-element-container {
