@@ -135,9 +135,14 @@ function renderFormations(formations) {
             formation = formations[i];
             $(formationDropdown).append('<option value="' + formation.name + '" data-html="' + he.encode(formation.phone_html) + '" class="formation-option">' + formation.name + '</option>');
         }
-    } else {
+    } else if ($(window).width() > 479 && $(window).width() < 1600) {
         for (var j = 0; j < formations.length; j++) {
             formation = formations[j];
+            $(formationDropdown).append('<option value="' + formation.name + '" data-html="' + he.encode(formation.laptop_html) + '" class="formation-option">' + formation.name + '</option>');
+        }
+    } else {
+        for (var k = 0; k < formations.length; k++) {
+            formation = formations[k];
             $(formationDropdown).append('<option value="' + formation.name + '" data-html="' + he.encode(formation.html) + '" class="formation-option">' + formation.name + '</option>');
         }
     }
@@ -351,7 +356,7 @@ function saveTeam() {
     /*padding: 0px 0px;
       padding-bottom: 10px;*/
     var teamName = $('#team-name');
-    teamName.css({'padding': '0px 0px', 'padding-bottom': '10px'});
+    teamName.css({ 'padding': '0px 0px', 'padding-bottom': '10px' });
 
     var watermark = document.createElement('div');
     watermark.id = 'watermark';
@@ -366,7 +371,7 @@ function saveTeam() {
         canvas.getContext('2d').imageSmoothingEnabled = false;
         modalImage.html('<p id="save-instructions">To save: right click + "Save image as"</p>');
         modalImage.append(canvas);
-        teamName.css({'padding-bottom': '0px', 'padding': '3px 0px'});
+        teamName.css({ 'padding-bottom': '0px', 'padding': '3px 0px' });
         watermark.remove();
     });
 }

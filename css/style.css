@@ -1850,7 +1850,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     /*#field-players-container>div>.drag-box-container>*/.drag-box {
         height: 90.7px;
         width: 90.7px;
-        margin-left: 22px;
+        margin-left: 28px;
     }
 
     .player-sprite, .sub-sprite {
@@ -1883,7 +1883,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     .player-container>.drag-box-container>.icon {
         font-size: 32px;
         top: 50%;
-        left: 48%;
+        left: 52%;
     }
 
     /* RIGHT */
@@ -1891,7 +1891,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     .sub-container>.drag-box-container>.icon {
         font-size: 32px;
         top: 49%;
-        left: 49%;
+        left: 53%;
     }
 
     #bench-container {
