@@ -331,7 +331,8 @@ function clearTeam() {
             '</div>';
     }
     // Reset formation
-    document.getElementById('formation-dropdown').selectedIndex = 2;
+    // document.getElementById('formation-dropdown').selectedIndex = 2;
+    document.getElementById('formation-dropdown').value = '4-4-2 (F-Basic)';
     changeFormation();
 
     // Reset emblem
@@ -349,14 +350,15 @@ function clearTeam() {
 /**
  * Save team as image
  */
-function saveTeam() {
+function saveTeam(screen) {
     var modalImage = $("#image-modal-body");
     modalImage.html('<img src="/images/loading.gif" id="loading-gif"/>');
 
-    /*padding: 0px 0px;
-      padding-bottom: 10px;*/
-    var teamName = $('#team-name');
-    teamName.css({ 'padding': '0px 0px', 'padding-bottom': '10px' });
+    if (screen < 1600 && screen > 479) {
+        $('#team-name').css({ 'padding': '0px 0px', 'padding-bottom': '10px' });
+    } else if (screen > 1600) {
+        $('#body-grid').css({ 'margin-top': '0' });
+    }
 
     var watermark = document.createElement('div');
     watermark.id = 'watermark';
@@ -365,14 +367,24 @@ function saveTeam() {
     document.getElementById('field-players-container').parentElement.appendChild(watermark);
     var element = document.getElementsByTagName('BODY')[0];
     // var teamName = $('#team-name').val() + '.png';
-    html2canvas(element, { allowTaint: true, useCORS: true }).then(function (canvas) {
+    html2canvas(element, { allowTaint: true, useCORS: true, width: 1280, height: 500 }).then(function (canvas) {
         canvas.setAttribute("id", "canvas");
         canvas.setAttribute("crossOrigin", "anonymous");
+        // canvas.setAttribute("width", "1280");
+        // canvas.setAttribute("height", "500");
         canvas.getContext('2d').imageSmoothingEnabled = false;
         modalImage.html('<p id="save-instructions">To save: right click + "Save image as"</p>');
         modalImage.append(canvas);
-        teamName.css({ 'padding-bottom': '0px', 'padding': '3px 0px' });
+        if (screen < 1600 && screen > 479) {
+            teamName.css({ 'padding-bottom': '0px', 'padding': '3px 0px' });
+        } else if (screen > 1600) {
+            $('#body-grid').css({ 'margin-top': '-2%' });
+        }
         watermark.remove();
+        console.log(canvas);
+        $("#canvas").click(function () {
+            window.open(canvas.toDataURL(), '_blank').focus();
+        });
     });
 }
 
@@ -426,7 +438,7 @@ function addButtonActions() {
     });
 
     $("#save-button").unbind("click").click(function () {
-        saveTeam();
+        saveTeam($(window).width());
     });
 
     $('#add-button').unbind('click').click(function () {

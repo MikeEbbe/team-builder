@@ -303,7 +303,7 @@ option {
     position: relative;
     margin-top: -40px;
     display: grid;
-    box-shadow: 0 0 50px rgba(0,0,0,0.6) inset;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.6) inset;
 }
 
 /* RIGHT SIDE */
@@ -1707,7 +1707,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     background-repeat: no-repeat;
     background-size: cover;
     position: absolute;
-    margin-top: -6px;
+    margin-top: -5px;
     margin-left: -16px;
 }
 
@@ -1747,117 +1747,126 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
     width: auto;
 }
 
+/* DESKTOP */
+
+@media screen and (min-width: 1601px) {
+    /* #body-grid {
+        scale: 0.90;
+        margin-top: -1.5%;
+    }*/
+
+    body, html {
+        overflow: hidden;
+        overflow: -moz-hidden-unscrollable;
+        height: unset !important;
+        width: unset !important;
+    }
+
+    #image-modal {
+        overflow: hidden;
+        overflow: -moz-hidden-unscrollable;
+    }
+    
+    #body-grid {
+        transform: scale(0.9);
+        /* margin-top: -3.5%; */
+        margin-top: -2%;
+    }
+
+    /* #team-name { 
+        margin-top: 0;
+    } */
+}
+
 /* LAPTOPS */
 
 @media screen and (max-width: 1600px) and (min-width: 1025px) {
     /* LEFT */
     #formation-label {
-	    font-size: 30px;
+        font-size: 30px;
     }
-
     #formation-dropdown {
         font-size: 20px;
         margin-top: 2px;
     }
-
     #formation-container {
         height: 56px;
         border: 4px solid;
         margin-top: 59px;
     }
-
     #emblem-container {
         height: 184px;
         margin-top: -29px;
     }
-
     #emblem-label {
         font-size: 32px;
     }
-
     #emblem-sprite {
         height: 104px;
     }
-
     #emblem-dropdown {
         font-size: 20px;
         border: 4px solid;
     }
-
     #coach-container {
         height: 184px;
         margin-top: -39px;
     }
-    
     #coach-label {
         font-size: 32px;
     }
-
     #coach-sprite {
         height: 104px;
     }
-
     #coach-dropdown {
         font-size: 20px;
         border: 4px solid;
     }
-
     #preferences-container {
         margin-top: -50px;
     }
-
     #preferences-label {
         font-size: 32px;
     }
-
     #preferences-options-container {
         height: 172px;
         border: 4px solid;
     }
-
     .preferences-option {
         display: flex;
     }
-
     #english-names-label, #japanese-names-label {
         font-size: 17px;
     }
-
     #save-button, #reset-button {
         font-size: 16px;
         padding: 15px 20px;
     }
-
     /* MIDDLE */
-
     #field-players-container {
         height: 104.5%;
-        margin-top: -31px;  
+        margin-top: -31px;
     }
-
     #team-name {
         height: 30px;
         border: 4px solid;
         font-size: 36px;
     }
-
     .player-container, .sub-container {
         height: 110.1px;
         width: 140px;
         margin-bottom: 9px;
     }
-
-    /*#field-players-container>div>.drag-box-container>*/.drag-box {
+    /*#field-players-container>div>.drag-box-container>*/
+    .drag-box {
         height: 90.7px;
         width: 90.7px;
         margin-left: 28px;
     }
-
     .player-sprite, .sub-sprite {
         height: 90.7px;
         max-width: 90.7px;
     }
-
     .player-info-container, .sub-info-container {
         width: 130px;
         height: 24px;
@@ -1865,90 +1874,72 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         margin-left: 10px;
         border-radius: 12px;
     }
-
     .player-element-container, .sub-element-container {
         height: 29px;
         width: 29px;
         margin-top: -3px;
         margin-left: -12px;
     }
-
     .player-name, .sub-name {
         font-size: 19px;
         margin-top: -3px;
         padding-left: 22px;
         padding-right: 10px;
     }
-
     .player-container>.drag-box-container>.icon {
         font-size: 32px;
         top: 50%;
         left: 52%;
     }
-
     /* RIGHT */
-
     .sub-container>.drag-box-container>.icon {
         font-size: 32px;
         top: 49%;
         left: 53%;
     }
-
     #bench-container {
         width: 185px;
     }
-
     #bench-label {
         font-size: 32px;
         margin-top: 51px;
     }
-
     #bench-container>div {
         margin-top: -27px;
         padding: 18px;
         width: 140px;
         border: 4px solid;
     }
-
     /* MODAL */
-
     .custom {
         font-size: 0.9em;
         font-weight: normal;
     }
-
     .modal-team-sprite {
         height: 26px;
         width: 26px;
     }
-
     .game-title>img {
         height: 72px;
     }
-
     .accordion {
         font-size: 18px;
     }
-
     .modal-player-name {
         font-size: 18px;
     }
-
     .modal-player-position, .modal-player-element, .modal-player-gender {
         height: 21px;
         width: 31.5px;
         background-size: contain;
     }
-
     .modal-player-sprite {
         height: 68px;
     }
-
     .modal-player-sprite-container>.icon {
         font-size: 42px;
         top: 46%;
     }
-
     #loading-gif {
         height: 458px;
     }
@@ -1956,9 +1947,7 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
 
 /* TABLETS */
 
-@media screen and (max-width: 767px) {
-    
-}
+@media screen and (max-width: 767px) {}
 
 /* SMART PHONES */
 
@@ -2191,16 +2180,13 @@ img, .drag-box, .player-element-container, .sub-element-container, .modal-player
         width: 100%;
         margin-left: -0px;
     }
-
     .game-title>img {
         height: 60px;
         width: auto;
     }
-
     #modal>.btn-group {
         display: grid;
     }
-
     .custom {
         font-size: 20px;
     }
